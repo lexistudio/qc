@@ -21,7 +21,6 @@ jobs:
 
     - name: 🔨 Build Project
       run: |
-        npm install --save-dev @nuxt/types@2.13.2
         npm install
         npm run build
         npm cache clean –force
