@@ -1,30 +1,5 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="content">
-        <div class="content-half contacts-page">
-          <div class="content-half__item full-width-phone">
-            <div v-for="item in contacts" :key="item.id">
-              <h2 class="title-contacts">{{ item.title }}</h2>
-              <ul style="padding-top: 15px">
-                <LiItem v-for="itm in item.children" :key="itm.id">
-                  <span v-html="itm.title"></span>
-                </LiItem>
-              </ul>
-            </div>
-          </div>
-          <div class="content-half__item hide-phone">
-            <img
-              src="@/assets/img/contacts.png"
-              style="border-radius: 100%"
-              alt="Контакты"
-              class="img-content img-content--custom"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <div class="maps-box">
     <yandex-map
       ref="map"
       :controls="['zoomControl']"
@@ -34,11 +9,26 @@
     >
       <ymapMarker :marker-id="0" :coords="[55.570405, 37.588611]">
         <div slot="balloon">
-          <strong>Фактический адрес</strong><br />
-          117628, г. Москва, ул. Старокачаловская, д.18, помещ. IIIБ, ком. 6
+          <strong>{{ contacts[0].title }}</strong><br />
+          <p v-for="mps in contacts[0].children" :key="mps.id">
+            {{ mps.title }}
+          </p>
         </div>
       </ymapMarker>
     </yandex-map>
+
+    <div class="container">
+      <div class="contacts">
+        <div v-for="item in contacts" :key="item.id" class="contacts__item">
+          <h2 class="contacts__title">{{ item.title }}</h2>
+          <ul class="contacts__ul">
+            <li v-for="itm in item.children" :key="itm.id"  class="contacts__li">
+              <span v-html="itm.title"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,7 +37,7 @@ import { yandexMap, ymapMarker } from "vue-yandex-maps";
 import Contacts from "@/mixins/contacts";
 
 export default {
-  layout: "work",
+  layout: "contacts",
   components: {
     yandexMap,
     ymapMarker,

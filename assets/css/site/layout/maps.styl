@@ -1,18 +1,52 @@
 +media(any)
 
+  .maps-box
+    margin-bottom: -182px
+    position: relative
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      bottom: 70%
+      left: 0
+      right: 0
+      background: linear-gradient(to bottom, #f5f7fa, transparent)
+      z-index: 2
+      pointer-events: none
+    .container
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      pointer-events: none
+      z-index: 3
+      padding-top: 40px
+      padding-bottom: 40px
+
   .yandex-maps
-    @extend .box-shadow
-    height: 500px
-    margin-bottom: 0
+    height: calc(100vh - 154px)
     background: rgba(#000, .05)
-    border-radius: 10px
     overflow: hidden
-    margin-top: 65px
-    margin-bottom: -181px
 
 
 +media(mq.tablet)
 
+  .maps-box
+    margin-bottom: -125px
+  
   .yandex-maps
-    height: 350px
-    margin-bottom: -100px
+    height: calc(100vh - 135px)
+
+
++media(mq.phone)
+
+  .maps-box
+    margin-bottom: 0
+    .container
+      position: static
+      padding-top: 0
+      padding-bottom: 0
+  
+  .yandex-maps
+    height: 300px
