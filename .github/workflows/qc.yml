@@ -17,11 +17,11 @@ jobs:
     - name: Use Node.js 12
       uses: actions/setup-node@v3
       with:
-        node-version: 12.16.2
+        node-version: 13
 
     - name: 🔨 Build Project
       run: |
-        npm install --save-dev @nuxt/types@2.0.1
+        npm install --save-dev @nuxt/types@2.13.2
         npm install
         npm run build
         npm cache clean –force
