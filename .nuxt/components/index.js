@@ -1,28 +1,28 @@
-export { default as Benefits } from '../..\\components\\Benefits.vue'
-export { default as BenefitsTwo } from '../..\\components\\BenefitsTwo.vue'
-export { default as Bookmark } from '../..\\components\\Bookmark.vue'
-export { default as CatalogBox } from '../..\\components\\CatalogBox.vue'
-export { default as CatalogModal } from '../..\\components\\CatalogModal.vue'
-export { default as Chat } from '../..\\components\\Chat.vue'
-export { default as ContactsFrom } from '../..\\components\\ContactsFrom.vue'
-export { default as ContactsFromOrder } from '../..\\components\\ContactsFromOrder.vue'
-export { default as ContactsMain } from '../..\\components\\ContactsMain.vue'
-export { default as DeliveryMain } from '../..\\components\\DeliveryMain.vue'
-export { default as Filters } from '../..\\components\\Filters.vue'
-export { default as Footer } from '../..\\components\\Footer.vue'
-export { default as Header } from '../..\\components\\Header.vue'
-export { default as InfoTop } from '../..\\components\\InfoTop.vue'
-export { default as LiItem } from '../..\\components\\LiItem.vue'
-export { default as LogosClient } from '../..\\components\\LogosClient.vue'
-export { default as LogoSlider } from '../..\\components\\LogoSlider.vue'
-export { default as MainCatalog } from '../..\\components\\MainCatalog.vue'
-export { default as Modal } from '../..\\components\\Modal.vue'
-export { default as Responder } from '../..\\components\\Responder.vue'
-export { default as SliderButton } from '../..\\components\\SliderButton.vue'
-export { default as SocialButton } from '../..\\components\\SocialButton.vue'
-export { default as Tab } from '../..\\components\\Tab.vue'
-export { default as Title } from '../..\\components\\Title.vue'
-export { default as Warranty } from '../..\\components\\Warranty.vue'
+export const Benefits = () => import('../..\\components\\Benefits.vue' /* webpackChunkName: "components/benefits" */).then(c => wrapFunctional(c.default || c))
+export const BenefitsTwo = () => import('../..\\components\\BenefitsTwo.vue' /* webpackChunkName: "components/benefits-two" */).then(c => wrapFunctional(c.default || c))
+export const Bookmark = () => import('../..\\components\\Bookmark.vue' /* webpackChunkName: "components/bookmark" */).then(c => wrapFunctional(c.default || c))
+export const CatalogBox = () => import('../..\\components\\CatalogBox.vue' /* webpackChunkName: "components/catalog-box" */).then(c => wrapFunctional(c.default || c))
+export const CatalogModal = () => import('../..\\components\\CatalogModal.vue' /* webpackChunkName: "components/catalog-modal" */).then(c => wrapFunctional(c.default || c))
+export const Chat = () => import('../..\\components\\Chat.vue' /* webpackChunkName: "components/chat" */).then(c => wrapFunctional(c.default || c))
+export const ContactsFrom = () => import('../..\\components\\ContactsFrom.vue' /* webpackChunkName: "components/contacts-from" */).then(c => wrapFunctional(c.default || c))
+export const ContactsFromOrder = () => import('../..\\components\\ContactsFromOrder.vue' /* webpackChunkName: "components/contacts-from-order" */).then(c => wrapFunctional(c.default || c))
+export const ContactsMain = () => import('../..\\components\\ContactsMain.vue' /* webpackChunkName: "components/contacts-main" */).then(c => wrapFunctional(c.default || c))
+export const DeliveryMain = () => import('../..\\components\\DeliveryMain.vue' /* webpackChunkName: "components/delivery-main" */).then(c => wrapFunctional(c.default || c))
+export const Filters = () => import('../..\\components\\Filters.vue' /* webpackChunkName: "components/filters" */).then(c => wrapFunctional(c.default || c))
+export const Footer = () => import('../..\\components\\Footer.vue' /* webpackChunkName: "components/footer" */).then(c => wrapFunctional(c.default || c))
+export const Header = () => import('../..\\components\\Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
+export const InfoTop = () => import('../..\\components\\InfoTop.vue' /* webpackChunkName: "components/info-top" */).then(c => wrapFunctional(c.default || c))
+export const LiItem = () => import('../..\\components\\LiItem.vue' /* webpackChunkName: "components/li-item" */).then(c => wrapFunctional(c.default || c))
+export const LogosClient = () => import('../..\\components\\LogosClient.vue' /* webpackChunkName: "components/logos-client" */).then(c => wrapFunctional(c.default || c))
+export const LogoSlider = () => import('../..\\components\\LogoSlider.vue' /* webpackChunkName: "components/logo-slider" */).then(c => wrapFunctional(c.default || c))
+export const MainCatalog = () => import('../..\\components\\MainCatalog.vue' /* webpackChunkName: "components/main-catalog" */).then(c => wrapFunctional(c.default || c))
+export const Modal = () => import('../..\\components\\Modal.vue' /* webpackChunkName: "components/modal" */).then(c => wrapFunctional(c.default || c))
+export const Responder = () => import('../..\\components\\Responder.vue' /* webpackChunkName: "components/responder" */).then(c => wrapFunctional(c.default || c))
+export const SliderButton = () => import('../..\\components\\SliderButton.vue' /* webpackChunkName: "components/slider-button" */).then(c => wrapFunctional(c.default || c))
+export const SocialButton = () => import('../..\\components\\SocialButton.vue' /* webpackChunkName: "components/social-button" */).then(c => wrapFunctional(c.default || c))
+export const Tab = () => import('../..\\components\\Tab.vue' /* webpackChunkName: "components/tab" */).then(c => wrapFunctional(c.default || c))
+export const Title = () => import('../..\\components\\Title.vue' /* webpackChunkName: "components/title" */).then(c => wrapFunctional(c.default || c))
+export const Warranty = () => import('../..\\components\\Warranty.vue' /* webpackChunkName: "components/warranty" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

@@ -6,26 +6,40 @@ name: Node.js CI
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 12
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+    
+    - name: 📂 Deploy files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.1
+      with:
+        server: sanyat9v.beget.tech
+        username: sanyat9v_deploy
+        password: Dariss270990@@@
+    
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+        to: 385143338
+        token: 5677042622:AAENtAVI1VA_yXTP9Db16e-YbwdJy_YnQzk
+        message: |
+          ${{ github.actor }} создан commit:
+          Сообщение о commits: ${{ github.event.commits[0].message }}
+            
+          Репозиторий: ${{ github.repository }}
+            
+          Увидеть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
