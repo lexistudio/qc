@@ -1,0 +1,75 @@
++media(any)
+
+  .content
+    margin-bottom: -10px
+    ul, p
+      font-size: 15px
+      line-height: 1.8
+      padding-top: 28px
+      color: colors.text
+    ul
+      list-style: none
+    li
+      padding-top: 9px
+      padding-left: 30px
+      &:first-child
+        padding-top: 0
+      i
+        color: colors.bg
+        font-size: 16px
+        margin: 6px -30px
+        display: block
+        float: left
+
+  .content-half
+    @extend .flex, .flex-space-between
+    padding-top: 50px
+    &:first-child
+      padding-top: 0
+    &__item
+      width: calc(50% - 15px)
+      position: relative
+
+  .img-content
+    margin: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    max-width: 100%
+    height: auto
+    &--custom
+      top: 60px
+
+
++media(mq.desktop)
+
+  .img-content
+    &--custom
+      top: 0
+
+
++media(mq.tablet)
+
+  .hide-tablet-phone
+    display: none
+  
+  .full-width-tablet-phone
+    width: 100%
+
+
++media(mq.phone)
+
+  .hide-phone
+    display: none
+  
+  .full-width-phone
+    width: 100%
+
+  .content
+    margin-bottom: 0
+    ul, p
+      font-size: 16px
+      line-height: 1.6
+      padding-top: 20px

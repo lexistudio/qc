@@ -1,0 +1,86 @@
++media(any)
+
+  .info-top
+    padding: 12px 0
+    border-bottom: 1px solid rgba(#000, .06)
+    background: colors.bg3
+    position: relative
+    z-index: 7
+
+  .info-box
+    @extend .flex, .flex-align-items
+    &__item
+      margin-left: 40px
+      color: rgba(#000, .5)
+      &:first-child
+        margin-left: 0
+    &__link
+      @extend .text-decoration, .flex, .flex-align-items
+      color: inherit
+      font-size: 12px
+      line-height: 1.3
+      i
+        display: block
+        margin-right: 10px
+
+  .info-txt
+    background: linear-gradient(55deg, darken(colors.bg, 35%), darken(colors.bg2, 35%))
+    color: #fff
+    line-height: 1.6
+    &__box
+      padding: 20px 0
+      font-size: 17px
+      display: flex
+      align-items: center
+    &__icon
+      display: flex
+      font-size: 90px
+      margin-left: 40px
+      i
+        position: relative
+        opacity: .5
+        transition: opacity 3s
+        &:nth-child(2)
+          left: 5px
+          opacity: .4
+        &:nth-child(3)
+          left: 10px
+          opacity: .3
+        &:nth-child(4)
+          left: 15px
+          opacity: .2
+        &:nth-child(5)
+          left: 20px
+          opacity: .1
+        &:hover
+          opacity: .8
+          transition: opacity .2s
+    &__btn
+      color: #fff
+      padding: 10px 0
+      font-size: 14px
+      cursor: pointer
+      user-select: none
+      background: rgba(255,255,255,.1)
+      transition: background .05s
+      &:hover
+        background: rgba(255,255,255,.2)
+
+
++media(mq.desktop)
+
+  .info-txt
+    &__icon
+      i
+        &:nth-child(4)
+        &:nth-child(5)
+          display: none
+
++media(mq.phone)
+
+  .info-top
+    display: none
+  
+  .info-txt
+    &__item:last-child
+      display: none

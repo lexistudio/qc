@@ -1,0 +1,70 @@
++media(any)
+
+  .modal
+    @extend .flex, .flex-align-items, .flex-center
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 9999
+    &__bg
+      background: rgba(colors.bg, .5)
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+    &__content
+      @extend .box-shadow-four
+      background: colors.white
+      min-width: 470px
+      border-radius: 5px
+      box-sizing: border-box
+      padding: 50px
+      position: relative
+      transform: scale(1)
+      transition: transform .2s
+      .form
+        padding-top: 0
+      img
+        max-height: 630px
+        display: block
+        centered: true
+    &__close
+      cursor: pointer
+      position: absolute
+      top: 20px
+      right: 20px
+      font-size: 20px
+
+  .modals-enter-active
+  .modals-leave-active
+    transition: opacity .2s
+
+  .modals-enter
+  .modals-leave-to
+    opacity: 0
+    .modal__content
+      transform: scale(1.1)
+
+
++media(mq.tablet)
+
+  .modal
+    &__content
+      padding: 35px
+      img
+        max-height: 450px
+
+
++media(mq.phone)
+
+  .modal
+    &__content
+      padding: 10px
+      min-width: 290px
+      max-width: 290px
+      img
+        max-width: 100%
+        max-height: 100%

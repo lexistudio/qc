@@ -1,0 +1,4 @@
+PassengerNodejs /home/s/sanyat9v/.local/bin/node
+PassengerAppRoot /home/s/sanyat9v/qlc-it.ru/public_html
+PassengerAppType node
+PassengerStartupFile node_modules/nuxt-start/bin/nuxt-start.js

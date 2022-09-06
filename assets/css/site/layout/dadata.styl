@@ -1,0 +1,28 @@
++media(any)
+
+  .dadata
+    &__container
+      position: relative
+    &__input
+      @extend .form-fields
+    &__suggestions
+      @extend .box-shadow
+      background: #fff
+      position: absolute
+      top: 100%
+      left: 0
+      right: 0
+      &-item
+        display: block
+        padding: 10px
+        box-sizing: border-box
+        border-top: 1px solid rgba(#000, .05)
+        &:first-child
+          border-top: none
+        &:hover, &_current, &-highlight
+          background: linear-gradient(55deg, colors.bg, colors.bg2)
+          color: colors.white
+          .dadata__high
+            color: colors.white
+    &__high
+      background: none

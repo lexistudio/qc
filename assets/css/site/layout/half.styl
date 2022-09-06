@@ -1,0 +1,27 @@
++media(any)
+
+  .half-box
+    @extend .flex
+    &__item
+      width: calc(50% - 15px)
+      margin-left: 30px
+      &:first-child
+        margin-left: 0
+    &__img
+      max-width: 100%
+      height: auto
+      display: block
+
+
++media(mq.tablet)
+
+  .half-box
+    flex-direction: column
+    &__item
+      width: 100%
+      margin-left: 0
+      display: block
+    &__img
+      max-width: 100%
+      height: auto
+      display: block

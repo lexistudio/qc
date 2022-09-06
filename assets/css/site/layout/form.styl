@@ -1,0 +1,59 @@
++media(any)
+
+  .form-fields
+    background: none
+    appearance: none
+    display: block
+    box-sizing: border-box
+    width: 100%
+    font-size: 17px
+    line-height: 25px
+    border: none
+    border-bottom: 1px solid #e1e1e1
+    transition: border .2s
+    padding: 14px 0
+    &--textarea
+      height: 150px
+      resize: none
+    &:focus
+      border-color: colors.bg
+
+  .form
+    max-width: 670px
+    centered: true
+    padding-top: 37px
+    &__item
+      padding-top: 25px
+      &:first-child
+        padding-top: 0
+    &__btn
+      padding-top: 47px
+      @extend .flex, .flex-center
+
+  .search-btn
+    appearance: none
+    padding: 0 10px
+    border-radius: 0
+    box-sizing: border-box
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    border: none
+    background: none
+    color: rgba(#000, .3)
+
+
++media(mq.tablet)
+
+  .form-fields
+    font-size: 16px
+    line-height: 20px
+    padding: 10px 0
+
+  .form
+    padding-top: 15px
+    &__item
+      padding-top: 20px
+    &__btn
+      padding-top: 36px

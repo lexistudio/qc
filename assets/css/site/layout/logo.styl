@@ -1,0 +1,153 @@
++media(any)
+
+  .logo
+    @extend .text-decoration
+    display: inline-block
+    color: rgba(#000, .8)
+    font-size: 18px
+    line-height: 1.3
+    font-weight: bold
+    text-transform: uppercase
+    transition: opacity .1s
+    position: relative
+    padding-left: 37px
+    &:before
+      content: ""
+      width: 27px
+      height: 29px
+      background: url("~assets/img/logo.jpg") no-repeat center / cover
+      margin: auto
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+    &:hover
+      opacity: .5
+
+  .logos-group
+    @extend .box-shadow
+    background: colors.white
+    padding: 0 60px
+    box-sizing: border-box
+    position: relative
+    height: 100px
+    margin-top: -50px
+    border-radius: 55px
+
+  .logos-group-slider
+    height: 100px
+    &__slide
+      @extend .flex, .flex-align-items, .flex-center
+      box-sizing: border-box
+      img
+        display: block
+        height: auto
+        max-width: 100%
+        max-height: 100%
+        opacity: .4
+        filter: grayscale(100%)
+        transition: opacity .2s, filter .2s
+      &:hover
+        img
+          opacity: 1
+          filter: grayscale(0%)
+
+  .logos-group-slider-prev
+  .logos-group-slider-next
+    @extend .flex, .flex-center, .flex-align-items
+    cursor: pointer
+    width: 50px
+    height: 50px
+    margin: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    border-radius: 100%
+    font-size: 25px
+    line-height: 1
+    color: rgba(#000, .5)
+    transition: opacity .2s
+    z-index: 2
+    &:hover
+      opacity: .5
+  .logos-group-slider-prev
+    left: 15px
+  .logos-group-slider-next
+    right: 15px
+
+  .logos-main
+    padding-top: 10px
+
+  .logos-client-slider
+    height: 100px
+    margin-top: 30px
+    &__slide
+      @extend .flex, .flex-align-items, .flex-center
+      img
+        display: block
+        height: auto
+        max-width: 100%
+        max-height: 100%
+  .logos-client-slider-controls
+    @extend .flex, .flex-center, .flex-align-items
+    padding-top: 27px
+    &__pagination
+      @extend .flex
+      height: 6px
+    &__bulet
+    &__prev
+    &__next
+      cursor: pointer
+      color: #8c8c8c
+    &__bulet
+      width: 6px
+      height: 6px
+      background: #8c8c8c
+      margin-left: 12px
+      border-radius: 100%
+      &:first-child
+        margin-left: 0
+      &--active
+        box-shadow: 0 0 0 1px #fff, 0 0 0 2px
+    &__prev
+    &__next
+      font-size: 14px
+      line-height: 1
+    &__prev
+      margin-right: 12px
+    &__next
+      margin-left: 12px
+
+
++media(mq.tablet)
+
+  .logo
+    font-size: 16px
+    padding-left: 34px
+    &:before
+      width: 23px
+      height: 25px
+      background-size: 100% auto
+
+  .logos-group
+    padding: 0 60px
+    height: 70px
+    margin-top: 0
+
+  .logos-group-slider
+    height: 70px
+
+  .logos-main
+    padding-top: 13px
+
+
++media(mq.phone)
+
+  .logos-group
+  .logos-group-slider
+    padding: 0 10px
+    height: 50px
+
+  .logos-group-slider-prev
+  .logos-group-slider-next
+    display: none

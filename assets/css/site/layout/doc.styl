@@ -1,0 +1,51 @@
++media(any)
+
+  .doc
+    @extend .flex
+    margin-left: -15px
+    margin-right: -15px
+    flex-wrap: wrap
+    padding: 20px 0 0
+    margin-bottom: -15px
+    &__item
+      @extend .box-shadow
+      width: 170px
+      margin: 15px
+      box-sizing: border-box
+      img
+        max-width: 100%
+        height: auto
+
+
++media(mq.desktop)
+
+  .doc
+    margin-left: -10px
+    margin-right: -10px
+    &__item
+      width: 180px
+      margin: 10px
+
+
++media(mq.tablet)
+
+  .doc
+    margin-left: -7.5px
+    margin-right: -7.5px
+    &__item
+      width: 231px
+      margin: 7.5px
+
+
++media(mq.phone)
+
+  .doc
+    justify-content: space-between
+    margin-left: 0
+    margin-right: 0
+    padding-top: 12px
+    &__item
+      width: calc(50% - 10px)
+      margin: 10px 0
+      img
+        width: 100%

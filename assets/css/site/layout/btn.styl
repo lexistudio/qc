@@ -1,0 +1,120 @@
++media(any)
+
+  .btn-group
+    @extend .flex
+    &__item
+      margin-left: 30px
+      &:first-child
+        margin-left: 0
+  
+  .btn
+    @extend .text-decoration, .flex-center, .box-shadow
+    display: inline-flex
+    color: colors.white
+    font-size: 17px
+    line-height: 25px
+    padding: 13px 45px
+    box-sizing: border-box
+    border-radius: 30px
+    border: 1px solid transparent
+    transition: background .2s, color .2s
+    min-width: 190px
+    appearance: none
+    position: relative
+    cursor: pointer
+    &:hover
+      color: colors.white
+    span
+      position: relative
+      z-index: 2
+      color: transparent
+      background: linear-gradient(55deg, colors.bg, colors.bg2)
+    &--border
+      &:before
+        content: ""
+        margin: 1px
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: colors.bg3
+        border-radius: 30px
+        pointer-events: none
+    &--primary
+      background: linear-gradient(55deg, colors.bg, colors.bg2)
+      &:hover
+        background: linear-gradient(55deg, darken(colors.bg, 25%), colors.bg2)
+        span
+          background: linear-gradient(55deg, darken(colors.bg, 25%), colors.bg2)
+    &--light
+      background: #e9ecef
+      color: #212529
+      &:hover
+        background: darken(#e9ecef, 25%)
+    &--secondary
+      background: #5a6169
+      &:hover
+        background: darken(#5a6169, 25%)
+    &--success
+      background: #17c671
+      &:hover
+        background: darken(#17c671, 25%)
+    &--danger
+      background: #c4183c
+      &:hover
+        background: darken(#c4183c, 25%)
+    &--warning
+      background: #ffb400
+      &:hover
+        background: darken(#ffb400, 25%)
+    &--small
+      padding: 9px 30px
+      font-size: 14px
+      min-width: 100px
+
+  @css {
+    .btn span {
+      -webkit-background-clip: text !important
+    }
+  }
+
+  .btn-more
+    color: colors.bg
+    text-decoration: underline
+    text-decoration-style: dashed
+    cursor: pointer
+    margin-top: 20px
+    &:hover
+      text-decoration: none
+
+
++media(mq.tablet)
+
+  .btn-group
+    &__item
+      margin-left: 20px
+
+  .btn
+    font-size: 14px
+    line-height: 20px
+    padding: 10px 20px
+    min-width: 130px
+
+
++media(mq.phone)
+
+  .btn-group
+    &__item
+      margin-left: 10px
+      flex: 1
+      .btn
+        padding-left: 0
+        padding-right: 0
+        width: 100%
+
+  .btn
+    font-size: 14px
+    line-height: 20px
+    padding: 10px 20px
+    min-width: 130px

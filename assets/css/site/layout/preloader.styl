@@ -1,0 +1,29 @@
++media(any)
+
+  .preloader
+    width: 40px
+    height: 40px
+    border-radius: 100%
+    margin: 50px auto
+    border: 3px solid colors.bg
+    border-left-color: transparent
+    border-top-color: transparent
+    animation: preloader 1s infinite linear
+    animation-fill-mode: both
+
+  @keyframes preloader
+    to
+      transform: rotate(360deg)
+
+  .preloader-btn
+    background: rgba(colors.bg, .07)
+    padding: 10px
+    text-align: center
+    border-radius: 10px
+    margin-top: 30px
+    cursor: pointer
+    color: colors.bg
+    transition: background .1s
+    font-size: 14px
+    &:hover
+      background: rgba(colors.bg, .1)

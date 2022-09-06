@@ -1,0 +1,122 @@
++media(any)
+
+  .catalog-wrapper
+    padding-top: 17px
+
+  .catalog
+    @extend .flex
+    flex-wrap: wrap
+    margin-left: -15px
+    margin-right: -15px
+    padding: 42px 0 33px
+    &--work
+      margin-bottom: -48px
+    &__item
+      @extend .box-shadow
+      width: 270px
+      margin: 15px
+      box-sizing: border-box
+      cursor: pointer
+      border-radius: 10px
+      transition: box-shadow .2s
+      background: #fff
+      display: block
+      text-decoration: none
+      color: #000
+      &:hover
+        @extend .box-shadow-four
+    &__img
+      background: rgba(darken(colors.bg3, 80%), .07)
+      height: 200px
+      border-radius: 10px 10px 0 0
+      position: relative
+    &__noimg
+      @extend .flex, .flex-align-items, .flex-center
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      font-size: 60px
+      line-height: 1
+      color: rgba(#000, .1)
+    &__img-details
+      border-bottom: 1px solid rgba(#000, .05)
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      background: #fff
+      box-sizing: border-box
+      img
+        display: block
+        margin: auto
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        max-width: 90%
+        max-height: 85%
+    &__body
+      box-sizing: border-box
+      padding: 20px
+      border-radius: 0 0 10px 10px
+      position: relative
+      z-index: 2
+    &__title
+      font-size: 18px
+      line-height: 1.4
+      font-weight: bold
+
+
++media(mq.desktop)
+
+  .catalog
+    margin-left: -10px
+    margin-right: -10px
+    &__item
+      width: 313px
+      margin: 10px
+    &__img
+      height: 180px
+    &__body
+      padding: 15px
+    &__title
+      font-size: 17px
+    &__txt
+      font-size: 14px
+      padding-top: 7px
+
+
++media(mq.tablet)
+
+  .catalog
+    margin-left: -7.5px
+    margin-right: -7.5px
+    padding-top: 25px
+    &__item
+      width: 231px
+      margin: 7.5px
+    &__img
+      height: 140px
+    &__title
+      font-size: 16px
+
+
++media(mq.phone)
+
+  .catalog
+    margin-left: 0
+    margin-right: 0
+    justify-content: space-between
+    &__item
+      width: calc(50% - 5px)
+      margin: 10px 0
+    &__img
+      height: 150px
+    &__body
+      height: auto
+    &__title
+      font-size: 14px

@@ -1,0 +1,25 @@
+#  Template NodeJS build
+
+#  This template allows you to validate your NodeJS code.
+#  The workflow allows running tests and code linting on the default branch.
+
+image: node:10.15.3
+
+pipelines:
+  default:
+  - parallel:
+    - step:
+        name: Npm proccess
+        script:
+          - npm i
+          - npm run build
+    - step:
+        name: Deploy to staging environment on --stripped-- ($STAGING_SERVER)
+        deployment: staging
+        script:
+          - pipe: atlassian/sftp-deploy:0.5.7
+            variables:
+              USER: $FTP_USERNAME
+              PASSWORD: $FTP_PASSWORD
+              SERVER: $FTP_HOST
+              REMOTE_PATH: '/home/s/sanyat9v/qlc-it.ru/public_html'

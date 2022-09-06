@@ -1,0 +1,77 @@
+{
+  "Benefits": {
+    "description": "Auto imported from components/Benefits.vue"
+  },
+  "BenefitsTwo": {
+    "description": "Auto imported from components/BenefitsTwo.vue"
+  },
+  "Bookmark": {
+    "description": "Auto imported from components/Bookmark.vue"
+  },
+  "CatalogBox": {
+    "description": "Auto imported from components/CatalogBox.vue"
+  },
+  "CatalogModal": {
+    "description": "Auto imported from components/CatalogModal.vue"
+  },
+  "Chat": {
+    "description": "Auto imported from components/Chat.vue"
+  },
+  "ContactsFrom": {
+    "description": "Auto imported from components/ContactsFrom.vue"
+  },
+  "ContactsFromOrder": {
+    "description": "Auto imported from components/ContactsFromOrder.vue"
+  },
+  "ContactsMain": {
+    "description": "Auto imported from components/ContactsMain.vue"
+  },
+  "DeliveryMain": {
+    "description": "Auto imported from components/DeliveryMain.vue"
+  },
+  "Filters": {
+    "description": "Auto imported from components/Filters.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "InfoTop": {
+    "description": "Auto imported from components/InfoTop.vue"
+  },
+  "LiItem": {
+    "description": "Auto imported from components/LiItem.vue"
+  },
+  "LogosClient": {
+    "description": "Auto imported from components/LogosClient.vue"
+  },
+  "LogoSlider": {
+    "description": "Auto imported from components/LogoSlider.vue"
+  },
+  "MainCatalog": {
+    "description": "Auto imported from components/MainCatalog.vue"
+  },
+  "Modal": {
+    "description": "Auto imported from components/Modal.vue"
+  },
+  "Responder": {
+    "description": "Auto imported from components/Responder.vue"
+  },
+  "SliderButton": {
+    "description": "Auto imported from components/SliderButton.vue"
+  },
+  "SocialButton": {
+    "description": "Auto imported from components/SocialButton.vue"
+  },
+  "Tab": {
+    "description": "Auto imported from components/Tab.vue"
+  },
+  "Title": {
+    "description": "Auto imported from components/Title.vue"
+  },
+  "Warranty": {
+    "description": "Auto imported from components/Warranty.vue"
+  }
+}
