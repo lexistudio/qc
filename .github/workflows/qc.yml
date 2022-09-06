@@ -17,13 +17,12 @@ jobs:
     - name: Use Node.js 12
       uses: actions/setup-node@v3
       with:
-        node-version: 13
+        node-version: '12.x'
 
     - name: 🔨 Build Project
       run: |
-        npm install
-        npm run build
-        npm cache clean –force
+        yarn install
+        yarn build
     
     - name: 📂 Deploy files
       uses: SamKirkland/FTP-Deploy-Action@4.3.1
