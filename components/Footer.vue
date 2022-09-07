@@ -1,30 +1,12 @@
 <template>
   <footer class="foot">
     <div class="container">
-      <div class="foot-label">
-        <div class="foot-label__item quiz-btn" onclick="Marquiz.showModal('603b8b2ccc3aeb0044b8511d')">
-          <span>Заберите вашу скидку 10%</span>
+      <div class="copyright">
+        <div class="copyright__item">
+          <n-link to="/" class="logo"> qlc-it </n-link>
         </div>
-      </div>
-    </div>
-
-    <div class="foot-box">
-      <div class="container">
-        <div class="foot-content">
-          <div v-for="item in contacts" :key="item.id" class="foot-content__item">
-            <div class="foot-content__title">{{ item.title }}</div>
-            <div class="foot-content__body" v-for="itm in item.children" :key="itm.id" v-html="itm.title"></div>
-          </div>
-        </div>
-      </div>
-      <div class="foot-box__copyright">
-        <div class="container">
-          <div class="foot-copyright">
-            <div class="foot-copyright__item">Все права защищены &copy;</div>
-            <div class="foot-copyright__item">
-              Разработка сайта <a href="https://teleg.run/U901KN" target="_blank">lhab</a>
-            </div>
-          </div>
+        <div class="copyright__item">
+          Разработка, <a href="https://teleg.run/U901KN" target="_blank">lhab</a>
         </div>
       </div>
     </div>

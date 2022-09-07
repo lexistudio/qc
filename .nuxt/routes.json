@@ -3,70 +3,60 @@
     "name": "about",
     "path": "/about",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\about.vue",
-    "chunkName": "pages/about",
-    "_name": "_2cdb18f8"
+    "chunkName": "pages/about"
   },
   {
     "name": "api",
     "path": "/api",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\api.vue",
-    "chunkName": "pages/api",
-    "_name": "_164ccc76"
+    "chunkName": "pages/api"
   },
   {
     "name": "articles",
     "path": "/articles",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\articles.vue",
-    "chunkName": "pages/articles",
-    "_name": "_4c872fbc"
+    "chunkName": "pages/articles"
   },
   {
     "name": "catalog",
     "path": "/catalog",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\catalog\\\\index.vue",
-    "chunkName": "pages/catalog/index",
-    "_name": "_0b766d84"
+    "chunkName": "pages/catalog/index"
   },
   {
     "name": "contacts",
     "path": "/contacts",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\contacts.vue",
-    "chunkName": "pages/contacts",
-    "_name": "_3d67fb38"
+    "chunkName": "pages/contacts"
   },
   {
     "name": "info",
     "path": "/info",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\info.vue",
-    "chunkName": "pages/info",
-    "_name": "_79eb4893"
+    "chunkName": "pages/info"
   },
   {
     "name": "recommended",
     "path": "/recommended",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\recommended.vue",
-    "chunkName": "pages/recommended",
-    "_name": "_698d9af4"
+    "chunkName": "pages/recommended"
   },
   {
     "name": "warranty",
     "path": "/warranty",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\warranty.vue",
-    "chunkName": "pages/warranty",
-    "_name": "_bcc5c13e"
+    "chunkName": "pages/warranty"
   },
   {
     "name": "catalog-id",
     "path": "/catalog/:id",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\catalog\\\\_id.vue",
-    "chunkName": "pages/catalog/_id",
-    "_name": "_1e500326"
+    "chunkName": "pages/catalog/_id"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_4c92f3bd"
+    "chunkName": "pages/index"
   }
 ]
