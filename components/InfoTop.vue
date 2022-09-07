@@ -24,6 +24,12 @@
             Связаться с нами
           </a>
         </div>
+        <div class="info-box__item">
+          <n-link to="/request" class="info-box__link">
+            <i class="fas fa-solid fa-arrow-right"></i>
+            Оставить заявку
+          </n-link>
+        </div>
       </div>
     </div>
     
