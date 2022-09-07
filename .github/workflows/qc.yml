@@ -27,7 +27,7 @@ jobs:
     - name: 📂 Deploy files
       uses: SamKirkland/FTP-Deploy-Action@4.3.1
       with:
-        server: sanyat9v.beget.tech
+        server: ${{secrets.SERVER}}
         username: sanyat9v_deploy
         password: Dariss270990@@@
     
