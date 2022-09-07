@@ -49,6 +49,13 @@
     "_name": "_698d9af4"
   },
   {
+    "name": "request",
+    "path": "/request",
+    "component": "D:\\\\develop\\\\qlc\\\\pages\\\\request.vue",
+    "chunkName": "pages/request",
+    "_name": "_b1dae38c"
+  },
+  {
     "name": "warranty",
     "path": "/warranty",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\warranty.vue",

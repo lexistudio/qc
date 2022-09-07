@@ -11,6 +11,7 @@ const _0b766d84 = () => interopDefault(import('..\\pages\\catalog\\index.vue' /*
 const _3d67fb38 = () => interopDefault(import('..\\pages\\contacts.vue' /* webpackChunkName: "pages/contacts" */))
 const _79eb4893 = () => interopDefault(import('..\\pages\\info.vue' /* webpackChunkName: "pages/info" */))
 const _698d9af4 = () => interopDefault(import('..\\pages\\recommended.vue' /* webpackChunkName: "pages/recommended" */))
+const _b1dae38c = () => interopDefault(import('..\\pages\\request.vue' /* webpackChunkName: "pages/request" */))
 const _bcc5c13e = () => interopDefault(import('..\\pages\\warranty.vue' /* webpackChunkName: "pages/warranty" */))
 const _1e500326 = () => interopDefault(import('..\\pages\\catalog\\_id.vue' /* webpackChunkName: "pages/catalog/_id" */))
 const _4c92f3bd = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
@@ -54,6 +55,10 @@ export const routerOptions = {
     path: "/recommended",
     component: _698d9af4,
     name: "recommended"
+  }, {
+    path: "/request",
+    component: _b1dae38c,
+    name: "request"
   }, {
     path: "/warranty",
     component: _bcc5c13e,
