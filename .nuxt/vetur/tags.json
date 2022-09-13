@@ -62,9 +62,6 @@
   "SliderButton": {
     "description": "Auto imported from components/SliderButton.vue"
   },
-  "SocialButton": {
-    "description": "Auto imported from components/SocialButton.vue"
-  },
   "Tab": {
     "description": "Auto imported from components/Tab.vue"
   },

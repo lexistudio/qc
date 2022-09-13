@@ -41,7 +41,7 @@
     <LogosClient :logos="logos" />
     <MainCatalog :catalogs="catalogs" />
     <!-- <Bookmark /> -->
-    <ContactsMain />
+    <!-- <ContactsMain /> -->
   </div>
 </template>
 

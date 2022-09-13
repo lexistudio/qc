@@ -27,7 +27,6 @@ You can directly use them in pages and other components without the need to impo
 - `<Modal>` | `<modal>` (components/Modal.vue)
 - `<Responder>` | `<responder>` (components/Responder.vue)
 - `<SliderButton>` | `<slider-button>` (components/SliderButton.vue)
-- `<SocialButton>` | `<social-button>` (components/SocialButton.vue)
 - `<Tab>` | `<tab>` (components/Tab.vue)
 - `<Title>` | `<title>` (components/Title.vue)
 - `<Warranty>` | `<warranty>` (components/Warranty.vue)

@@ -11,8 +11,6 @@
       </div>
     </div>
 
-    <SocialButton />
-
     <!-- <Chat /> -->
   </footer>
 </template>

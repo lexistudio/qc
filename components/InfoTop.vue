@@ -30,6 +30,12 @@
             Оставить заявку
           </n-link>
         </div>
+        <div class="info-box__item">
+          <a href="https://t.me/Suvorov860" target="_blank" class="info-box__link">
+            <i class="fab fa-telegram-plane"></i>
+            Telegram
+          </a>
+        </div>
       </div>
     </div>
     

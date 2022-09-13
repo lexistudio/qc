@@ -60,6 +60,12 @@
               <span>Связаться с нами</span>
               8 (495) 711-05-15
             </a>
+            <a href="https://t.me/Suvorov860" target="_blank">
+              <span>
+                <i class="fab fa-telegram-plane"></i>&nbsp;
+                Telegram
+              </span>
+            </a>
           </div>
         </div>
       </div>
