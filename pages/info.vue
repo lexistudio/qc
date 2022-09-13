@@ -1,5 +1,11 @@
 <template>
   <div class="container">
+    <div class="title-work-head">
+      <h1 class="title-work">
+        Согласие на обработку персональных данных пользователей
+      </h1>
+    </div>
+
     <div class="content">
       <p>
         Согласие на обработку персональных данных пользователей<br />
@@ -70,9 +76,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  layout: "work",
-};
-</script>

@@ -7,20 +7,6 @@
     "_name": "_2cdb18f8"
   },
   {
-    "name": "api",
-    "path": "/api",
-    "component": "D:\\\\develop\\\\qlc\\\\pages\\\\api.vue",
-    "chunkName": "pages/api",
-    "_name": "_164ccc76"
-  },
-  {
-    "name": "articles",
-    "path": "/articles",
-    "component": "D:\\\\develop\\\\qlc\\\\pages\\\\articles.vue",
-    "chunkName": "pages/articles",
-    "_name": "_4c872fbc"
-  },
-  {
     "name": "catalog",
     "path": "/catalog",
     "component": "D:\\\\develop\\\\qlc\\\\pages\\\\catalog\\\\index.vue",

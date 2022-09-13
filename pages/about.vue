@@ -1,5 +1,11 @@
 <template>
   <div class="container">
+    <div class="title-work-head">
+      <h1 class="title-work">
+        О нас
+      </h1>
+    </div>
+
     <div class="content">
       <div class="content-half">
         <div class="content-half__item full-width-tablet-phone">
@@ -47,7 +53,6 @@
 
 <script>
 export default {
-  layout: "work",
   head: {
     title: "О нас",
   },

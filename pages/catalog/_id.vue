@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="title-card">{{ catalogsItem.name }}</h1>
+    <div class="title-work-head">
+      <h1 class="title-work">
+        {{ catalogsItem.name }}
+      </h1>
+    </div>
 
     <div class="card">
       <div class="card__left">
@@ -114,7 +118,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  layout: "work",
   computed: mapGetters({
     catalogsItem: "catalogs/getCatalogsItem",
   }),

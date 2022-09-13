@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header>
+    <div class="header-box-relative">
       <div class="head-img container">
         <img src="@/assets/img/banner2.png" alt="" />
       </div>
@@ -29,7 +29,8 @@
           </div>
         </div>
       </div>
-    </Header>
+    </div>
+
     <LogoSlider :brends="brends" />
 
     <Benefits />
@@ -51,12 +52,12 @@ export default {
   computed: mapGetters({
     catalogs: "catalogs/getCatalogs",
     brends: "brends/getBrends",
-    logos: "clients/getLogos"
+    logos: "clients/getLogos",
   }),
   async fetch({ store }) {
-    await store.dispatch('brends/fetch')
-    await store.dispatch('catalogs/fetch', { count: 4 })
-    await store.dispatch('clients/fetch')
+    await store.dispatch("brends/fetch");
+    await store.dispatch("catalogs/fetch", { count: 4 });
+    await store.dispatch("clients/fetch");
   },
 };
 </script>

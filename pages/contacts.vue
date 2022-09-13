@@ -37,7 +37,6 @@ import { yandexMap, ymapMarker } from "vue-yandex-maps";
 import Contacts from "@/mixins/contacts";
 
 export default {
-  layout: "contacts",
   components: {
     yandexMap,
     ymapMarker,

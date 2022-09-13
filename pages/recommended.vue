@@ -1,5 +1,11 @@
 <template>
   <div class="container">
+    <div class="title-work-head">
+      <h1 class="title-work">
+        Нас рекомендуют
+      </h1>
+    </div>
+
     <div class="doc">
       <div
         class="doc__item"
@@ -17,7 +23,6 @@ import { mapGetters } from 'vuex'
 import Modal from "~/components/Modal.vue";
 export default {
   components: { Modal },
-  layout: "work",
   head: {
     title: "Нас рекомендуют",
   },

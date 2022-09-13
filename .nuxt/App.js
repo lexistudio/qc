@@ -10,11 +10,9 @@ import '..\\assets\\css\\icon\\all.css'
 
 import '..\\assets\\css\\site.styl'
 
-import _35db9649 from '..\\layouts\\contacts.vue'
 import _6f6c098b from '..\\layouts\\default.vue'
-import _2d2b6807 from '..\\layouts\\work.vue'
 
-const layouts = { "_contacts": sanitizeComponent(_35db9649),"_default": sanitizeComponent(_6f6c098b),"_work": sanitizeComponent(_2d2b6807) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {

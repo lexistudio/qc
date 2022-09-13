@@ -1,5 +1,11 @@
 <template>
   <div class="container">
+    <div class="title-work-head">
+      <h1 class="title-work">
+        Гарантии
+      </h1>
+    </div>
+
     <div class="content">
       <p>
         Мы гарантируем надёжность в поставках и своевременной доставке
@@ -32,8 +38,9 @@
             >
           </ul>
           <p>
-            <a href="#" class="btn btn--primary" v-on:click.prevent="addSpoler">
-              Общая информация:
+            <a href="#" class="btn-more" v-on:click.prevent="addSpoler">
+              <span v-if="!isActive">Общая информация:</span>
+              <span v-else>Свернуть</span>
             </a>
           </p>
         </div>
@@ -107,7 +114,6 @@
 
 <script>
 export default {
-  layout: "work",
   head: {
     title: "Гарантии",
   },

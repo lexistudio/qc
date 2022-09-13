@@ -1,6 +1,15 @@
 <template>
   <div class="container">
-    <form class="search" @submit.prevent="searchCatalogs(search), isPreloaderBtn = false">
+    <div class="title-work-head">
+      <h1 class="title-work">
+        Каталог
+      </h1>
+    </div>
+
+    <form
+      class="search"
+      @submit.prevent="searchCatalogs(search), (isPreloaderBtn = false)"
+    >
       <input
         type="text"
         placeholder="Поиск по парт номерам"
@@ -27,7 +36,13 @@
     </div>
 
     <div v-if="preloader" class="preloader"></div>
-    <div @click="pageCatalog" v-if="count < counts && isPreloaderBtn" class="preloader-btn">Показать еще</div>
+    <div
+      @click="pageCatalog"
+      v-if="count < counts && isPreloaderBtn"
+      class="preloader-btn"
+    >
+      Показать еще
+    </div>
   </div>
 </template>
 
@@ -35,30 +50,28 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  layout: "work",
   head: {
     title: "Каталог",
   },
   data: () => ({
-    search: '',
-    isPreloaderBtn: true
+    search: "",
+    isPreloaderBtn: true,
   }),
   computed: mapGetters({
     catalogs: "catalogs/getCatalogs",
     categories: "catalogs/getCategories",
-    preloader: 'catalogs/getPreloader',
-    count: 'catalogs/getCount',
-    counts: 'catalogs/getCounts'
+    preloader: "catalogs/getPreloader",
+    count: "catalogs/getCount",
+    counts: "catalogs/getCounts",
   }),
   methods: {
     ...mapActions({
-      searchCatalogs: 'catalogs/searchCatalogs',
-      pageCatalog: 'catalogs/pageCatalog'
+      searchCatalogs: "catalogs/searchCatalogs",
+      pageCatalog: "catalogs/pageCatalog",
     }),
     resetSearch() {
-      this.search = '',
-      this.isPreloaderBtn = false
-    }
+      (this.search = ""), (this.isPreloaderBtn = false);
+    },
   },
   async fetch({ store }) {
     await new Promise((resolve) => setTimeout(() => resolve(), 500));
