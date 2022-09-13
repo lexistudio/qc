@@ -26,6 +26,35 @@
       font-size: 23px
       line-height: 1
 
+  .warranty-detail
+    display: flex
+    margin: 28px -10px 0
+    position: relative
+    z-index: 2
+    &__item
+      @extend .box-shadow
+      flex: 1
+      padding: 18px
+      margin: 0 10px
+      background: linear-gradient(to bottom, colors.white, darken(colors.white, 3%))
+      color: colors.text
+      border-radius: 5px
+      color: colors.text
+      position: relative
+      background-clip: padding-box
+      border: 1px solid transparent
+      &:before
+        content: ""
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: linear-gradient(to right, colors.bg, colors.bg2)
+        z-index: -1
+        border-radius: 5px
+        margin: -1px
+
 
 +media(mq.tablet)
 
@@ -53,3 +82,10 @@
       font-size: 18px
     .btn
       width: 100%
+
+  .warranty-detail
+    display: block
+    &__item
+      margin-top: 20px
+      &:first-child
+        margin-top: 0

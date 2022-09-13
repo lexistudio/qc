@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <div class="title-work-head">
-      <h1 class="title-work">
-        Гарантии
-      </h1>
+      <h1 class="title-work">Гарантии</h1>
     </div>
 
     <div class="content">
@@ -14,47 +12,37 @@
         течении всего гарантийного срока. Плюс мы предоставляем собственную
         диагностику
       </p>
-      <div class="content-half" style="padding-top: 0">
-        <div class="content-half__item full-width-phone">
-          <p><strong>В чем плюсы? </strong></p>
-          <ul style="padding-top: 9px">
-            <LiItem>Оперативная диагностика. </LiItem>
-            <LiItem
-              >Замена детали на следующий день при условии наличия на нашем
-              складе.
-            </LiItem>
-            <LiItem>Доступная цена </LiItem>
-          </ul>
-          <p><strong>Условия дополнительной гарантии:</strong></p>
-          <ul style="padding-top: 9px">
-            <LiItem
-              >Замена осуществляется, если данная деталь присутствует на нашем
-              складе</LiItem
-            >
-            <LiItem> Замена производится в рабочее время </LiItem>
-            <LiItem
-              >Замена возможна при условии передачи нам вышедшей из строя детали
-              с указанием характера ее неисправности</LiItem
-            >
-          </ul>
-          <p>
-            <a href="#" class="btn-more" v-on:click.prevent="addSpoler">
-              <span v-if="!isActive">Общая информация:</span>
-              <span v-else>Свернуть</span>
-            </a>
-          </p>
+      <h2>В чем плюсы? </h2>
+      <div class="warranty-detail">
+        <div class="warranty-detail__item">Оперативная диагностика.</div>
+        <div class="warranty-detail__item">
+          Замена детали на следующий день при условии наличия на нашем складе.
         </div>
-        <div class="content-half__item hide-phone">
-          <img
-            src="@/assets/img/fone5.png"
-            alt="Гарантии"
-            class="img-content img-content--custom"
-          />
+        <div class="warranty-detail__item">Доступная цена</div>
+      </div>
+      <h2>Условия дополнительной гарантии:</h2>
+      <div class="warranty-detail">
+        <div class="warranty-detail__item">
+          Замена осуществляется, если данная деталь присутствует на нашем складе
+        </div>
+        <div class="warranty-detail__item">
+          Замена производится в рабочее время
+        </div>
+        <div class="warranty-detail__item">
+          Замена возможна при условии передачи нам вышедшей из строя детали с
+          указанием характера ее неисправности
         </div>
       </div>
 
+      <p>
+        <a href="#" class="btn-more" v-on:click.prevent="addSpoler">
+          <span v-if="!isActive">Общая информация</span>
+          <span v-else>Свернуть</span>
+        </a>
+      </p>
+
       <div v-if="isActive">
-        <p><strong>Уважаемые покупатели!</strong></p>
+        <h2>Уважаемые покупатели!</h2>
         <p>
           Внешний вид, конфигурация и комплектность товара, а также
           комплектность всего заказа должны быть проверены покупателем в момент
@@ -98,8 +86,8 @@
           менеджеру. Также важным условием является наличие товара на складе
           относящегося к категории товаров оформленных по предзаказу.
         </p>
+        <h2>Товары с гарантией производителя</h2>
         <p>
-          <strong>Товары с гарантией производителя</strong><br />
           На все оборудование приобретенное в нашей компании предоставляется
           гарантия 12 месяцев, наши менеджеры всегда готовы проконсультировать
           Вас о её длительности и различных вариантах её продления. Обращаем
