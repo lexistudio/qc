@@ -1,6 +1,11 @@
 <template>
   <form v-on:submit.prevent="send" class="form">
     <div class="form__item">
+      <div class="form-title">
+        {{ name }}
+      </div>
+    </div>
+    <div class="form__item">
       <input
         type="text"
         v-model="form.firstName"

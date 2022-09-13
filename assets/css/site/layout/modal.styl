@@ -15,9 +15,10 @@
       bottom: 0
       left: 0
       right: 0
+      backdrop-filter: blur(2px)
     &__content
       @extend .box-shadow-four
-      background: colors.white
+      background: linear-gradient(to bottom, colors.white, darken(colors.white, 3%))
       min-width: 470px
       border-radius: 5px
       box-sizing: border-box
