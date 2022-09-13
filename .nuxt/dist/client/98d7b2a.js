@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[17],{401:function(t,n,e){"use strict";e.r(n);var l={props:{next:{type:Boolean,default:!1}}},o=e(21),component=Object(o.a)(l,(function(){var t=this._self._c;return t("div",[this.next?t("i",{staticClass:"fas fa-chevron-right"}):t("i",{staticClass:"fas fa-chevron-left"})])}),[],!1,null,null,null);n.default=component.exports}}]);
