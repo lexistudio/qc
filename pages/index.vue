@@ -22,8 +22,8 @@
               <n-link to="/about" class="btn btn--primary">Подробнее</n-link>
             </div>
             <div class="btn-group__item">
-              <n-link to="/catalog" class="btn btn--primary btn--border">
-                <span>Каталог</span>
+              <n-link to="/catalog" class="btn btn--border">
+                Каталог
               </n-link>
             </div>
           </div>

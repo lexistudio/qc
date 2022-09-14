@@ -24,29 +24,15 @@
     cursor: pointer
     &:hover
       color: colors.white
-    span
-      position: relative
-      z-index: 2
-      color: transparent
-      background: linear-gradient(55deg, colors.bg, colors.bg2)
     &--border
-      &:before
-        content: ""
-        margin: 1px
-        position: absolute
-        top: 0
-        bottom: 0
-        left: 0
-        right: 0
-        background: colors.bg3
-        border-radius: 30px
-        pointer-events: none
+      color: rgba(0,0,0,.5) !important
+      background: linear-gradient(to bottom, colors.white, darken(colors.white, 3%))
+      &:hover
+        background: linear-gradient(to bottom, colors.white, darken(colors.white, 6%))
     &--primary
       background: linear-gradient(55deg, colors.bg, colors.bg2)
       &:hover
         background: linear-gradient(55deg, darken(colors.bg, 25%), colors.bg2)
-        span
-          background: linear-gradient(55deg, darken(colors.bg, 25%), colors.bg2)
     &--light
       background: #e9ecef
       color: #212529

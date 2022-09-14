@@ -13,12 +13,14 @@
 
   body, html
     height: 100%
-    background: colors.bg3
+    background: #F8FAFC
     text-style: text.sans-body
 
   .wrapper
     min-height: 100vh
     min-width: 320px
+    background: url("~assets/img/about-head.jpg") no-repeat calc(50% + 110px) 110px
+    background-size: 65% auto
     &__box
       min-height: calc(100vh - 70px)
       box-sizing: border-box
@@ -91,11 +93,12 @@
 
   .fade-enter-active
   .fade-leave-active
-    transition: opacity .7s
+    transition: opacity .7s, transform .7s
 
   .fade-enter
   .fade-leave-to
     opacity: 0
+    transform: translateY(5px)
 
 
 +media(mq.desktop)
@@ -127,6 +130,8 @@
 +media(mq.phone)
 
   .wrapper
+    background-size: 100% auto
+    background-position: top center
     &__box
       padding-bottom: 50px
 
