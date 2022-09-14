@@ -74,10 +74,6 @@ export default {
     url: 'https://api.qlc-it.ru'
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
-
   router: {
     linkActiveClass: '',
     linkExactActiveClass: 'active',
@@ -93,4 +89,8 @@ export default {
     css: true,
     rtl: false
   },
+
+  server: {
+    host: '0.0.0.0',
+  }
 }

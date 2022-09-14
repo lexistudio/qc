@@ -50,9 +50,9 @@
         <div class="nav-phone" v-if="isNavActive">
           <ul class="nav-phone__ul">
             <li v-for="item in nav" :key="item.id">
-              <n-link :to="item.path">
+              <NuxtLink :to="item.path">
                 <span @click="addNavActive">{{ item.name }}</span>
-              </n-link>
+              </NuxtLink >
             </li>
           </ul>
           <div class="nav-phone__info">
