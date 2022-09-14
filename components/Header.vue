@@ -122,7 +122,7 @@ export default {
   },
   mounted() {
     document.addEventListener("scroll", e => {
-      if ( window.scrollY > 110 ) {
+      if ( window.scrollY > 145 ) {
         this.isActive = true
       }
       else {
