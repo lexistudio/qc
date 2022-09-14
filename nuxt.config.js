@@ -42,6 +42,7 @@ export default {
   plugins: [
     { src: '~/plugins/VueAwesomeSwiper.ts', ssr: true },
     { src: '~/plugins/mask.js', ssr: true },
+    { src: '~/plugins/maps.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

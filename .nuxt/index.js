@@ -20,6 +20,7 @@ import nuxt_plugin_http_03268be1 from 'nuxt_plugin_http_03268be1' // Source: .\\
 import nuxt_plugin_strapi_9a414c00 from 'nuxt_plugin_strapi_9a414c00' // Source: .\\strapi.js (mode: 'all')
 import nuxt_plugin_VueAwesomeSwiper_72dcfce2 from 'nuxt_plugin_VueAwesomeSwiper_72dcfce2' // Source: ..\\plugins\\VueAwesomeSwiper.ts (mode: 'all')
 import nuxt_plugin_mask_18e26f55 from 'nuxt_plugin_mask_18e26f55' // Source: ..\\plugins\\mask.js (mode: 'all')
+import nuxt_plugin_maps_18bbcbca from 'nuxt_plugin_maps_18bbcbca' // Source: ..\\plugins\\maps.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -248,6 +249,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_mask_18e26f55 === 'function') {
     await nuxt_plugin_mask_18e26f55(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_maps_18bbcbca === 'function') {
+    await nuxt_plugin_maps_18bbcbca(app.context, inject)
   }
 
   // Lock enablePreview in context
