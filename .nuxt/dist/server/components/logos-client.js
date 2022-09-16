@@ -1,7 +1,7 @@
-exports.ids = [14,17];
+exports.ids = [13,16];
 exports.modules = {
 
-/***/ 111:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57,7 +57,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 125:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,7 +188,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var LogosClient = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Title: __webpack_require__(52).default,SliderButton: __webpack_require__(111).default})
+installComponents(component, {Title: __webpack_require__(34).default,SliderButton: __webpack_require__(80).default})
 
 
 /***/ })

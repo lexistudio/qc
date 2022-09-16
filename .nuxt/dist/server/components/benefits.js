@@ -1,28 +1,28 @@
 exports.ids = [1];
 exports.modules = {
 
-/***/ 115:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/icon3.05a2e48.jpg";
 
 /***/ }),
 
-/***/ 116:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/icon2.f2300ce.jpg";
 
 /***/ }),
 
-/***/ 117:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/icon1.8059879.jpg";
 
 /***/ }),
 
-/***/ 127:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41,7 +41,7 @@ var render = function render() {
       "sub": "Преимущества",
       "title": "Почему выбирают QLC-IT"
     }
-  }), _vm._ssrNode(" <div class=\"benefits-box\"><div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(115)) + "></div> <h2 class=\"benefits-box__title\">Гарантия</h2> <div class=\"benefits-box__txt\">\n          Полноценная гарантия на все поставляемые товары\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(116)) + "></div> <h2 class=\"benefits-box__title\">Точность</h2> <div class=\"benefits-box__txt\">\n          Консультация и индивидуальный подход.\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(117)) + "></div> <h2 class=\"benefits-box__title\">Надёжность</h2> <div class=\"benefits-box__txt\">\n          Проверенный поставщик с опытом порядка 10 лет.\n        </div></div></div>")], 2)]);
+  }), _vm._ssrNode(" <div class=\"benefits-box\"><div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(84)) + "></div> <h2 class=\"benefits-box__title\">Гарантия</h2> <div class=\"benefits-box__txt\">\n          Полноценная гарантия на все поставляемые товары\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(85)) + "></div> <h2 class=\"benefits-box__title\">Точность</h2> <div class=\"benefits-box__txt\">\n          Консультация и индивидуальный подход.\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(86)) + "></div> <h2 class=\"benefits-box__title\">Надёжность</h2> <div class=\"benefits-box__txt\">\n          Проверенный поставщик с опытом порядка 10 лет.\n        </div></div></div>")], 2)]);
 };
 
 var staticRenderFns = [];
@@ -72,7 +72,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Benefits = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Title: __webpack_require__(52).default})
+installComponents(component, {Title: __webpack_require__(34).default})
 
 
 /***/ })

@@ -1,7 +1,99 @@
-exports.ids = [21,7];
+exports.ids = [20,7];
 exports.modules = {
 
-/***/ 122:
+/***/ 109:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/_id.vue?vue&type=template&id=44ce4e3f&
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c('div', {
+    staticClass: "container"
+  }, [_vm._ssrNode("<div class=\"title-work-head\"><h1 class=\"title-work\">" + _vm._ssrEscape("\n      " + _vm._s(_vm.catalogsItem.name) + "\n    ") + "</h1></div> <div class=\"card-info\"><p><strong>Внимание!</strong> Пожалуйста, сверяйте информацию о данном\n      товаре с информацией на официальном сайте производителя и уточняйте\n      спецификацию, наличие на складе и цену товара у менеджеров нашей\n      компании. Внешний вид изделия, его комплектация и характеристики могут\n      изменяться производителем без предварительного уведомления. Не является\n      публичной офертой. Определяемой положениями статьи 437(2) ГК РФ.\n    </p></div> "), _vm._ssrNode("<div class=\"card\">", "</div>", [_vm._ssrNode("<div class=\"card__left\"><div class=\"card__img\">" + (!_vm.catalogsItem.img ? "<div class=\"card__noimg\"><i class=\"fas fa-camera\"></i></div>" : "<div class=\"card__details\"><img" + _vm._ssrAttr("src", `https://api.qlc-it.ru${_vm.catalogsItem.img.url}`) + _vm._ssrAttr("alt", _vm.catalogsItem.name) + "></div>") + "</div></div> "), _vm._ssrNode("<div class=\"card__right\">", "</div>", [_vm._ssrNode("<div class=\"content\">", "</div>", [_vm._ssrNode((_vm.catalogsItem.description ? "<p style=\"padding: 0;\">" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.description)) + "</p>" : "<!---->") + " <p>" + (_vm.catalogsItem.brend ? "<span class=\"card__span\"><strong>Бренд:</strong> <span>" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.brend.name)) + "</span></span>" : "<!---->") + " " + (_vm.catalogsItem.vendorCode ? "<span class=\"card__span\"><strong>Артикул:</strong>" + _vm._ssrEscape(" " + _vm._s(_vm.catalogsItem.vendorCode) + "\n          ") + "</span>" : "<!---->") + " <span class=\"card__span\"><strong>Цена:</strong> " + (!_vm.catalogsItem.price || parseInt(_vm.catalogsItem.price) === 0 ? "<span>\n              по запросу\n            </span>" : "<span>" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.price) + " руб.") + "</span>") + "</span> <span class=\"card__span\"><strong>Кол-во:</strong> " + (!_vm.catalogsItem.count || parseInt(_vm.catalogsItem.count) === 0 ? "<span>\n              Запрашивайте\n            </span>" : "<span>" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.count) + " шт.") + "</span>") + "</span> " + (_vm.catalogsItem.delivery ? "<span class=\"card__span\"><strong>" + _vm._ssrEscape("\n              " + _vm._s(_vm.catalogsItem.delivery) + "\n            ") + "</strong></span>" : "<!---->") + " <span class=\"card__span\"><strong>Гарантия:</strong> <span> 12 месяцев </span></span></p> <p>\n          Доставка по Москве и в пределах МКАД осуществляется бесплатно при\n          сумме заказа от 20 000 руб. Доставка за МКАД осуществляется\n          отдельно.\n        </p> " + (_vm.catalogsItem.characteristics.length ? "<div><h2 class=\"card__subtitle\">Характеристики</h2> <div class=\"card__table\">" + _vm._ssrList(_vm.catalogsItem.characteristics, function (item) {
+    return "<div class=\"card__row\"><div class=\"card__td\">" + _vm._ssrEscape(_vm._s(item.name)) + "</div> <div class=\"card__td\">" + _vm._ssrEscape(_vm._s(item.value)) + "</div></div>";
+  }) + "</div></div>" : "<!---->") + " <div class=\"card__btn-group\"><div class=\"card__btn\"><a href=\"#\" class=\"btn btn--primary\">\n              Узнать стоимость и наличие\n            </a></div></div> "), _c('transition', {
+    attrs: {
+      "name": "modals"
+    }
+  }, [_vm.isActive ? _c('Modal', {
+    on: {
+      "close": function ($event) {
+        _vm.isActive = false;
+      }
+    }
+  }, [_c('ContactsFromOrder', {
+    attrs: {
+      "name": _vm.catalogsItem.name,
+      "vendorCode": _vm.catalogsItem.vendorCode
+    }
+  })], 1) : _vm._e()], 1)], 2)])], 2)], 2);
+};
+
+var staticRenderFns = [];
+
+// CONCATENATED MODULE: ./pages/catalog/_id.vue?vue&type=template&id=44ce4e3f&
+
+// EXTERNAL MODULE: external "vuex"
+var external_vuex_ = __webpack_require__(7);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/_id.vue?vue&type=script&lang=js&
+
+/* harmony default export */ var _idvue_type_script_lang_js_ = ({
+  computed: Object(external_vuex_["mapGetters"])({
+    catalogsItem: "catalogs/getCatalogsItem"
+  }),
+  data: () => ({
+    isActive: false
+  }),
+
+  async fetch({
+    store,
+    route
+  }) {
+    await new Promise(resolve => setTimeout(() => resolve(), 1000));
+    await store.dispatch("catalogs/catalogsItems", route.params.id);
+  }
+
+});
+// CONCATENATED MODULE: ./pages/catalog/_id.vue?vue&type=script&lang=js&
+ /* harmony default export */ var catalog_idvue_type_script_lang_js_ = (_idvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./pages/catalog/_id.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  catalog_idvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  "90afcb78"
+  
+)
+
+/* harmony default export */ var _id = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {ContactsFromOrder: __webpack_require__(91).default,Modal: __webpack_require__(35).default})
+
+
+/***/ }),
+
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61,7 +153,7 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./components/ContactsFromOrder.vue?vue&type=template&id=2fd467b3&
 
 // EXTERNAL MODULE: external "vue-dadata"
-var external_vue_dadata_ = __webpack_require__(25);
+var external_vue_dadata_ = __webpack_require__(16);
 var external_vue_dadata_default = /*#__PURE__*/__webpack_require__.n(external_vue_dadata_);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/ContactsFromOrder.vue?vue&type=script&lang=js&
@@ -142,98 +234,6 @@ var component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var ContactsFromOrder = __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ 143:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/_id.vue?vue&type=template&id=44ce4e3f&
-var render = function render() {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c('div', {
-    staticClass: "container"
-  }, [_vm._ssrNode("<div class=\"title-work-head\"><h1 class=\"title-work\">" + _vm._ssrEscape("\n      " + _vm._s(_vm.catalogsItem.name) + "\n    ") + "</h1></div> <div class=\"card-info\"><p><strong>Внимание!</strong> Пожалуйста, сверяйте информацию о данном\n      товаре с информацией на официальном сайте производителя и уточняйте\n      спецификацию, наличие на складе и цену товара у менеджеров нашей\n      компании. Внешний вид изделия, его комплектация и характеристики могут\n      изменяться производителем без предварительного уведомления. Не является\n      публичной офертой. Определяемой положениями статьи 437(2) ГК РФ.\n    </p></div> "), _vm._ssrNode("<div class=\"card\">", "</div>", [_vm._ssrNode("<div class=\"card__left\"><div class=\"card__img\">" + (!_vm.catalogsItem.img ? "<div class=\"card__noimg\"><i class=\"fas fa-camera\"></i></div>" : "<div class=\"card__details\"><img" + _vm._ssrAttr("src", `https://api.qlc-it.ru${_vm.catalogsItem.img.url}`) + _vm._ssrAttr("alt", _vm.catalogsItem.name) + "></div>") + "</div></div> "), _vm._ssrNode("<div class=\"card__right\">", "</div>", [_vm._ssrNode("<div class=\"content\">", "</div>", [_vm._ssrNode((_vm.catalogsItem.description ? "<p style=\"padding: 0;\">" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.description)) + "</p>" : "<!---->") + " <p>" + (_vm.catalogsItem.brend ? "<span class=\"card__span\"><strong>Бренд:</strong> <span>" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.brend.name)) + "</span></span>" : "<!---->") + " " + (_vm.catalogsItem.vendorCode ? "<span class=\"card__span\"><strong>Артикул:</strong>" + _vm._ssrEscape(" " + _vm._s(_vm.catalogsItem.vendorCode) + "\n          ") + "</span>" : "<!---->") + " <span class=\"card__span\"><strong>Цена:</strong> " + (!_vm.catalogsItem.price || parseInt(_vm.catalogsItem.price) === 0 ? "<span>\n              по запросу\n            </span>" : "<span>" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.price) + " руб.") + "</span>") + "</span> <span class=\"card__span\"><strong>Кол-во:</strong> " + (!_vm.catalogsItem.count || parseInt(_vm.catalogsItem.count) === 0 ? "<span>\n              Запрашивайте\n            </span>" : "<span>" + _vm._ssrEscape(_vm._s(_vm.catalogsItem.count) + " шт.") + "</span>") + "</span> " + (_vm.catalogsItem.delivery ? "<span class=\"card__span\"><strong>" + _vm._ssrEscape("\n              " + _vm._s(_vm.catalogsItem.delivery) + "\n            ") + "</strong></span>" : "<!---->") + " <span class=\"card__span\"><strong>Гарантия:</strong> <span> 12 месяцев </span></span></p> <p>\n          Доставка по Москве и в пределах МКАД осуществляется бесплатно при\n          сумме заказа от 20 000 руб. Доставка за МКАД осуществляется\n          отдельно.\n        </p> " + (_vm.catalogsItem.characteristics.length ? "<div><h2 class=\"card__subtitle\">Характеристики</h2> <div class=\"card__table\">" + _vm._ssrList(_vm.catalogsItem.characteristics, function (item) {
-    return "<div class=\"card__row\"><div class=\"card__td\">" + _vm._ssrEscape(_vm._s(item.name)) + "</div> <div class=\"card__td\">" + _vm._ssrEscape(_vm._s(item.value)) + "</div></div>";
-  }) + "</div></div>" : "<!---->") + " <div class=\"card__btn-group\"><div class=\"card__btn\"><a href=\"#\" class=\"btn btn--primary\">\n              Узнать стоимость и наличие\n            </a></div></div> "), _c('transition', {
-    attrs: {
-      "name": "modals"
-    }
-  }, [_vm.isActive ? _c('Modal', {
-    on: {
-      "close": function ($event) {
-        _vm.isActive = false;
-      }
-    }
-  }, [_c('ContactsFromOrder', {
-    attrs: {
-      "name": _vm.catalogsItem.name,
-      "vendorCode": _vm.catalogsItem.vendorCode
-    }
-  })], 1) : _vm._e()], 1)], 2)])], 2)], 2);
-};
-
-var staticRenderFns = [];
-
-// CONCATENATED MODULE: ./pages/catalog/_id.vue?vue&type=template&id=44ce4e3f&
-
-// EXTERNAL MODULE: external "vuex"
-var external_vuex_ = __webpack_require__(9);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/_id.vue?vue&type=script&lang=js&
-
-/* harmony default export */ var _idvue_type_script_lang_js_ = ({
-  computed: Object(external_vuex_["mapGetters"])({
-    catalogsItem: "catalogs/getCatalogsItem"
-  }),
-  data: () => ({
-    isActive: false
-  }),
-
-  async fetch({
-    store,
-    route
-  }) {
-    await new Promise(resolve => setTimeout(() => resolve(), 1000));
-    await store.dispatch("catalogs/catalogsItems", route.params.id);
-  }
-
-});
-// CONCATENATED MODULE: ./pages/catalog/_id.vue?vue&type=script&lang=js&
- /* harmony default export */ var catalog_idvue_type_script_lang_js_ = (_idvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(4);
-
-// CONCATENATED MODULE: ./pages/catalog/_id.vue
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  catalog_idvue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  "90afcb78"
-  
-)
-
-/* harmony default export */ var _id = __webpack_exports__["default"] = (component.exports);
-
-/* nuxt-component-imports */
-installComponents(component, {ContactsFromOrder: __webpack_require__(122).default,Modal: __webpack_require__(53).default})
-
 
 /***/ })
 

@@ -1,7 +1,7 @@
 exports.ids = [7];
 exports.modules = {
 
-/***/ 122:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61,7 +61,7 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./components/ContactsFromOrder.vue?vue&type=template&id=2fd467b3&
 
 // EXTERNAL MODULE: external "vue-dadata"
-var external_vue_dadata_ = __webpack_require__(25);
+var external_vue_dadata_ = __webpack_require__(16);
 var external_vue_dadata_default = /*#__PURE__*/__webpack_require__.n(external_vue_dadata_);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/ContactsFromOrder.vue?vue&type=script&lang=js&

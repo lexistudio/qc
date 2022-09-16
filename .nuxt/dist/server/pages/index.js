@@ -1,7 +1,110 @@
-exports.ids = [24,1,2,4,9,12,13,14,15,16,17,18,19];
+exports.ids = [23,1,2,4,9,11,12,13,14,15,16,17,18];
 exports.modules = {
 
-/***/ 111:
+/***/ 102:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/banner2.c7e1cc4.png";
+
+/***/ }),
+
+/***/ 110:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=b2436caa&
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c('div', [_vm._ssrNode("<div class=\"header-box-relative\">", "</div>", [_vm._ssrNode("<div class=\"head-img container\"><img" + _vm._ssrAttr("src", __webpack_require__(102)) + " alt></div> "), _vm._ssrNode("<div class=\"head-banner\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"banner-main-subtitle\">\n          Простые решения для сложных задач\n        </div> <h1 class=\"banner-main-title\">\n          Комплексный поставщик IT оборудования\n        </h1> <div class=\"banner-main-text\">\n          Мы поможем оптимизировать Вашу инфраструктуру, снизить расходы на IT\n          обслуживание и гарантировать бесперебойную работу.\n        </div> "), _vm._ssrNode("<div class=\"btn-group\">", "</div>", [_vm._ssrNode("<div class=\"btn-group__item\">", "</div>", [_c('n-link', {
+    staticClass: "btn btn--primary",
+    attrs: {
+      "to": "/about"
+    }
+  }, [_vm._v("Подробнее")])], 1), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"btn-group__item\">", "</div>", [_c('n-link', {
+    staticClass: "btn btn--border",
+    attrs: {
+      "to": "/catalog"
+    }
+  }, [_vm._v("\n              Каталог\n            ")])], 1)], 2)], 2)])], 2), _vm._ssrNode(" "), _c('LogoSlider', {
+    attrs: {
+      "brends": _vm.brends
+    }
+  }), _vm._ssrNode(" "), _c('Benefits'), _vm._ssrNode(" "), _c('DeliveryMain'), _vm._ssrNode(" "), _c('Warranty'), _vm._ssrNode(" "), _c('BenefitsTwo'), _vm._ssrNode(" "), _c('Responder'), _vm._ssrNode(" "), _c('LogosClient', {
+    attrs: {
+      "logos": _vm.logos
+    }
+  }), _vm._ssrNode(" "), _c('MainCatalog', {
+    attrs: {
+      "catalogs": _vm.catalogs
+    }
+  })], 2);
+};
+
+var staticRenderFns = [];
+
+// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=b2436caa&
+
+// EXTERNAL MODULE: external "vuex"
+var external_vuex_ = __webpack_require__(7);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=script&lang=js&
+
+/* harmony default export */ var lib_vue_loader_options_pagesvue_type_script_lang_js_ = ({
+  computed: Object(external_vuex_["mapGetters"])({
+    catalogs: "catalogs/getCatalogs",
+    brends: "brends/getBrends",
+    logos: "clients/getLogos"
+  }),
+
+  async fetch({
+    store
+  }) {
+    await store.dispatch("brends/fetch");
+    await store.dispatch("catalogs/fetch", {
+      count: 4
+    });
+    await store.dispatch("clients/fetch");
+  }
+
+});
+// CONCATENATED MODULE: ./pages/index.vue?vue&type=script&lang=js&
+ /* harmony default export */ var pagesvue_type_script_lang_js_ = (lib_vue_loader_options_pagesvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./pages/index.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  pagesvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  "3db259df"
+  
+)
+
+/* harmony default export */ var pages = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {LogoSlider: __webpack_require__(92).default,Benefits: __webpack_require__(96).default,DeliveryMain: __webpack_require__(93).default,Warranty: __webpack_require__(97).default,BenefitsTwo: __webpack_require__(98).default,Responder: __webpack_require__(99).default,LogosClient: __webpack_require__(94).default,MainCatalog: __webpack_require__(95).default})
+
+
+/***/ }),
+
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57,7 +160,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 112:
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -142,7 +245,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 113:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -215,7 +318,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 114:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -259,49 +362,49 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 115:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/icon3.05a2e48.jpg";
 
 /***/ }),
 
-/***/ 116:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/icon2.f2300ce.jpg";
 
 /***/ }),
 
-/***/ 117:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/icon1.8059879.jpg";
 
 /***/ }),
 
-/***/ 118:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fn2.adfd5f7.png";
 
 /***/ }),
 
-/***/ 119:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fone1.9e6117e.png";
 
 /***/ }),
 
-/***/ 120:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/responder.f7b1623.png";
 
 /***/ }),
 
-/***/ 123:
+/***/ 92:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -421,12 +524,12 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var LogoSlider = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {SliderButton: __webpack_require__(111).default})
+installComponents(component, {SliderButton: __webpack_require__(80).default})
 
 
 /***/ }),
 
-/***/ 124:
+/***/ 93:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -511,12 +614,12 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var DeliveryMain = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Title: __webpack_require__(52).default,Tab: __webpack_require__(113).default})
+installComponents(component, {Title: __webpack_require__(34).default,Tab: __webpack_require__(82).default})
 
 
 /***/ }),
 
-/***/ 125:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -647,12 +750,12 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var LogosClient = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Title: __webpack_require__(52).default,SliderButton: __webpack_require__(111).default})
+installComponents(component, {Title: __webpack_require__(34).default,SliderButton: __webpack_require__(80).default})
 
 
 /***/ }),
 
-/***/ 126:
+/***/ 95:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -723,12 +826,12 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var MainCatalog = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Title: __webpack_require__(52).default,CatalogBox: __webpack_require__(112).default})
+installComponents(component, {Title: __webpack_require__(34).default,CatalogBox: __webpack_require__(81).default})
 
 
 /***/ }),
 
-/***/ 127:
+/***/ 96:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -747,7 +850,7 @@ var render = function render() {
       "sub": "Преимущества",
       "title": "Почему выбирают QLC-IT"
     }
-  }), _vm._ssrNode(" <div class=\"benefits-box\"><div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(115)) + "></div> <h2 class=\"benefits-box__title\">Гарантия</h2> <div class=\"benefits-box__txt\">\n          Полноценная гарантия на все поставляемые товары\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(116)) + "></div> <h2 class=\"benefits-box__title\">Точность</h2> <div class=\"benefits-box__txt\">\n          Консультация и индивидуальный подход.\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(117)) + "></div> <h2 class=\"benefits-box__title\">Надёжность</h2> <div class=\"benefits-box__txt\">\n          Проверенный поставщик с опытом порядка 10 лет.\n        </div></div></div>")], 2)]);
+  }), _vm._ssrNode(" <div class=\"benefits-box\"><div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(84)) + "></div> <h2 class=\"benefits-box__title\">Гарантия</h2> <div class=\"benefits-box__txt\">\n          Полноценная гарантия на все поставляемые товары\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(85)) + "></div> <h2 class=\"benefits-box__title\">Точность</h2> <div class=\"benefits-box__txt\">\n          Консультация и индивидуальный подход.\n        </div></div> <div class=\"benefits-box__item\"><div class=\"benefits-box__icon\"><img" + _vm._ssrAttr("src", __webpack_require__(86)) + "></div> <h2 class=\"benefits-box__title\">Надёжность</h2> <div class=\"benefits-box__txt\">\n          Проверенный поставщик с опытом порядка 10 лет.\n        </div></div></div>")], 2)]);
 };
 
 var staticRenderFns = [];
@@ -778,12 +881,12 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Benefits = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Title: __webpack_require__(52).default})
+installComponents(component, {Title: __webpack_require__(34).default})
 
 
 /***/ }),
 
-/***/ 128:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -802,7 +905,7 @@ var render = function render() {
     attrs: {
       "to": "/catalog"
     }
-  }, [_vm._v(" Подробнее ")])], 2), _vm._ssrNode(" <div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(118)) + " alt=\"Мы за честную гарантию\" class=\"img-main\"></div>")], 2)])]);
+  }, [_vm._v(" Подробнее ")])], 2), _vm._ssrNode(" <div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(87)) + " alt=\"Мы за честную гарантию\" class=\"img-main\"></div>")], 2)])]);
 };
 
 var staticRenderFns = [];
@@ -834,7 +937,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 129:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -848,7 +951,7 @@ var render = function render() {
 
   return _c('section', {
     staticClass: "benefits-two"
-  }, [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"half-box\">", "</div>", [_vm._ssrNode("<div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(119)) + " alt=\"Ваши выгоды при работе с нами<\" class=\"img-main\"></div> "), _vm._ssrNode("<div class=\"half-box__item\">", "</div>", [_vm._ssrNode("<h2 class=\"title-small\">Ваши выгоды при работе с нами</h2> <p class=\"benefits-two__txt\">\n          Подбор и покупка ноутбуков оптом, компьютерные рабочие станции,\n          серверы и сетевое оборудование в нашей компании на выгодных\n          условиях.\n        </p> "), _vm._ssrNode("<ul class=\"benefits-two__ul\">", "</ul>", [_c('LiItem', [_vm._v("Большой выбор серверной продукции;")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственная логистика")]), _vm._v(" из Китая, США, Европы;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Партнерство со всеми официальными дистрибьюторами России;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Гибкие цены")]), _vm._v(" в зависимости от необходимых сроков\n            поставки.\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Подбор и настройка")]), _vm._v(" серверного оборудования,\n            комплектующих;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Предложим\n            "), _c('strong', [_vm._v("цену ниже, чем у конкурентов")]), _vm._v(";\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Только оригинальная продукция от ведущих вендоров;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("Бесплатная доставка по Москве.")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственный склад в Москве")])])], 2), _vm._ssrNode(" "), _c('n-link', {
+  }, [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"half-box\">", "</div>", [_vm._ssrNode("<div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(88)) + " alt=\"Ваши выгоды при работе с нами<\" class=\"img-main\"></div> "), _vm._ssrNode("<div class=\"half-box__item\">", "</div>", [_vm._ssrNode("<h2 class=\"title-small\">Ваши выгоды при работе с нами</h2> <p class=\"benefits-two__txt\">\n          Подбор и покупка ноутбуков оптом, компьютерные рабочие станции,\n          серверы и сетевое оборудование в нашей компании на выгодных\n          условиях.\n        </p> "), _vm._ssrNode("<ul class=\"benefits-two__ul\">", "</ul>", [_c('LiItem', [_vm._v("Большой выбор серверной продукции;")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственная логистика")]), _vm._v(" из Китая, США, Европы;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Партнерство со всеми официальными дистрибьюторами России;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Гибкие цены")]), _vm._v(" в зависимости от необходимых сроков\n            поставки.\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Подбор и настройка")]), _vm._v(" серверного оборудования,\n            комплектующих;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Предложим\n            "), _c('strong', [_vm._v("цену ниже, чем у конкурентов")]), _vm._v(";\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Только оригинальная продукция от ведущих вендоров;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("Бесплатная доставка по Москве.")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственный склад в Москве")])])], 2), _vm._ssrNode(" "), _c('n-link', {
     staticClass: "btn btn--primary",
     attrs: {
       "to": "/warranty"
@@ -884,12 +987,12 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var BenefitsTwo = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {LiItem: __webpack_require__(114).default})
+installComponents(component, {LiItem: __webpack_require__(83).default})
 
 
 /***/ }),
 
-/***/ 130:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -903,7 +1006,7 @@ var render = function render() {
 
   return _c('section', {
     staticClass: "responder"
-  }, [_vm._ssrNode("<div class=\"responder__txt\"><strong>Собственная логистика</strong> и большой пул поставщиков из Китая Европы<br>\n    и США позволяют максимально быстро обрабатывать ваши заявки\n  </div> <img" + _vm._ssrAttr("src", __webpack_require__(120)) + " alt class=\"responder__img\">")]);
+  }, [_vm._ssrNode("<div class=\"responder__txt\"><strong>Собственная логистика</strong> и большой пул поставщиков из Китая Европы<br>\n    и США позволяют максимально быстро обрабатывать ваши заявки\n  </div> <img" + _vm._ssrAttr("src", __webpack_require__(89)) + " alt class=\"responder__img\">")]);
 };
 
 var staticRenderFns = [];
@@ -932,115 +1035,6 @@ var component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var Responder = __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ 133:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "img/banner2.c7e1cc4.png";
-
-/***/ }),
-
-/***/ 144:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=a57e9b12&
-var render = function render() {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c('div', [_vm._ssrNode("<div class=\"header-box-relative\">", "</div>", [_vm._ssrNode("<div class=\"head-img container\"><img" + _vm._ssrAttr("src", __webpack_require__(133)) + " alt></div> "), _vm._ssrNode("<div class=\"head-banner\">", "</div>", [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"banner-main-subtitle\">\n          Простые решения для сложных задач\n        </div> <h1 class=\"banner-main-title\">\n          Комплексный поставщик IT оборудования\n        </h1> <div class=\"banner-main-text\">\n          Мы поможем оптимизировать Вашу инфраструктуру, снизить расходы на IT\n          обслуживание и гарантировать бесперебойную работу.\n        </div> "), _vm._ssrNode("<div class=\"btn-group\">", "</div>", [_vm._ssrNode("<div class=\"btn-group__item\">", "</div>", [_c('n-link', {
-    staticClass: "btn btn--primary",
-    attrs: {
-      "to": "/about"
-    }
-  }, [_vm._v("Подробнее")])], 1), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"btn-group__item\">", "</div>", [_c('n-link', {
-    staticClass: "btn btn--border",
-    attrs: {
-      "to": "/catalog"
-    }
-  }, [_vm._v("\n              Каталог\n            ")])], 1)], 2)], 2)])], 2), _vm._ssrNode(" "), _c('LogoSlider', {
-    attrs: {
-      "brends": _vm.brends
-    }
-  }), _vm._ssrNode(" "), _c('Benefits'), _vm._ssrNode(" "), _c('DeliveryMain'), _vm._ssrNode(" "), _c('Warranty'), _vm._ssrNode(" "), _c('BenefitsTwo'), _vm._ssrNode(" "), _c('Responder'), _vm._ssrNode(" "), _c('LogosClient', {
-    attrs: {
-      "logos": _vm.logos
-    }
-  }), _vm._ssrNode(" "), _c('MainCatalog', {
-    attrs: {
-      "catalogs": _vm.catalogs
-    }
-  })], 2);
-};
-
-var staticRenderFns = [];
-
-// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=a57e9b12&
-
-// EXTERNAL MODULE: external "vuex"
-var external_vuex_ = __webpack_require__(9);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=script&lang=js&
-
-/* harmony default export */ var lib_vue_loader_options_pagesvue_type_script_lang_js_ = ({
-  computed: Object(external_vuex_["mapGetters"])({
-    catalogs: "catalogs/getCatalogs",
-    brends: "brends/getBrends",
-    logos: "clients/getLogos"
-  }),
-
-  async fetch({
-    store
-  }) {
-    await store.dispatch("brends/fetch");
-    await store.dispatch("catalogs/fetch", {
-      count: 4
-    });
-    await store.dispatch("clients/fetch");
-  },
-
-  mounted() {
-    this.socket = this.$nuxtSocket({
-      name: 'main'
-    });
-  }
-
-});
-// CONCATENATED MODULE: ./pages/index.vue?vue&type=script&lang=js&
- /* harmony default export */ var pagesvue_type_script_lang_js_ = (lib_vue_loader_options_pagesvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(4);
-
-// CONCATENATED MODULE: ./pages/index.vue
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  pagesvue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  "3db259df"
-  
-)
-
-/* harmony default export */ var pages = __webpack_exports__["default"] = (component.exports);
-
-/* nuxt-component-imports */
-installComponents(component, {LogoSlider: __webpack_require__(123).default,Benefits: __webpack_require__(127).default,DeliveryMain: __webpack_require__(124).default,Warranty: __webpack_require__(128).default,BenefitsTwo: __webpack_require__(129).default,Responder: __webpack_require__(130).default,LogosClient: __webpack_require__(125).default,MainCatalog: __webpack_require__(126).default})
-
 
 /***/ })
 

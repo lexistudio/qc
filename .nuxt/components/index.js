@@ -1,4 +1,3 @@
-export const IoSocketStatus = () => import('../..\\node_modules\\nuxt-socket-io\\lib\\components\\SocketStatus.js' /* webpackChunkName: "components/io-socket-status" */).then(c => wrapFunctional(c.default || c))
 export const Benefits = () => import('../..\\components\\Benefits.vue' /* webpackChunkName: "components/benefits" */).then(c => wrapFunctional(c.default || c))
 export const BenefitsTwo = () => import('../..\\components\\BenefitsTwo.vue' /* webpackChunkName: "components/benefits-two" */).then(c => wrapFunctional(c.default || c))
 export const Bookmark = () => import('../..\\components\\Bookmark.vue' /* webpackChunkName: "components/bookmark" */).then(c => wrapFunctional(c.default || c))

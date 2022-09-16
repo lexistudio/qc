@@ -1,14 +1,14 @@
-exports.ids = [19];
+exports.ids = [18];
 exports.modules = {
 
-/***/ 118:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fn2.adfd5f7.png";
 
 /***/ }),
 
-/***/ 128:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27,7 +27,7 @@ var render = function render() {
     attrs: {
       "to": "/catalog"
     }
-  }, [_vm._v(" Подробнее ")])], 2), _vm._ssrNode(" <div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(118)) + " alt=\"Мы за честную гарантию\" class=\"img-main\"></div>")], 2)])]);
+  }, [_vm._v(" Подробнее ")])], 2), _vm._ssrNode(" <div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(87)) + " alt=\"Мы за честную гарантию\" class=\"img-main\"></div>")], 2)])]);
 };
 
 var staticRenderFns = [];

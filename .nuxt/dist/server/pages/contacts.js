@@ -1,7 +1,7 @@
-exports.ids = [23];
+exports.ids = [22];
 exports.modules = {
 
-/***/ 139:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50,7 +50,7 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./pages/contacts.vue?vue&type=template&id=974a6a24&
 
 // EXTERNAL MODULE: ./mixins/contacts.ts
-var contacts = __webpack_require__(28);
+var contacts = __webpack_require__(19);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/contacts.vue?vue&type=script&lang=js&
 

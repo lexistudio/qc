@@ -1,7 +1,7 @@
-exports.ids = [2,12];
+exports.ids = [2,11];
 exports.modules = {
 
-/***/ 114:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45,14 +45,14 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 119:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fone1.9e6117e.png";
 
 /***/ }),
 
-/***/ 129:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +66,7 @@ var render = function render() {
 
   return _c('section', {
     staticClass: "benefits-two"
-  }, [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"half-box\">", "</div>", [_vm._ssrNode("<div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(119)) + " alt=\"Ваши выгоды при работе с нами<\" class=\"img-main\"></div> "), _vm._ssrNode("<div class=\"half-box__item\">", "</div>", [_vm._ssrNode("<h2 class=\"title-small\">Ваши выгоды при работе с нами</h2> <p class=\"benefits-two__txt\">\n          Подбор и покупка ноутбуков оптом, компьютерные рабочие станции,\n          серверы и сетевое оборудование в нашей компании на выгодных\n          условиях.\n        </p> "), _vm._ssrNode("<ul class=\"benefits-two__ul\">", "</ul>", [_c('LiItem', [_vm._v("Большой выбор серверной продукции;")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственная логистика")]), _vm._v(" из Китая, США, Европы;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Партнерство со всеми официальными дистрибьюторами России;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Гибкие цены")]), _vm._v(" в зависимости от необходимых сроков\n            поставки.\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Подбор и настройка")]), _vm._v(" серверного оборудования,\n            комплектующих;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Предложим\n            "), _c('strong', [_vm._v("цену ниже, чем у конкурентов")]), _vm._v(";\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Только оригинальная продукция от ведущих вендоров;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("Бесплатная доставка по Москве.")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственный склад в Москве")])])], 2), _vm._ssrNode(" "), _c('n-link', {
+  }, [_vm._ssrNode("<div class=\"container\">", "</div>", [_vm._ssrNode("<div class=\"half-box\">", "</div>", [_vm._ssrNode("<div class=\"half-box__item flex flex-align-items\"><img" + _vm._ssrAttr("src", __webpack_require__(88)) + " alt=\"Ваши выгоды при работе с нами<\" class=\"img-main\"></div> "), _vm._ssrNode("<div class=\"half-box__item\">", "</div>", [_vm._ssrNode("<h2 class=\"title-small\">Ваши выгоды при работе с нами</h2> <p class=\"benefits-two__txt\">\n          Подбор и покупка ноутбуков оптом, компьютерные рабочие станции,\n          серверы и сетевое оборудование в нашей компании на выгодных\n          условиях.\n        </p> "), _vm._ssrNode("<ul class=\"benefits-two__ul\">", "</ul>", [_c('LiItem', [_vm._v("Большой выбор серверной продукции;")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственная логистика")]), _vm._v(" из Китая, США, Европы;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Партнерство со всеми официальными дистрибьюторами России;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Гибкие цены")]), _vm._v(" в зависимости от необходимых сроков\n            поставки.\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Подбор и настройка")]), _vm._v(" серверного оборудования,\n            комплектующих;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Предложим\n            "), _c('strong', [_vm._v("цену ниже, чем у конкурентов")]), _vm._v(";\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("\n            Только оригинальная продукция от ведущих вендоров;\n          ")]), _vm._ssrNode(" "), _c('LiItem', [_vm._v("Бесплатная доставка по Москве.")]), _vm._ssrNode(" "), _c('LiItem', [_c('strong', [_vm._v("Собственный склад в Москве")])])], 2), _vm._ssrNode(" "), _c('n-link', {
     staticClass: "btn btn--primary",
     attrs: {
       "to": "/warranty"
@@ -102,7 +102,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var BenefitsTwo = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {LiItem: __webpack_require__(114).default})
+installComponents(component, {LiItem: __webpack_require__(83).default})
 
 
 /***/ })

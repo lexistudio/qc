@@ -1,7 +1,118 @@
-exports.ids = [22,4,10];
+exports.ids = [21,4,10];
 exports.modules = {
 
-/***/ 112:
+/***/ 104:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/index.vue?vue&type=template&id=105968fa&
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c('div', {
+    staticClass: "container"
+  }, [_vm._ssrNode("<div class=\"title-work-head\"><h1 class=\"title-work\">\n      Каталог\n    </h1></div> <form class=\"search\"><input type=\"text\" placeholder=\"Поиск по парт номерам\" required=\"required\"" + _vm._ssrAttr("value", _vm.search) + " class=\"form-fields\"> <button class=\"search-btn\"><i class=\"fas fa-search\"></i></button></form> "), _c('Filters', {
+    attrs: {
+      "categories": _vm.categories
+    },
+    on: {
+      "resetSearch": _vm.resetSearch
+    }
+  }), _vm._ssrNode(" "), _vm.catalogs.length ? _c('CatalogBox', {
+    attrs: {
+      "classes": "catalog--work",
+      "catalogs": _vm.catalogs
+    }
+  }) : _c('div', [_c('div', {
+    staticClass: "content"
+  }, [_c('p', [_vm._v("Нет записей...")])])]), _vm._ssrNode(" " + (_vm.preloader ? "<div class=\"preloader\"></div>" : "<!---->") + " " + (_vm.count < _vm.counts && _vm.isPreloaderBtn ? "<div class=\"preloader-btn\">\n    Показать еще\n  </div>" : "<!---->"))], 2);
+};
+
+var staticRenderFns = [];
+
+// CONCATENATED MODULE: ./pages/catalog/index.vue?vue&type=template&id=105968fa&
+
+// EXTERNAL MODULE: external "vuex"
+var external_vuex_ = __webpack_require__(7);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/index.vue?vue&type=script&lang=js&
+
+/* harmony default export */ var catalogvue_type_script_lang_js_ = ({
+  head: {
+    title: "Каталог"
+  },
+  data: () => ({
+    search: "",
+    isPreloaderBtn: true
+  }),
+  computed: Object(external_vuex_["mapGetters"])({
+    catalogs: "catalogs/getCatalogs",
+    categories: "catalogs/getCategories",
+    preloader: "catalogs/getPreloader",
+    count: "catalogs/getCount",
+    counts: "catalogs/getCounts"
+  }),
+  methods: { ...Object(external_vuex_["mapActions"])({
+      searchCatalogs: "catalogs/searchCatalogs",
+      pageCatalog: "catalogs/pageCatalog"
+    }),
+
+    resetSearch() {
+      this.search = "", this.isPreloaderBtn = false;
+    }
+
+  },
+
+  async fetch({
+    store
+  }) {
+    await new Promise(resolve => setTimeout(() => resolve(), 500));
+    await store.dispatch("catalogs/fetch", {
+      count: 8
+    });
+    await store.dispatch("catalogs/categories");
+    await store.dispatch("catalogs/counts");
+    await store.dispatch("catalogs/resetCount");
+  }
+
+});
+// CONCATENATED MODULE: ./pages/catalog/index.vue?vue&type=script&lang=js&
+ /* harmony default export */ var pages_catalogvue_type_script_lang_js_ = (catalogvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./pages/catalog/index.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  pages_catalogvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  "c418de48"
+  
+)
+
+/* harmony default export */ var catalog = __webpack_exports__["default"] = (component.exports);
+
+/* nuxt-component-imports */
+installComponents(component, {Filters: __webpack_require__(90).default,CatalogBox: __webpack_require__(81).default})
+
+
+/***/ }),
+
+/***/ 81:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -86,7 +197,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 121:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,7 +227,7 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./components/Filters.vue?vue&type=template&id=054c817f&
 
 // EXTERNAL MODULE: external "vuex"
-var external_vuex_ = __webpack_require__(9);
+var external_vuex_ = __webpack_require__(7);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Filters.vue?vue&type=script&lang=js&
 
@@ -160,117 +271,6 @@ var component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var Filters = __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ 138:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/index.vue?vue&type=template&id=105968fa&
-var render = function render() {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c('div', {
-    staticClass: "container"
-  }, [_vm._ssrNode("<div class=\"title-work-head\"><h1 class=\"title-work\">\n      Каталог\n    </h1></div> <form class=\"search\"><input type=\"text\" placeholder=\"Поиск по парт номерам\" required=\"required\"" + _vm._ssrAttr("value", _vm.search) + " class=\"form-fields\"> <button class=\"search-btn\"><i class=\"fas fa-search\"></i></button></form> "), _c('Filters', {
-    attrs: {
-      "categories": _vm.categories
-    },
-    on: {
-      "resetSearch": _vm.resetSearch
-    }
-  }), _vm._ssrNode(" "), _vm.catalogs.length ? _c('CatalogBox', {
-    attrs: {
-      "classes": "catalog--work",
-      "catalogs": _vm.catalogs
-    }
-  }) : _c('div', [_c('div', {
-    staticClass: "content"
-  }, [_c('p', [_vm._v("Нет записей...")])])]), _vm._ssrNode(" " + (_vm.preloader ? "<div class=\"preloader\"></div>" : "<!---->") + " " + (_vm.count < _vm.counts && _vm.isPreloaderBtn ? "<div class=\"preloader-btn\">\n    Показать еще\n  </div>" : "<!---->"))], 2);
-};
-
-var staticRenderFns = [];
-
-// CONCATENATED MODULE: ./pages/catalog/index.vue?vue&type=template&id=105968fa&
-
-// EXTERNAL MODULE: external "vuex"
-var external_vuex_ = __webpack_require__(9);
-
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/catalog/index.vue?vue&type=script&lang=js&
-
-/* harmony default export */ var catalogvue_type_script_lang_js_ = ({
-  head: {
-    title: "Каталог"
-  },
-  data: () => ({
-    search: "",
-    isPreloaderBtn: true
-  }),
-  computed: Object(external_vuex_["mapGetters"])({
-    catalogs: "catalogs/getCatalogs",
-    categories: "catalogs/getCategories",
-    preloader: "catalogs/getPreloader",
-    count: "catalogs/getCount",
-    counts: "catalogs/getCounts"
-  }),
-  methods: { ...Object(external_vuex_["mapActions"])({
-      searchCatalogs: "catalogs/searchCatalogs",
-      pageCatalog: "catalogs/pageCatalog"
-    }),
-
-    resetSearch() {
-      this.search = "", this.isPreloaderBtn = false;
-    }
-
-  },
-
-  async fetch({
-    store
-  }) {
-    await new Promise(resolve => setTimeout(() => resolve(), 500));
-    await store.dispatch("catalogs/fetch", {
-      count: 8
-    });
-    await store.dispatch("catalogs/categories");
-    await store.dispatch("catalogs/counts");
-    await store.dispatch("catalogs/resetCount");
-  }
-
-});
-// CONCATENATED MODULE: ./pages/catalog/index.vue?vue&type=script&lang=js&
- /* harmony default export */ var pages_catalogvue_type_script_lang_js_ = (catalogvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(4);
-
-// CONCATENATED MODULE: ./pages/catalog/index.vue
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  pages_catalogvue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  "c418de48"
-  
-)
-
-/* harmony default export */ var catalog = __webpack_exports__["default"] = (component.exports);
-
-/* nuxt-component-imports */
-installComponents(component, {Filters: __webpack_require__(121).default,CatalogBox: __webpack_require__(112).default})
-
 
 /***/ })
 

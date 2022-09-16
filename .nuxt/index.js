@@ -19,7 +19,6 @@ import nuxt_plugin_cookieuniversalnuxt_5ad35a37 from 'nuxt_plugin_cookieuniversa
 import nuxt_plugin_httpserver_87c5f388 from 'nuxt_plugin_httpserver_87c5f388' // Source: .\\http.server.js (mode: 'server')
 import nuxt_plugin_http_03268be1 from 'nuxt_plugin_http_03268be1' // Source: .\\http.js (mode: 'all')
 import nuxt_plugin_strapi_9a414c00 from 'nuxt_plugin_strapi_9a414c00' // Source: .\\strapi.js (mode: 'all')
-import nuxt_plugin_nuxtsocketio_45405fb3 from 'nuxt_plugin_nuxtsocketio_45405fb3' // Source: .\\nuxt-socket-io.js (mode: 'all')
 import nuxt_plugin_VueAwesomeSwiper_72dcfce2 from 'nuxt_plugin_VueAwesomeSwiper_72dcfce2' // Source: ..\\plugins\\VueAwesomeSwiper.ts (mode: 'all')
 import nuxt_plugin_mask_18e26f55 from 'nuxt_plugin_mask_18e26f55' // Source: ..\\plugins\\mask.js (mode: 'all')
 import nuxt_plugin_maps_18bbcbca from 'nuxt_plugin_maps_18bbcbca' // Source: ..\\plugins\\maps.js (mode: 'client')
@@ -247,10 +246,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_strapi_9a414c00 === 'function') {
     await nuxt_plugin_strapi_9a414c00(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_nuxtsocketio_45405fb3 === 'function') {
-    await nuxt_plugin_nuxtsocketio_45405fb3(app.context, inject)
   }
 
   if (typeof nuxt_plugin_VueAwesomeSwiper_72dcfce2 === 'function') {

@@ -1,14 +1,14 @@
-exports.ids = [16];
+exports.ids = [15];
 exports.modules = {
 
-/***/ 120:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/responder.f7b1623.png";
 
 /***/ }),
 
-/***/ 130:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,7 +22,7 @@ var render = function render() {
 
   return _c('section', {
     staticClass: "responder"
-  }, [_vm._ssrNode("<div class=\"responder__txt\"><strong>Собственная логистика</strong> и большой пул поставщиков из Китая Европы<br>\n    и США позволяют максимально быстро обрабатывать ваши заявки\n  </div> <img" + _vm._ssrAttr("src", __webpack_require__(120)) + " alt class=\"responder__img\">")]);
+  }, [_vm._ssrNode("<div class=\"responder__txt\"><strong>Собственная логистика</strong> и большой пул поставщиков из Китая Европы<br>\n    и США позволяют максимально быстро обрабатывать ваши заявки\n  </div> <img" + _vm._ssrAttr("src", __webpack_require__(89)) + " alt class=\"responder__img\">")]);
 };
 
 var staticRenderFns = [];

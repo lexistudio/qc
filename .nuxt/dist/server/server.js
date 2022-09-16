@@ -43,7 +43,7 @@ module.exports =
 /******/
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("./" + ({"1":"components/benefits","2":"components/benefits-two","3":"components/bookmark","4":"components/catalog-box","5":"components/catalog-modal","6":"components/chat","7":"components/contacts-from-order","8":"components/contacts-main","9":"components/delivery-main","10":"components/filters","11":"components/io-socket-status","12":"components/li-item","13":"components/logo-slider","14":"components/logos-client","15":"components/main-catalog","16":"components/responder","17":"components/slider-button","18":"components/tab","19":"components/warranty","20":"pages/about","21":"pages/catalog/_id","22":"pages/catalog/index","23":"pages/contacts","24":"pages/index","25":"pages/info","26":"pages/recommended","27":"pages/request","28":"pages/warranty"}[chunkId]||chunkId) + ".js");
+/******/ 			var chunk = require("./" + ({"1":"components/benefits","2":"components/benefits-two","3":"components/bookmark","4":"components/catalog-box","5":"components/catalog-modal","6":"components/chat","7":"components/contacts-from-order","8":"components/contacts-main","9":"components/delivery-main","10":"components/filters","11":"components/li-item","12":"components/logo-slider","13":"components/logos-client","14":"components/main-catalog","15":"components/responder","16":"components/slider-button","17":"components/tab","18":"components/warranty","19":"pages/about","20":"pages/catalog/_id","21":"pages/catalog/index","22":"pages/contacts","23":"pages/index","24":"pages/info","25":"pages/recommended","26":"pages/request","27":"pages/warranty"}[chunkId]||chunkId) + ".js");
 /******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
 /******/ 			for(var moduleId in moreModules) {
 /******/ 				modules[moduleId] = moreModules[moduleId];
@@ -115,7 +115,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 55);
+/******/ 	return __webpack_require__(__webpack_require__.s = 37);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -910,99 +910,22 @@ exports.withoutBase = withoutBase;
 exports.withoutLeadingSlash = withoutLeadingSlash;
 exports.withoutTrailingSlash = withoutTrailingSlash;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)["URLSearchParams"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)["URLSearchParams"]))
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("debug");
+module.exports = require("node-fetch");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("node-fetch");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("@socket.io/component-emitter");
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
 module.exports = require("vuex");
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.byteLength = exports.installTimerFunctions = exports.pick = void 0;
-const globalThis_js_1 = __webpack_require__(33);
-function pick(obj, ...attr) {
-    return attr.reduce((acc, k) => {
-        if (obj.hasOwnProperty(k)) {
-            acc[k] = obj[k];
-        }
-        return acc;
-    }, {});
-}
-exports.pick = pick;
-// Keep a reference to the real timeout functions so they can be used when overridden
-const NATIVE_SET_TIMEOUT = setTimeout;
-const NATIVE_CLEAR_TIMEOUT = clearTimeout;
-function installTimerFunctions(obj, opts) {
-    if (opts.useNativeTimers) {
-        obj.setTimeoutFn = NATIVE_SET_TIMEOUT.bind(globalThis_js_1.globalThisShim);
-        obj.clearTimeoutFn = NATIVE_CLEAR_TIMEOUT.bind(globalThis_js_1.globalThisShim);
-    }
-    else {
-        obj.setTimeoutFn = setTimeout.bind(globalThis_js_1.globalThisShim);
-        obj.clearTimeoutFn = clearTimeout.bind(globalThis_js_1.globalThisShim);
-    }
-}
-exports.installTimerFunctions = installTimerFunctions;
-// base64 encoded buffers are about 33% bigger (https://en.wikipedia.org/wiki/Base64)
-const BASE64_OVERHEAD = 1.33;
-// we could also have used `new Blob([obj]).size`, but it isn't supported in IE9
-function byteLength(obj) {
-    if (typeof obj === "string") {
-        return utf8Length(obj);
-    }
-    // arraybuffer or blob
-    return Math.ceil((obj.byteLength || obj.size) * BASE64_OVERHEAD);
-}
-exports.byteLength = byteLength;
-function utf8Length(str) {
-    let c = 0, length = 0;
-    for (let i = 0, l = str.length; i < l; i++) {
-        c = str.charCodeAt(i);
-        if (c < 0x80) {
-            length += 1;
-        }
-        else if (c < 0x800) {
-            length += 2;
-        }
-        else if (c < 0xd800 || c >= 0xe000) {
-            length += 3;
-        }
-        else {
-            i++;
-            length += 4;
-        }
-    }
-    return length;
-}
-
-
-/***/ }),
-/* 11 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1057,64 +980,13 @@ module.exports = destr;
 
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("tiny-emitter/instance.js");
-
-/***/ }),
-/* 13 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.decodePayload = exports.decodePacket = exports.encodePayload = exports.encodePacket = exports.protocol = void 0;
-const encodePacket_js_1 = __webpack_require__(98);
-exports.encodePacket = encodePacket_js_1.default;
-const decodePacket_js_1 = __webpack_require__(99);
-exports.decodePacket = decodePacket_js_1.default;
-const SEPARATOR = String.fromCharCode(30); // see https://en.wikipedia.org/wiki/Delimiter#ASCII_delimited_text
-const encodePayload = (packets, callback) => {
-    // some packets may be added to the array while encoding, so the initial length must be saved
-    const length = packets.length;
-    const encodedPackets = new Array(length);
-    let count = 0;
-    packets.forEach((packet, i) => {
-        // force base64 encoding for binary packets
-        (0, encodePacket_js_1.default)(packet, false, encodedPacket => {
-            encodedPackets[i] = encodedPacket;
-            if (++count === length) {
-                callback(encodedPackets.join(SEPARATOR));
-            }
-        });
-    });
-};
-exports.encodePayload = encodePayload;
-const decodePayload = (encodedPayload, binaryType) => {
-    const encodedPackets = encodedPayload.split(SEPARATOR);
-    const packets = [];
-    for (let i = 0; i < encodedPackets.length; i++) {
-        const decodedPacket = (0, decodePacket_js_1.default)(encodedPackets[i], binaryType);
-        packets.push(decodedPacket);
-        if (decodedPacket.type === "error") {
-            break;
-        }
-    }
-    return packets;
-};
-exports.decodePayload = decodePayload;
-exports.protocol = 4;
-
-
-/***/ }),
-/* 15 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1152,13 +1024,13 @@ exports.protocol = 4;
 });
 
 /***/ }),
-/* 16 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-no-ssr");
 
 /***/ }),
-/* 17 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1258,7 +1130,7 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 18 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1381,602 +1253,42 @@ function renderStyles (styles) {
 
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Transport = void 0;
-const engine_io_parser_1 = __webpack_require__(14);
-const component_emitter_1 = __webpack_require__(8);
-const util_js_1 = __webpack_require__(10);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const debug = (0, debug_1.default)("engine.io-client:transport"); // debug()
-class TransportError extends Error {
-    constructor(reason, description, context) {
-        super(reason);
-        this.description = description;
-        this.context = context;
-        this.type = "TransportError";
-    }
-}
-class Transport extends component_emitter_1.Emitter {
-    /**
-     * Transport abstract constructor.
-     *
-     * @param {Object} options.
-     * @api private
-     */
-    constructor(opts) {
-        super();
-        this.writable = false;
-        (0, util_js_1.installTimerFunctions)(this, opts);
-        this.opts = opts;
-        this.query = opts.query;
-        this.readyState = "";
-        this.socket = opts.socket;
-    }
-    /**
-     * Emits an error.
-     *
-     * @param {String} reason
-     * @param description
-     * @param context - the error context
-     * @return {Transport} for chaining
-     * @api protected
-     */
-    onError(reason, description, context) {
-        super.emitReserved("error", new TransportError(reason, description, context));
-        return this;
-    }
-    /**
-     * Opens the transport.
-     *
-     * @api public
-     */
-    open() {
-        if ("closed" === this.readyState || "" === this.readyState) {
-            this.readyState = "opening";
-            this.doOpen();
-        }
-        return this;
-    }
-    /**
-     * Closes the transport.
-     *
-     * @api public
-     */
-    close() {
-        if ("opening" === this.readyState || "open" === this.readyState) {
-            this.doClose();
-            this.onClose();
-        }
-        return this;
-    }
-    /**
-     * Sends multiple packets.
-     *
-     * @param {Array} packets
-     * @api public
-     */
-    send(packets) {
-        if ("open" === this.readyState) {
-            this.write(packets);
-        }
-        else {
-            // this might happen if the transport was silently closed in the beforeunload event handler
-            debug("transport is not open, discarding packets");
-        }
-    }
-    /**
-     * Called upon open
-     *
-     * @api protected
-     */
-    onOpen() {
-        this.readyState = "open";
-        this.writable = true;
-        super.emitReserved("open");
-    }
-    /**
-     * Called with data.
-     *
-     * @param {String} data
-     * @api protected
-     */
-    onData(data) {
-        const packet = (0, engine_io_parser_1.decodePacket)(data, this.socket.binaryType);
-        this.onPacket(packet);
-    }
-    /**
-     * Called with a decoded packet.
-     *
-     * @api protected
-     */
-    onPacket(packet) {
-        super.emitReserved("packet", packet);
-    }
-    /**
-     * Called upon close.
-     *
-     * @api protected
-     */
-    onClose(details) {
-        this.readyState = "closed";
-        super.emitReserved("close", details);
-    }
-}
-exports.Transport = Transport;
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// imported from https://github.com/galkn/querystring
-/**
- * Compiles a querystring
- * Returns string representation of the object
- *
- * @param {Object}
- * @api private
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.decode = exports.encode = void 0;
-function encode(obj) {
-    let str = '';
-    for (let i in obj) {
-        if (obj.hasOwnProperty(i)) {
-            if (str.length)
-                str += '&';
-            str += encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]);
-        }
-    }
-    return str;
-}
-exports.encode = encode;
-/**
- * Parses a simple querystring into an object
- *
- * @param {String} qs
- * @api private
- */
-function decode(qs) {
-    let qry = {};
-    let pairs = qs.split('&');
-    for (let i = 0, l = pairs.length; i < l; i++) {
-        let pair = pairs[i].split('=');
-        qry[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-    }
-    return qry;
-}
-exports.decode = decode;
-
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Decoder = exports.Encoder = exports.PacketType = exports.protocol = void 0;
-const component_emitter_1 = __webpack_require__(8);
-const binary_js_1 = __webpack_require__(106);
-const is_binary_js_1 = __webpack_require__(37);
-const debug_1 = __webpack_require__(6); // debug()
-const debug = debug_1.default("socket.io-parser"); // debug()
-/**
- * Protocol version.
- *
- * @public
- */
-exports.protocol = 5;
-var PacketType;
-(function (PacketType) {
-    PacketType[PacketType["CONNECT"] = 0] = "CONNECT";
-    PacketType[PacketType["DISCONNECT"] = 1] = "DISCONNECT";
-    PacketType[PacketType["EVENT"] = 2] = "EVENT";
-    PacketType[PacketType["ACK"] = 3] = "ACK";
-    PacketType[PacketType["CONNECT_ERROR"] = 4] = "CONNECT_ERROR";
-    PacketType[PacketType["BINARY_EVENT"] = 5] = "BINARY_EVENT";
-    PacketType[PacketType["BINARY_ACK"] = 6] = "BINARY_ACK";
-})(PacketType = exports.PacketType || (exports.PacketType = {}));
-/**
- * A socket.io Encoder instance
- */
-class Encoder {
-    /**
-     * Encoder constructor
-     *
-     * @param {function} replacer - custom replacer to pass down to JSON.parse
-     */
-    constructor(replacer) {
-        this.replacer = replacer;
-    }
-    /**
-     * Encode a packet as a single string if non-binary, or as a
-     * buffer sequence, depending on packet type.
-     *
-     * @param {Object} obj - packet object
-     */
-    encode(obj) {
-        debug("encoding packet %j", obj);
-        if (obj.type === PacketType.EVENT || obj.type === PacketType.ACK) {
-            if (is_binary_js_1.hasBinary(obj)) {
-                obj.type =
-                    obj.type === PacketType.EVENT
-                        ? PacketType.BINARY_EVENT
-                        : PacketType.BINARY_ACK;
-                return this.encodeAsBinary(obj);
-            }
-        }
-        return [this.encodeAsString(obj)];
-    }
-    /**
-     * Encode packet as string.
-     */
-    encodeAsString(obj) {
-        // first is type
-        let str = "" + obj.type;
-        // attachments if we have them
-        if (obj.type === PacketType.BINARY_EVENT ||
-            obj.type === PacketType.BINARY_ACK) {
-            str += obj.attachments + "-";
-        }
-        // if we have a namespace other than `/`
-        // we append it followed by a comma `,`
-        if (obj.nsp && "/" !== obj.nsp) {
-            str += obj.nsp + ",";
-        }
-        // immediately followed by the id
-        if (null != obj.id) {
-            str += obj.id;
-        }
-        // json data
-        if (null != obj.data) {
-            str += JSON.stringify(obj.data, this.replacer);
-        }
-        debug("encoded %j as %s", obj, str);
-        return str;
-    }
-    /**
-     * Encode packet as 'buffer sequence' by removing blobs, and
-     * deconstructing packet into object with placeholders and
-     * a list of buffers.
-     */
-    encodeAsBinary(obj) {
-        const deconstruction = binary_js_1.deconstructPacket(obj);
-        const pack = this.encodeAsString(deconstruction.packet);
-        const buffers = deconstruction.buffers;
-        buffers.unshift(pack); // add packet info to beginning of data list
-        return buffers; // write all the buffers
-    }
-}
-exports.Encoder = Encoder;
-/**
- * A socket.io Decoder instance
- *
- * @return {Object} decoder
- */
-class Decoder extends component_emitter_1.Emitter {
-    /**
-     * Decoder constructor
-     *
-     * @param {function} reviver - custom reviver to pass down to JSON.stringify
-     */
-    constructor(reviver) {
-        super();
-        this.reviver = reviver;
-    }
-    /**
-     * Decodes an encoded packet string into packet JSON.
-     *
-     * @param {String} obj - encoded packet
-     */
-    add(obj) {
-        let packet;
-        if (typeof obj === "string") {
-            if (this.reconstructor) {
-                throw new Error("got plaintext data when reconstructing a packet");
-            }
-            packet = this.decodeString(obj);
-            if (packet.type === PacketType.BINARY_EVENT ||
-                packet.type === PacketType.BINARY_ACK) {
-                // binary packet's json
-                this.reconstructor = new BinaryReconstructor(packet);
-                // no attachments, labeled binary but no binary data to follow
-                if (packet.attachments === 0) {
-                    super.emitReserved("decoded", packet);
-                }
-            }
-            else {
-                // non-binary full packet
-                super.emitReserved("decoded", packet);
-            }
-        }
-        else if (is_binary_js_1.isBinary(obj) || obj.base64) {
-            // raw binary data
-            if (!this.reconstructor) {
-                throw new Error("got binary data when not reconstructing a packet");
-            }
-            else {
-                packet = this.reconstructor.takeBinaryData(obj);
-                if (packet) {
-                    // received final buffer
-                    this.reconstructor = null;
-                    super.emitReserved("decoded", packet);
-                }
-            }
-        }
-        else {
-            throw new Error("Unknown type: " + obj);
-        }
-    }
-    /**
-     * Decode a packet String (JSON data)
-     *
-     * @param {String} str
-     * @return {Object} packet
-     */
-    decodeString(str) {
-        let i = 0;
-        // look up type
-        const p = {
-            type: Number(str.charAt(0)),
-        };
-        if (PacketType[p.type] === undefined) {
-            throw new Error("unknown packet type " + p.type);
-        }
-        // look up attachments if type binary
-        if (p.type === PacketType.BINARY_EVENT ||
-            p.type === PacketType.BINARY_ACK) {
-            const start = i + 1;
-            while (str.charAt(++i) !== "-" && i != str.length) { }
-            const buf = str.substring(start, i);
-            if (buf != Number(buf) || str.charAt(i) !== "-") {
-                throw new Error("Illegal attachments");
-            }
-            p.attachments = Number(buf);
-        }
-        // look up namespace (if any)
-        if ("/" === str.charAt(i + 1)) {
-            const start = i + 1;
-            while (++i) {
-                const c = str.charAt(i);
-                if ("," === c)
-                    break;
-                if (i === str.length)
-                    break;
-            }
-            p.nsp = str.substring(start, i);
-        }
-        else {
-            p.nsp = "/";
-        }
-        // look up id
-        const next = str.charAt(i + 1);
-        if ("" !== next && Number(next) == next) {
-            const start = i + 1;
-            while (++i) {
-                const c = str.charAt(i);
-                if (null == c || Number(c) != c) {
-                    --i;
-                    break;
-                }
-                if (i === str.length)
-                    break;
-            }
-            p.id = Number(str.substring(start, i + 1));
-        }
-        // look up json data
-        if (str.charAt(++i)) {
-            const payload = this.tryParse(str.substr(i));
-            if (Decoder.isPayloadValid(p.type, payload)) {
-                p.data = payload;
-            }
-            else {
-                throw new Error("invalid payload");
-            }
-        }
-        debug("decoded %s as %j", str, p);
-        return p;
-    }
-    tryParse(str) {
-        try {
-            return JSON.parse(str, this.reviver);
-        }
-        catch (e) {
-            return false;
-        }
-    }
-    static isPayloadValid(type, payload) {
-        switch (type) {
-            case PacketType.CONNECT:
-                return typeof payload === "object";
-            case PacketType.DISCONNECT:
-                return payload === undefined;
-            case PacketType.CONNECT_ERROR:
-                return typeof payload === "string" || typeof payload === "object";
-            case PacketType.EVENT:
-            case PacketType.BINARY_EVENT:
-                return Array.isArray(payload) && payload.length > 0;
-            case PacketType.ACK:
-            case PacketType.BINARY_ACK:
-                return Array.isArray(payload);
-        }
-    }
-    /**
-     * Deallocates a parser's resources
-     */
-    destroy() {
-        if (this.reconstructor) {
-            this.reconstructor.finishedReconstruction();
-        }
-    }
-}
-exports.Decoder = Decoder;
-/**
- * A manager of a binary event's 'buffer sequence'. Should
- * be constructed whenever a packet of type BINARY_EVENT is
- * decoded.
- *
- * @param {Object} packet
- * @return {BinaryReconstructor} initialized reconstructor
- */
-class BinaryReconstructor {
-    constructor(packet) {
-        this.packet = packet;
-        this.buffers = [];
-        this.reconPack = packet;
-    }
-    /**
-     * Method to be called when binary data received from connection
-     * after a BINARY_EVENT packet.
-     *
-     * @param {Buffer | ArrayBuffer} binData - the raw binary data received
-     * @return {null | Object} returns null if more binary data is expected or
-     *   a reconstructed packet object if all buffers have been received.
-     */
-    takeBinaryData(binData) {
-        this.buffers.push(binData);
-        if (this.buffers.length === this.reconPack.attachments) {
-            // done with buffer list
-            const packet = binary_js_1.reconstructPacket(this.reconPack, this.buffers);
-            this.finishedReconstruction();
-            return packet;
-        }
-        return null;
-    }
-    /**
-     * Cleans up binary packet reconstruction variables.
-     */
-    finishedReconstruction() {
-        this.reconPack = null;
-        this.buffers = [];
-    }
-}
-
-
-/***/ }),
-/* 22 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-client-only");
 
 /***/ }),
-/* 23 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-router");
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = exports.connect = exports.io = exports.Socket = exports.Manager = exports.protocol = void 0;
-const url_js_1 = __webpack_require__(95);
-const manager_js_1 = __webpack_require__(105);
-Object.defineProperty(exports, "Manager", { enumerable: true, get: function () { return manager_js_1.Manager; } });
-const socket_js_1 = __webpack_require__(36);
-Object.defineProperty(exports, "Socket", { enumerable: true, get: function () { return socket_js_1.Socket; } });
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const debug = debug_1.default("socket.io-client"); // debug()
-/**
- * Managers cache.
- */
-const cache = {};
-function lookup(uri, opts) {
-    if (typeof uri === "object") {
-        opts = uri;
-        uri = undefined;
-    }
-    opts = opts || {};
-    const parsed = url_js_1.url(uri, opts.path || "/socket.io");
-    const source = parsed.source;
-    const id = parsed.id;
-    const path = parsed.path;
-    const sameNamespace = cache[id] && path in cache[id]["nsps"];
-    const newConnection = opts.forceNew ||
-        opts["force new connection"] ||
-        false === opts.multiplex ||
-        sameNamespace;
-    let io;
-    if (newConnection) {
-        debug("ignoring socket cache for %s", source);
-        io = new manager_js_1.Manager(source, opts);
-    }
-    else {
-        if (!cache[id]) {
-            debug("new io instance for %s", source);
-            cache[id] = new manager_js_1.Manager(source, opts);
-        }
-        io = cache[id];
-    }
-    if (parsed.query && !opts.query) {
-        opts.query = parsed.queryKey;
-    }
-    return io.socket(parsed.path, opts);
-}
-exports.io = lookup;
-exports.connect = lookup;
-exports.default = lookup;
-// so that "lookup" can be used both as a function (e.g. `io(...)`) and as a
-// namespace (e.g. `io.connect(...)`), for backward compatibility
-Object.assign(lookup, {
-    Manager: manager_js_1.Manager,
-    Socket: socket_js_1.Socket,
-    io: lookup,
-    connect: lookup,
-});
-/**
- * Protocol version.
- *
- * @public
- */
-var socket_io_parser_1 = __webpack_require__(21);
-Object.defineProperty(exports, "protocol", { enumerable: true, get: function () { return socket_io_parser_1.protocol; } });
-
-module.exports = lookup;
-
-
-/***/ }),
-/* 25 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-dadata");
 
 /***/ }),
-/* 26 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(58);
+var content = __webpack_require__(40);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
-var add = __webpack_require__(18).default
+var add = __webpack_require__(13).default
 module.exports.__inject__ = function (context) {
   add("469ec26d", content, true, context)
 };
 
 /***/ }),
-/* 27 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2016,7 +1328,7 @@ module.exports = function (url, options) {
 };
 
 /***/ }),
-/* 28 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2057,911 +1369,13 @@ module.exports = function (url, options) {
 });
 
 /***/ }),
-/* 29 */
+/* 20 */
 /***/ (function(module, exports) {
 
 // This file is intentionally left empty for noop aliases
 
 /***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parse = exports.installTimerFunctions = exports.transports = exports.Transport = exports.protocol = exports.Socket = void 0;
-const socket_js_1 = __webpack_require__(96);
-Object.defineProperty(exports, "Socket", { enumerable: true, get: function () { return socket_js_1.Socket; } });
-exports.protocol = socket_js_1.Socket.protocol;
-var transport_js_1 = __webpack_require__(19);
-Object.defineProperty(exports, "Transport", { enumerable: true, get: function () { return transport_js_1.Transport; } });
-var index_js_1 = __webpack_require__(31);
-Object.defineProperty(exports, "transports", { enumerable: true, get: function () { return index_js_1.transports; } });
-var util_js_1 = __webpack_require__(10);
-Object.defineProperty(exports, "installTimerFunctions", { enumerable: true, get: function () { return util_js_1.installTimerFunctions; } });
-var parseuri_js_1 = __webpack_require__(35);
-Object.defineProperty(exports, "parse", { enumerable: true, get: function () { return parseuri_js_1.parse; } });
-
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.transports = void 0;
-const polling_js_1 = __webpack_require__(97);
-const websocket_js_1 = __webpack_require__(102);
-exports.transports = {
-    websocket: websocket_js_1.WS,
-    polling: polling_js_1.Polling
-};
-
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ERROR_PACKET = exports.PACKET_TYPES_REVERSE = exports.PACKET_TYPES = void 0;
-const PACKET_TYPES = Object.create(null); // no Map = no polyfill
-exports.PACKET_TYPES = PACKET_TYPES;
-PACKET_TYPES["open"] = "0";
-PACKET_TYPES["close"] = "1";
-PACKET_TYPES["ping"] = "2";
-PACKET_TYPES["pong"] = "3";
-PACKET_TYPES["message"] = "4";
-PACKET_TYPES["upgrade"] = "5";
-PACKET_TYPES["noop"] = "6";
-const PACKET_TYPES_REVERSE = Object.create(null);
-exports.PACKET_TYPES_REVERSE = PACKET_TYPES_REVERSE;
-Object.keys(PACKET_TYPES).forEach(key => {
-    PACKET_TYPES_REVERSE[PACKET_TYPES[key]] = key;
-});
-const ERROR_PACKET = { type: "error", data: "parser error" };
-exports.ERROR_PACKET = ERROR_PACKET;
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.globalThisShim = void 0;
-exports.globalThisShim = global;
-
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// imported from https://github.com/unshiftio/yeast
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.yeast = exports.decode = exports.encode = void 0;
-const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split(''), length = 64, map = {};
-let seed = 0, i = 0, prev;
-/**
- * Return a string representing the specified number.
- *
- * @param {Number} num The number to convert.
- * @returns {String} The string representation of the number.
- * @api public
- */
-function encode(num) {
-    let encoded = '';
-    do {
-        encoded = alphabet[num % length] + encoded;
-        num = Math.floor(num / length);
-    } while (num > 0);
-    return encoded;
-}
-exports.encode = encode;
-/**
- * Return the integer value specified by the given string.
- *
- * @param {String} str The string to convert.
- * @returns {Number} The integer value represented by the string.
- * @api public
- */
-function decode(str) {
-    let decoded = 0;
-    for (i = 0; i < str.length; i++) {
-        decoded = decoded * length + map[str.charAt(i)];
-    }
-    return decoded;
-}
-exports.decode = decode;
-/**
- * Yeast: A tiny growing id generator.
- *
- * @returns {String} A unique id.
- * @api public
- */
-function yeast() {
-    const now = encode(+new Date());
-    if (now !== prev)
-        return seed = 0, prev = now;
-    return now + '.' + encode(seed++);
-}
-exports.yeast = yeast;
-//
-// Map each character to its index.
-//
-for (; i < length; i++)
-    map[alphabet[i]] = i;
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parse = void 0;
-// imported from https://github.com/galkn/parseuri
-/**
- * Parses an URI
- *
- * @author Steven Levithan <stevenlevithan.com> (MIT license)
- * @api private
- */
-const re = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
-const parts = [
-    'source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host', 'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'
-];
-function parse(str) {
-    const src = str, b = str.indexOf('['), e = str.indexOf(']');
-    if (b != -1 && e != -1) {
-        str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ';') + str.substring(e, str.length);
-    }
-    let m = re.exec(str || ''), uri = {}, i = 14;
-    while (i--) {
-        uri[parts[i]] = m[i] || '';
-    }
-    if (b != -1 && e != -1) {
-        uri.source = src;
-        uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ':');
-        uri.authority = uri.authority.replace('[', '').replace(']', '').replace(/;/g, ':');
-        uri.ipv6uri = true;
-    }
-    uri.pathNames = pathNames(uri, uri['path']);
-    uri.queryKey = queryKey(uri, uri['query']);
-    return uri;
-}
-exports.parse = parse;
-function pathNames(obj, path) {
-    const regx = /\/{2,9}/g, names = path.replace(regx, "/").split("/");
-    if (path.substr(0, 1) == '/' || path.length === 0) {
-        names.splice(0, 1);
-    }
-    if (path.substr(path.length - 1, 1) == '/') {
-        names.splice(names.length - 1, 1);
-    }
-    return names;
-}
-function queryKey(uri, query) {
-    const data = {};
-    query.replace(/(?:^|&)([^&=]*)=?([^&]*)/g, function ($0, $1, $2) {
-        if ($1) {
-            data[$1] = $2;
-        }
-    });
-    return data;
-}
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Socket = void 0;
-const socket_io_parser_1 = __webpack_require__(21);
-const on_js_1 = __webpack_require__(38);
-const component_emitter_1 = __webpack_require__(8);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const debug = debug_1.default("socket.io-client:socket"); // debug()
-/**
- * Internal events.
- * These events can't be emitted by the user.
- */
-const RESERVED_EVENTS = Object.freeze({
-    connect: 1,
-    connect_error: 1,
-    disconnect: 1,
-    disconnecting: 1,
-    // EventEmitter reserved events: https://nodejs.org/api/events.html#events_event_newlistener
-    newListener: 1,
-    removeListener: 1,
-});
-class Socket extends component_emitter_1.Emitter {
-    /**
-     * `Socket` constructor.
-     *
-     * @public
-     */
-    constructor(io, nsp, opts) {
-        super();
-        this.connected = false;
-        this.receiveBuffer = [];
-        this.sendBuffer = [];
-        this.ids = 0;
-        this.acks = {};
-        this.flags = {};
-        this.io = io;
-        this.nsp = nsp;
-        if (opts && opts.auth) {
-            this.auth = opts.auth;
-        }
-        if (this.io._autoConnect)
-            this.open();
-    }
-    /**
-     * Whether the socket is currently disconnected
-     */
-    get disconnected() {
-        return !this.connected;
-    }
-    /**
-     * Subscribe to open, close and packet events
-     *
-     * @private
-     */
-    subEvents() {
-        if (this.subs)
-            return;
-        const io = this.io;
-        this.subs = [
-            on_js_1.on(io, "open", this.onopen.bind(this)),
-            on_js_1.on(io, "packet", this.onpacket.bind(this)),
-            on_js_1.on(io, "error", this.onerror.bind(this)),
-            on_js_1.on(io, "close", this.onclose.bind(this)),
-        ];
-    }
-    /**
-     * Whether the Socket will try to reconnect when its Manager connects or reconnects
-     */
-    get active() {
-        return !!this.subs;
-    }
-    /**
-     * "Opens" the socket.
-     *
-     * @public
-     */
-    connect() {
-        if (this.connected)
-            return this;
-        this.subEvents();
-        if (!this.io["_reconnecting"])
-            this.io.open(); // ensure open
-        if ("open" === this.io._readyState)
-            this.onopen();
-        return this;
-    }
-    /**
-     * Alias for connect()
-     */
-    open() {
-        return this.connect();
-    }
-    /**
-     * Sends a `message` event.
-     *
-     * @return self
-     * @public
-     */
-    send(...args) {
-        args.unshift("message");
-        this.emit.apply(this, args);
-        return this;
-    }
-    /**
-     * Override `emit`.
-     * If the event is in `events`, it's emitted normally.
-     *
-     * @return self
-     * @public
-     */
-    emit(ev, ...args) {
-        if (RESERVED_EVENTS.hasOwnProperty(ev)) {
-            throw new Error('"' + ev.toString() + '" is a reserved event name');
-        }
-        args.unshift(ev);
-        const packet = {
-            type: socket_io_parser_1.PacketType.EVENT,
-            data: args,
-        };
-        packet.options = {};
-        packet.options.compress = this.flags.compress !== false;
-        // event ack callback
-        if ("function" === typeof args[args.length - 1]) {
-            const id = this.ids++;
-            debug("emitting packet with ack id %d", id);
-            const ack = args.pop();
-            this._registerAckCallback(id, ack);
-            packet.id = id;
-        }
-        const isTransportWritable = this.io.engine &&
-            this.io.engine.transport &&
-            this.io.engine.transport.writable;
-        const discardPacket = this.flags.volatile && (!isTransportWritable || !this.connected);
-        if (discardPacket) {
-            debug("discard packet as the transport is not currently writable");
-        }
-        else if (this.connected) {
-            this.notifyOutgoingListeners(packet);
-            this.packet(packet);
-        }
-        else {
-            this.sendBuffer.push(packet);
-        }
-        this.flags = {};
-        return this;
-    }
-    /**
-     * @private
-     */
-    _registerAckCallback(id, ack) {
-        const timeout = this.flags.timeout;
-        if (timeout === undefined) {
-            this.acks[id] = ack;
-            return;
-        }
-        // @ts-ignore
-        const timer = this.io.setTimeoutFn(() => {
-            delete this.acks[id];
-            for (let i = 0; i < this.sendBuffer.length; i++) {
-                if (this.sendBuffer[i].id === id) {
-                    debug("removing packet with ack id %d from the buffer", id);
-                    this.sendBuffer.splice(i, 1);
-                }
-            }
-            debug("event with ack id %d has timed out after %d ms", id, timeout);
-            ack.call(this, new Error("operation has timed out"));
-        }, timeout);
-        this.acks[id] = (...args) => {
-            // @ts-ignore
-            this.io.clearTimeoutFn(timer);
-            ack.apply(this, [null, ...args]);
-        };
-    }
-    /**
-     * Sends a packet.
-     *
-     * @param packet
-     * @private
-     */
-    packet(packet) {
-        packet.nsp = this.nsp;
-        this.io._packet(packet);
-    }
-    /**
-     * Called upon engine `open`.
-     *
-     * @private
-     */
-    onopen() {
-        debug("transport is open - connecting");
-        if (typeof this.auth == "function") {
-            this.auth((data) => {
-                this.packet({ type: socket_io_parser_1.PacketType.CONNECT, data });
-            });
-        }
-        else {
-            this.packet({ type: socket_io_parser_1.PacketType.CONNECT, data: this.auth });
-        }
-    }
-    /**
-     * Called upon engine or manager `error`.
-     *
-     * @param err
-     * @private
-     */
-    onerror(err) {
-        if (!this.connected) {
-            this.emitReserved("connect_error", err);
-        }
-    }
-    /**
-     * Called upon engine `close`.
-     *
-     * @param reason
-     * @param description
-     * @private
-     */
-    onclose(reason, description) {
-        debug("close (%s)", reason);
-        this.connected = false;
-        delete this.id;
-        this.emitReserved("disconnect", reason, description);
-    }
-    /**
-     * Called with socket packet.
-     *
-     * @param packet
-     * @private
-     */
-    onpacket(packet) {
-        const sameNamespace = packet.nsp === this.nsp;
-        if (!sameNamespace)
-            return;
-        switch (packet.type) {
-            case socket_io_parser_1.PacketType.CONNECT:
-                if (packet.data && packet.data.sid) {
-                    const id = packet.data.sid;
-                    this.onconnect(id);
-                }
-                else {
-                    this.emitReserved("connect_error", new Error("It seems you are trying to reach a Socket.IO server in v2.x with a v3.x client, but they are not compatible (more information here: https://socket.io/docs/v3/migrating-from-2-x-to-3-0/)"));
-                }
-                break;
-            case socket_io_parser_1.PacketType.EVENT:
-            case socket_io_parser_1.PacketType.BINARY_EVENT:
-                this.onevent(packet);
-                break;
-            case socket_io_parser_1.PacketType.ACK:
-            case socket_io_parser_1.PacketType.BINARY_ACK:
-                this.onack(packet);
-                break;
-            case socket_io_parser_1.PacketType.DISCONNECT:
-                this.ondisconnect();
-                break;
-            case socket_io_parser_1.PacketType.CONNECT_ERROR:
-                this.destroy();
-                const err = new Error(packet.data.message);
-                // @ts-ignore
-                err.data = packet.data.data;
-                this.emitReserved("connect_error", err);
-                break;
-        }
-    }
-    /**
-     * Called upon a server event.
-     *
-     * @param packet
-     * @private
-     */
-    onevent(packet) {
-        const args = packet.data || [];
-        debug("emitting event %j", args);
-        if (null != packet.id) {
-            debug("attaching ack callback to event");
-            args.push(this.ack(packet.id));
-        }
-        if (this.connected) {
-            this.emitEvent(args);
-        }
-        else {
-            this.receiveBuffer.push(Object.freeze(args));
-        }
-    }
-    emitEvent(args) {
-        if (this._anyListeners && this._anyListeners.length) {
-            const listeners = this._anyListeners.slice();
-            for (const listener of listeners) {
-                listener.apply(this, args);
-            }
-        }
-        super.emit.apply(this, args);
-    }
-    /**
-     * Produces an ack callback to emit with an event.
-     *
-     * @private
-     */
-    ack(id) {
-        const self = this;
-        let sent = false;
-        return function (...args) {
-            // prevent double callbacks
-            if (sent)
-                return;
-            sent = true;
-            debug("sending ack %j", args);
-            self.packet({
-                type: socket_io_parser_1.PacketType.ACK,
-                id: id,
-                data: args,
-            });
-        };
-    }
-    /**
-     * Called upon a server acknowlegement.
-     *
-     * @param packet
-     * @private
-     */
-    onack(packet) {
-        const ack = this.acks[packet.id];
-        if ("function" === typeof ack) {
-            debug("calling ack %s with %j", packet.id, packet.data);
-            ack.apply(this, packet.data);
-            delete this.acks[packet.id];
-        }
-        else {
-            debug("bad ack %s", packet.id);
-        }
-    }
-    /**
-     * Called upon server connect.
-     *
-     * @private
-     */
-    onconnect(id) {
-        debug("socket connected with id %s", id);
-        this.id = id;
-        this.connected = true;
-        this.emitBuffered();
-        this.emitReserved("connect");
-    }
-    /**
-     * Emit buffered events (received and emitted).
-     *
-     * @private
-     */
-    emitBuffered() {
-        this.receiveBuffer.forEach((args) => this.emitEvent(args));
-        this.receiveBuffer = [];
-        this.sendBuffer.forEach((packet) => {
-            this.notifyOutgoingListeners(packet);
-            this.packet(packet);
-        });
-        this.sendBuffer = [];
-    }
-    /**
-     * Called upon server disconnect.
-     *
-     * @private
-     */
-    ondisconnect() {
-        debug("server disconnect (%s)", this.nsp);
-        this.destroy();
-        this.onclose("io server disconnect");
-    }
-    /**
-     * Called upon forced client/server side disconnections,
-     * this method ensures the manager stops tracking us and
-     * that reconnections don't get triggered for this.
-     *
-     * @private
-     */
-    destroy() {
-        if (this.subs) {
-            // clean subscriptions to avoid reconnections
-            this.subs.forEach((subDestroy) => subDestroy());
-            this.subs = undefined;
-        }
-        this.io["_destroy"](this);
-    }
-    /**
-     * Disconnects the socket manually.
-     *
-     * @return self
-     * @public
-     */
-    disconnect() {
-        if (this.connected) {
-            debug("performing disconnect (%s)", this.nsp);
-            this.packet({ type: socket_io_parser_1.PacketType.DISCONNECT });
-        }
-        // remove socket from pool
-        this.destroy();
-        if (this.connected) {
-            // fire events
-            this.onclose("io client disconnect");
-        }
-        return this;
-    }
-    /**
-     * Alias for disconnect()
-     *
-     * @return self
-     * @public
-     */
-    close() {
-        return this.disconnect();
-    }
-    /**
-     * Sets the compress flag.
-     *
-     * @param compress - if `true`, compresses the sending data
-     * @return self
-     * @public
-     */
-    compress(compress) {
-        this.flags.compress = compress;
-        return this;
-    }
-    /**
-     * Sets a modifier for a subsequent event emission that the event message will be dropped when this socket is not
-     * ready to send messages.
-     *
-     * @returns self
-     * @public
-     */
-    get volatile() {
-        this.flags.volatile = true;
-        return this;
-    }
-    /**
-     * Sets a modifier for a subsequent event emission that the callback will be called with an error when the
-     * given number of milliseconds have elapsed without an acknowledgement from the server:
-     *
-     * ```
-     * socket.timeout(5000).emit("my-event", (err) => {
-     *   if (err) {
-     *     // the server did not acknowledge the event in the given delay
-     *   }
-     * });
-     * ```
-     *
-     * @returns self
-     * @public
-     */
-    timeout(timeout) {
-        this.flags.timeout = timeout;
-        return this;
-    }
-    /**
-     * Adds a listener that will be fired when any event is emitted. The event name is passed as the first argument to the
-     * callback.
-     *
-     * @param listener
-     * @public
-     */
-    onAny(listener) {
-        this._anyListeners = this._anyListeners || [];
-        this._anyListeners.push(listener);
-        return this;
-    }
-    /**
-     * Adds a listener that will be fired when any event is emitted. The event name is passed as the first argument to the
-     * callback. The listener is added to the beginning of the listeners array.
-     *
-     * @param listener
-     * @public
-     */
-    prependAny(listener) {
-        this._anyListeners = this._anyListeners || [];
-        this._anyListeners.unshift(listener);
-        return this;
-    }
-    /**
-     * Removes the listener that will be fired when any event is emitted.
-     *
-     * @param listener
-     * @public
-     */
-    offAny(listener) {
-        if (!this._anyListeners) {
-            return this;
-        }
-        if (listener) {
-            const listeners = this._anyListeners;
-            for (let i = 0; i < listeners.length; i++) {
-                if (listener === listeners[i]) {
-                    listeners.splice(i, 1);
-                    return this;
-                }
-            }
-        }
-        else {
-            this._anyListeners = [];
-        }
-        return this;
-    }
-    /**
-     * Returns an array of listeners that are listening for any event that is specified. This array can be manipulated,
-     * e.g. to remove listeners.
-     *
-     * @public
-     */
-    listenersAny() {
-        return this._anyListeners || [];
-    }
-    /**
-     * Adds a listener that will be fired when any event is emitted. The event name is passed as the first argument to the
-     * callback.
-     *
-     * @param listener
-     *
-     * <pre><code>
-     *
-     * socket.onAnyOutgoing((event, ...args) => {
-     *   console.log(event);
-     * });
-     *
-     * </pre></code>
-     *
-     * @public
-     */
-    onAnyOutgoing(listener) {
-        this._anyOutgoingListeners = this._anyOutgoingListeners || [];
-        this._anyOutgoingListeners.push(listener);
-        return this;
-    }
-    /**
-     * Adds a listener that will be fired when any event is emitted. The event name is passed as the first argument to the
-     * callback. The listener is added to the beginning of the listeners array.
-     *
-     * @param listener
-     *
-     * <pre><code>
-     *
-     * socket.prependAnyOutgoing((event, ...args) => {
-     *   console.log(event);
-     * });
-     *
-     * </pre></code>
-     *
-     * @public
-     */
-    prependAnyOutgoing(listener) {
-        this._anyOutgoingListeners = this._anyOutgoingListeners || [];
-        this._anyOutgoingListeners.unshift(listener);
-        return this;
-    }
-    /**
-     * Removes the listener that will be fired when any event is emitted.
-     *
-     * @param listener
-     *
-     * <pre><code>
-     *
-     * const handler = (event, ...args) => {
-     *   console.log(event);
-     * }
-     *
-     * socket.onAnyOutgoing(handler);
-     *
-     * // then later
-     * socket.offAnyOutgoing(handler);
-     *
-     * </pre></code>
-     *
-     * @public
-     */
-    offAnyOutgoing(listener) {
-        if (!this._anyOutgoingListeners) {
-            return this;
-        }
-        if (listener) {
-            const listeners = this._anyOutgoingListeners;
-            for (let i = 0; i < listeners.length; i++) {
-                if (listener === listeners[i]) {
-                    listeners.splice(i, 1);
-                    return this;
-                }
-            }
-        }
-        else {
-            this._anyOutgoingListeners = [];
-        }
-        return this;
-    }
-    /**
-     * Returns an array of listeners that are listening for any event that is specified. This array can be manipulated,
-     * e.g. to remove listeners.
-     *
-     * @public
-     */
-    listenersAnyOutgoing() {
-        return this._anyOutgoingListeners || [];
-    }
-    /**
-     * Notify the listeners for each packet sent
-     *
-     * @param packet
-     *
-     * @private
-     */
-    notifyOutgoingListeners(packet) {
-        if (this._anyOutgoingListeners && this._anyOutgoingListeners.length) {
-            const listeners = this._anyOutgoingListeners.slice();
-            for (const listener of listeners) {
-                listener.apply(this, packet.data);
-            }
-        }
-    }
-}
-exports.Socket = Socket;
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.hasBinary = exports.isBinary = void 0;
-const withNativeArrayBuffer = typeof ArrayBuffer === "function";
-const isView = (obj) => {
-    return typeof ArrayBuffer.isView === "function"
-        ? ArrayBuffer.isView(obj)
-        : obj.buffer instanceof ArrayBuffer;
-};
-const toString = Object.prototype.toString;
-const withNativeBlob = typeof Blob === "function" ||
-    (typeof Blob !== "undefined" &&
-        toString.call(Blob) === "[object BlobConstructor]");
-const withNativeFile = typeof File === "function" ||
-    (typeof File !== "undefined" &&
-        toString.call(File) === "[object FileConstructor]");
-/**
- * Returns true if obj is a Buffer, an ArrayBuffer, a Blob or a File.
- *
- * @private
- */
-function isBinary(obj) {
-    return ((withNativeArrayBuffer && (obj instanceof ArrayBuffer || isView(obj))) ||
-        (withNativeBlob && obj instanceof Blob) ||
-        (withNativeFile && obj instanceof File));
-}
-exports.isBinary = isBinary;
-function hasBinary(obj, toJSON) {
-    if (!obj || typeof obj !== "object") {
-        return false;
-    }
-    if (Array.isArray(obj)) {
-        for (let i = 0, l = obj.length; i < l; i++) {
-            if (hasBinary(obj[i])) {
-                return true;
-            }
-        }
-        return false;
-    }
-    if (isBinary(obj)) {
-        return true;
-    }
-    if (obj.toJSON &&
-        typeof obj.toJSON === "function" &&
-        arguments.length === 1) {
-        return hasBinary(obj.toJSON(), true);
-    }
-    for (const key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key) && hasBinary(obj[key])) {
-            return true;
-        }
-    }
-    return false;
-}
-exports.hasBinary = hasBinary;
-
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.on = void 0;
-function on(obj, ev, fn) {
-    obj.on(ev, fn);
-    return function subDestroy() {
-        obj.off(ev, fn);
-    };
-}
-exports.on = on;
-
-
-/***/ }),
-/* 39 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3016,7 +1430,7 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./components/Header.vue?vue&type=template&id=51bcd6ed&
 
 // EXTERNAL MODULE: ./mixins/nav.ts
-var nav = __webpack_require__(15);
+var nav = __webpack_require__(10);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Header.vue?vue&type=script&lsng=ts&lang=js&
 
@@ -3082,11 +1496,11 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Header = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {InfoTop: __webpack_require__(109).default,Header: __webpack_require__(39).default})
+installComponents(component, {InfoTop: __webpack_require__(78).default,Header: __webpack_require__(21).default})
 
 
 /***/ }),
-/* 40 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3113,10 +1527,10 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./components/Footer.vue?vue&type=template&id=4f848c62&
 
 // EXTERNAL MODULE: ./mixins/nav.ts
-var nav = __webpack_require__(15);
+var nav = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./mixins/contacts.ts
-var contacts = __webpack_require__(28);
+var contacts = __webpack_require__(19);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer.vue?vue&type=script&lang=js&
 
@@ -3178,45 +1592,45 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Footer = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {Footer: __webpack_require__(40).default})
+installComponents(component, {Footer: __webpack_require__(22).default})
 
 
 /***/ }),
-/* 41 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-meta");
 
 /***/ }),
-/* 42 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("cookie-universal");
 
 /***/ }),
-/* 43 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("abort-controller");
 
 /***/ }),
-/* 44 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = require("web-streams-polyfill/ponyfill/es2018");
 
 /***/ }),
-/* 45 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = require("defu");
 
 /***/ }),
-/* 46 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(URL, URLSearchParams) {/* harmony import */ var core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(94);
+/* WEBPACK VAR INJECTION */(function(URL, URLSearchParams) {/* harmony import */ var core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(76);
 /* harmony import */ var core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -3721,10 +2135,10 @@ const createInstance = defaults => {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (createInstance());
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)["URL"], __webpack_require__(13)["URLSearchParams"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)["URL"], __webpack_require__(9)["URLSearchParams"]))
 
 /***/ }),
-/* 47 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3908,7 +2322,7 @@ Hookable.prototype.mergeHooks = mergeHooks;
 module.exports = Hookable;
 
 /***/ }),
-/* 48 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3956,13 +2370,13 @@ function getURL(req, includePath) {
 module.exports = getURL;
 
 /***/ }),
-/* 49 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-awesome-swiper");
 
 /***/ }),
-/* 50 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4128,16 +2542,16 @@ var History = {
     }
   }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)["URL"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)["URL"]))
 
 /***/ }),
-/* 51 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = require("v-mask");
 
 /***/ }),
-/* 52 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4199,7 +2613,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Title = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
-/* 53 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4256,7 +2670,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Modal = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
-/* 54 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4316,7 +2730,7 @@ var staticRenderFns = [];
 // CONCATENATED MODULE: ./components/ContactsFrom.vue?vue&type=template&id=c8e9bc58&
 
 // EXTERNAL MODULE: external "vue-dadata"
-var external_vue_dadata_ = __webpack_require__(25);
+var external_vue_dadata_ = __webpack_require__(16);
 var external_vue_dadata_default = /*#__PURE__*/__webpack_require__.n(external_vue_dadata_);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/ContactsFrom.vue?vue&type=script&lang=js&
@@ -4382,15 +2796,15 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var ContactsFrom = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
-/* 55 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(56);
-module.exports = __webpack_require__(108);
+__webpack_require__(38);
+module.exports = __webpack_require__(77);
 
 
 /***/ }),
-/* 56 */
+/* 38 */
 /***/ (function(module, exports) {
 
 global.installComponents = function (component, components) {
@@ -4434,22 +2848,22 @@ function provideFunctionalComponents(component, components) {
 
 
 /***/ }),
-/* 57 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_id_6663287c_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_id_6663287c_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_id_6663287c_prod_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_id_6663287c_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_id_6663287c_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_id_6663287c_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 58 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(17);
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(12);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.i, ".nuxt-progress{position:fixed;top:0;left:0;right:0;height:3px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#ffb637;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}", ""]);
@@ -4458,40 +2872,40 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 59 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(60);
+var content = __webpack_require__(42);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
-__webpack_require__(18).default("23155a2a", content, true)
+__webpack_require__(13).default("23155a2a", content, true)
 
 /***/ }),
-/* 60 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(17);
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(27);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(61);
-var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(62);
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(63);
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(64);
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(65);
-var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__(66);
-var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__(67);
-var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__(68);
-var ___CSS_LOADER_URL_IMPORT_8___ = __webpack_require__(69);
-var ___CSS_LOADER_URL_IMPORT_9___ = __webpack_require__(70);
-var ___CSS_LOADER_URL_IMPORT_10___ = __webpack_require__(71);
-var ___CSS_LOADER_URL_IMPORT_11___ = __webpack_require__(72);
-var ___CSS_LOADER_URL_IMPORT_12___ = __webpack_require__(73);
-var ___CSS_LOADER_URL_IMPORT_13___ = __webpack_require__(74);
-var ___CSS_LOADER_URL_IMPORT_14___ = __webpack_require__(75);
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(12);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(18);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(43);
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(44);
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(45);
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(46);
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(47);
+var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__(48);
+var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__(49);
+var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__(50);
+var ___CSS_LOADER_URL_IMPORT_8___ = __webpack_require__(51);
+var ___CSS_LOADER_URL_IMPORT_9___ = __webpack_require__(52);
+var ___CSS_LOADER_URL_IMPORT_10___ = __webpack_require__(53);
+var ___CSS_LOADER_URL_IMPORT_11___ = __webpack_require__(54);
+var ___CSS_LOADER_URL_IMPORT_12___ = __webpack_require__(55);
+var ___CSS_LOADER_URL_IMPORT_13___ = __webpack_require__(56);
+var ___CSS_LOADER_URL_IMPORT_14___ = __webpack_require__(57);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___, { hash: "?#iefix" });
@@ -4518,126 +2932,126 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 61 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-brands-400.0fea249.eot";
 
 /***/ }),
-/* 62 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-brands-400.c967a94.woff2";
 
 /***/ }),
-/* 63 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-brands-400.dc2cbad.woff";
 
 /***/ }),
-/* 64 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-brands-400.ec82f28.ttf";
 
 /***/ }),
-/* 65 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fa-brands-400.e33e2cf.svg";
 
 /***/ }),
-/* 66 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-regular-400.08f9891.eot";
 
 /***/ }),
-/* 67 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-regular-400.1008b52.woff2";
 
 /***/ }),
-/* 68 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-regular-400.1069ea5.woff";
 
 /***/ }),
-/* 69 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-regular-400.1495f57.ttf";
 
 /***/ }),
-/* 70 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fa-regular-400.06b9d19.svg";
 
 /***/ }),
-/* 71 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-solid-900.3a24a60.eot";
 
 /***/ }),
-/* 72 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-solid-900.3ceb50e.woff2";
 
 /***/ }),
-/* 73 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-solid-900.46fdbd2.woff";
 
 /***/ }),
-/* 74 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fa-solid-900.10ecefc.ttf";
 
 /***/ }),
-/* 75 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/fa-solid-900.371dbce.svg";
 
 /***/ }),
-/* 76 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(77);
+var content = __webpack_require__(59);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
-__webpack_require__(18).default("e9945d7c", content, true)
+__webpack_require__(13).default("e9945d7c", content, true)
 
 /***/ }),
-/* 77 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(17);
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(27);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(78);
-var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(79);
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(80);
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(81);
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(82);
-var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__(83);
-var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__(84);
-var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__(85);
-var ___CSS_LOADER_URL_IMPORT_8___ = __webpack_require__(86);
-var ___CSS_LOADER_URL_IMPORT_9___ = __webpack_require__(87);
-var ___CSS_LOADER_URL_IMPORT_10___ = __webpack_require__(88);
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(12);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(18);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(60);
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(61);
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(62);
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(63);
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(64);
+var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__(65);
+var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__(66);
+var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__(67);
+var ___CSS_LOADER_URL_IMPORT_8___ = __webpack_require__(68);
+var ___CSS_LOADER_URL_IMPORT_9___ = __webpack_require__(69);
+var ___CSS_LOADER_URL_IMPORT_10___ = __webpack_require__(70);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
@@ -4657,73 +3071,73 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 78 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/regular.1705f48.woff";
 
 /***/ }),
-/* 79 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/regular.47cc43c.woff2";
 
 /***/ }),
-/* 80 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/italic.7363991.woff";
 
 /***/ }),
-/* 81 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/italic.75f01ca.woff2";
 
 /***/ }),
-/* 82 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/bold.82c3d0d.woff";
 
 /***/ }),
-/* 83 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/bold.8db93c1.woff2";
 
 /***/ }),
-/* 84 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/bold-italic.ef56a56.woff";
 
 /***/ }),
-/* 85 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/bold-italic.3c47d5b.woff2";
 
 /***/ }),
-/* 86 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/about-head.503bf36.jpg";
 
 /***/ }),
-/* 87 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/logo.627e824.png";
 
 /***/ }),
-/* 88 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/russian2.6e50ec1.png";
 
 /***/ }),
-/* 89 */
+/* 71 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4755,7 +3169,7 @@ const getters = {
 };
 
 /***/ }),
-/* 90 */
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4889,7 +3303,7 @@ const getters = {
 };
 
 /***/ }),
-/* 91 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4942,7 +3356,7 @@ const getters = {
 };
 
 /***/ }),
-/* 92 */
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4974,7 +3388,7 @@ const getters = {
 };
 
 /***/ }),
-/* 93 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5006,2081 +3420,13 @@ const getters = {
 };
 
 /***/ }),
-/* 94 */
+/* 76 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/es.typed-array.set.js");
 
 /***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.url = void 0;
-const engine_io_client_1 = __webpack_require__(30);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const debug = debug_1.default("socket.io-client:url"); // debug()
-/**
- * URL parser.
- *
- * @param uri - url
- * @param path - the request path of the connection
- * @param loc - An object meant to mimic window.location.
- *        Defaults to window.location.
- * @public
- */
-function url(uri, path = "", loc) {
-    let obj = uri;
-    // default to window.location
-    loc = loc || (typeof location !== "undefined" && location);
-    if (null == uri)
-        uri = loc.protocol + "//" + loc.host;
-    // relative path support
-    if (typeof uri === "string") {
-        if ("/" === uri.charAt(0)) {
-            if ("/" === uri.charAt(1)) {
-                uri = loc.protocol + uri;
-            }
-            else {
-                uri = loc.host + uri;
-            }
-        }
-        if (!/^(https?|wss?):\/\//.test(uri)) {
-            debug("protocol-less url %s", uri);
-            if ("undefined" !== typeof loc) {
-                uri = loc.protocol + "//" + uri;
-            }
-            else {
-                uri = "https://" + uri;
-            }
-        }
-        // parse
-        debug("parse %s", uri);
-        obj = engine_io_client_1.parse(uri);
-    }
-    // make sure we treat `localhost:80` and `localhost` equally
-    if (!obj.port) {
-        if (/^(http|ws)$/.test(obj.protocol)) {
-            obj.port = "80";
-        }
-        else if (/^(http|ws)s$/.test(obj.protocol)) {
-            obj.port = "443";
-        }
-    }
-    obj.path = obj.path || "/";
-    const ipv6 = obj.host.indexOf(":") !== -1;
-    const host = ipv6 ? "[" + obj.host + "]" : obj.host;
-    // define unique id
-    obj.id = obj.protocol + "://" + host + ":" + obj.port + path;
-    // define href
-    obj.href =
-        obj.protocol +
-            "://" +
-            host +
-            (loc && loc.port === obj.port ? "" : ":" + obj.port);
-    return obj;
-}
-exports.url = url;
-
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Socket = void 0;
-const index_js_1 = __webpack_require__(31);
-const util_js_1 = __webpack_require__(10);
-const parseqs_js_1 = __webpack_require__(20);
-const parseuri_js_1 = __webpack_require__(35);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const component_emitter_1 = __webpack_require__(8);
-const engine_io_parser_1 = __webpack_require__(14);
-const debug = (0, debug_1.default)("engine.io-client:socket"); // debug()
-class Socket extends component_emitter_1.Emitter {
-    /**
-     * Socket constructor.
-     *
-     * @param {String|Object} uri or options
-     * @param {Object} opts - options
-     * @api public
-     */
-    constructor(uri, opts = {}) {
-        super();
-        if (uri && "object" === typeof uri) {
-            opts = uri;
-            uri = null;
-        }
-        if (uri) {
-            uri = (0, parseuri_js_1.parse)(uri);
-            opts.hostname = uri.host;
-            opts.secure = uri.protocol === "https" || uri.protocol === "wss";
-            opts.port = uri.port;
-            if (uri.query)
-                opts.query = uri.query;
-        }
-        else if (opts.host) {
-            opts.hostname = (0, parseuri_js_1.parse)(opts.host).host;
-        }
-        (0, util_js_1.installTimerFunctions)(this, opts);
-        this.secure =
-            null != opts.secure
-                ? opts.secure
-                : typeof location !== "undefined" && "https:" === location.protocol;
-        if (opts.hostname && !opts.port) {
-            // if no port is specified manually, use the protocol default
-            opts.port = this.secure ? "443" : "80";
-        }
-        this.hostname =
-            opts.hostname ||
-                (typeof location !== "undefined" ? location.hostname : "localhost");
-        this.port =
-            opts.port ||
-                (typeof location !== "undefined" && location.port
-                    ? location.port
-                    : this.secure
-                        ? "443"
-                        : "80");
-        this.transports = opts.transports || ["polling", "websocket"];
-        this.readyState = "";
-        this.writeBuffer = [];
-        this.prevBufferLen = 0;
-        this.opts = Object.assign({
-            path: "/engine.io",
-            agent: false,
-            withCredentials: false,
-            upgrade: true,
-            timestampParam: "t",
-            rememberUpgrade: false,
-            rejectUnauthorized: true,
-            perMessageDeflate: {
-                threshold: 1024
-            },
-            transportOptions: {},
-            closeOnBeforeunload: true
-        }, opts);
-        this.opts.path = this.opts.path.replace(/\/$/, "") + "/";
-        if (typeof this.opts.query === "string") {
-            this.opts.query = (0, parseqs_js_1.decode)(this.opts.query);
-        }
-        // set on handshake
-        this.id = null;
-        this.upgrades = null;
-        this.pingInterval = null;
-        this.pingTimeout = null;
-        // set on heartbeat
-        this.pingTimeoutTimer = null;
-        if (typeof addEventListener === "function") {
-            if (this.opts.closeOnBeforeunload) {
-                // Firefox closes the connection when the "beforeunload" event is emitted but not Chrome. This event listener
-                // ensures every browser behaves the same (no "disconnect" event at the Socket.IO level when the page is
-                // closed/reloaded)
-                addEventListener("beforeunload", () => {
-                    if (this.transport) {
-                        // silently close the transport
-                        this.transport.removeAllListeners();
-                        this.transport.close();
-                    }
-                }, false);
-            }
-            if (this.hostname !== "localhost") {
-                this.offlineEventListener = () => {
-                    this.onClose("transport close", {
-                        description: "network connection lost"
-                    });
-                };
-                addEventListener("offline", this.offlineEventListener, false);
-            }
-        }
-        this.open();
-    }
-    /**
-     * Creates transport of the given type.
-     *
-     * @param {String} transport name
-     * @return {Transport}
-     * @api private
-     */
-    createTransport(name) {
-        debug('creating transport "%s"', name);
-        const query = Object.assign({}, this.opts.query);
-        // append engine.io protocol identifier
-        query.EIO = engine_io_parser_1.protocol;
-        // transport name
-        query.transport = name;
-        // session id if we already have one
-        if (this.id)
-            query.sid = this.id;
-        const opts = Object.assign({}, this.opts.transportOptions[name], this.opts, {
-            query,
-            socket: this,
-            hostname: this.hostname,
-            secure: this.secure,
-            port: this.port
-        });
-        debug("options: %j", opts);
-        return new index_js_1.transports[name](opts);
-    }
-    /**
-     * Initializes transport to use and starts probe.
-     *
-     * @api private
-     */
-    open() {
-        let transport;
-        if (this.opts.rememberUpgrade &&
-            Socket.priorWebsocketSuccess &&
-            this.transports.indexOf("websocket") !== -1) {
-            transport = "websocket";
-        }
-        else if (0 === this.transports.length) {
-            // Emit error on next tick so it can be listened to
-            this.setTimeoutFn(() => {
-                this.emitReserved("error", "No transports available");
-            }, 0);
-            return;
-        }
-        else {
-            transport = this.transports[0];
-        }
-        this.readyState = "opening";
-        // Retry with the next transport if the transport is disabled (jsonp: false)
-        try {
-            transport = this.createTransport(transport);
-        }
-        catch (e) {
-            debug("error while creating transport: %s", e);
-            this.transports.shift();
-            this.open();
-            return;
-        }
-        transport.open();
-        this.setTransport(transport);
-    }
-    /**
-     * Sets the current transport. Disables the existing one (if any).
-     *
-     * @api private
-     */
-    setTransport(transport) {
-        debug("setting transport %s", transport.name);
-        if (this.transport) {
-            debug("clearing existing transport %s", this.transport.name);
-            this.transport.removeAllListeners();
-        }
-        // set up transport
-        this.transport = transport;
-        // set up transport listeners
-        transport
-            .on("drain", this.onDrain.bind(this))
-            .on("packet", this.onPacket.bind(this))
-            .on("error", this.onError.bind(this))
-            .on("close", reason => this.onClose("transport close", reason));
-    }
-    /**
-     * Probes a transport.
-     *
-     * @param {String} transport name
-     * @api private
-     */
-    probe(name) {
-        debug('probing transport "%s"', name);
-        let transport = this.createTransport(name);
-        let failed = false;
-        Socket.priorWebsocketSuccess = false;
-        const onTransportOpen = () => {
-            if (failed)
-                return;
-            debug('probe transport "%s" opened', name);
-            transport.send([{ type: "ping", data: "probe" }]);
-            transport.once("packet", msg => {
-                if (failed)
-                    return;
-                if ("pong" === msg.type && "probe" === msg.data) {
-                    debug('probe transport "%s" pong', name);
-                    this.upgrading = true;
-                    this.emitReserved("upgrading", transport);
-                    if (!transport)
-                        return;
-                    Socket.priorWebsocketSuccess = "websocket" === transport.name;
-                    debug('pausing current transport "%s"', this.transport.name);
-                    this.transport.pause(() => {
-                        if (failed)
-                            return;
-                        if ("closed" === this.readyState)
-                            return;
-                        debug("changing transport and sending upgrade packet");
-                        cleanup();
-                        this.setTransport(transport);
-                        transport.send([{ type: "upgrade" }]);
-                        this.emitReserved("upgrade", transport);
-                        transport = null;
-                        this.upgrading = false;
-                        this.flush();
-                    });
-                }
-                else {
-                    debug('probe transport "%s" failed', name);
-                    const err = new Error("probe error");
-                    // @ts-ignore
-                    err.transport = transport.name;
-                    this.emitReserved("upgradeError", err);
-                }
-            });
-        };
-        function freezeTransport() {
-            if (failed)
-                return;
-            // Any callback called by transport should be ignored since now
-            failed = true;
-            cleanup();
-            transport.close();
-            transport = null;
-        }
-        // Handle any error that happens while probing
-        const onerror = err => {
-            const error = new Error("probe error: " + err);
-            // @ts-ignore
-            error.transport = transport.name;
-            freezeTransport();
-            debug('probe transport "%s" failed because of error: %s', name, err);
-            this.emitReserved("upgradeError", error);
-        };
-        function onTransportClose() {
-            onerror("transport closed");
-        }
-        // When the socket is closed while we're probing
-        function onclose() {
-            onerror("socket closed");
-        }
-        // When the socket is upgraded while we're probing
-        function onupgrade(to) {
-            if (transport && to.name !== transport.name) {
-                debug('"%s" works - aborting "%s"', to.name, transport.name);
-                freezeTransport();
-            }
-        }
-        // Remove all listeners on the transport and on self
-        const cleanup = () => {
-            transport.removeListener("open", onTransportOpen);
-            transport.removeListener("error", onerror);
-            transport.removeListener("close", onTransportClose);
-            this.off("close", onclose);
-            this.off("upgrading", onupgrade);
-        };
-        transport.once("open", onTransportOpen);
-        transport.once("error", onerror);
-        transport.once("close", onTransportClose);
-        this.once("close", onclose);
-        this.once("upgrading", onupgrade);
-        transport.open();
-    }
-    /**
-     * Called when connection is deemed open.
-     *
-     * @api private
-     */
-    onOpen() {
-        debug("socket open");
-        this.readyState = "open";
-        Socket.priorWebsocketSuccess = "websocket" === this.transport.name;
-        this.emitReserved("open");
-        this.flush();
-        // we check for `readyState` in case an `open`
-        // listener already closed the socket
-        if ("open" === this.readyState &&
-            this.opts.upgrade &&
-            this.transport.pause) {
-            debug("starting upgrade probes");
-            let i = 0;
-            const l = this.upgrades.length;
-            for (; i < l; i++) {
-                this.probe(this.upgrades[i]);
-            }
-        }
-    }
-    /**
-     * Handles a packet.
-     *
-     * @api private
-     */
-    onPacket(packet) {
-        if ("opening" === this.readyState ||
-            "open" === this.readyState ||
-            "closing" === this.readyState) {
-            debug('socket receive: type "%s", data "%s"', packet.type, packet.data);
-            this.emitReserved("packet", packet);
-            // Socket is live - any packet counts
-            this.emitReserved("heartbeat");
-            switch (packet.type) {
-                case "open":
-                    this.onHandshake(JSON.parse(packet.data));
-                    break;
-                case "ping":
-                    this.resetPingTimeout();
-                    this.sendPacket("pong");
-                    this.emitReserved("ping");
-                    this.emitReserved("pong");
-                    break;
-                case "error":
-                    const err = new Error("server error");
-                    // @ts-ignore
-                    err.code = packet.data;
-                    this.onError(err);
-                    break;
-                case "message":
-                    this.emitReserved("data", packet.data);
-                    this.emitReserved("message", packet.data);
-                    break;
-            }
-        }
-        else {
-            debug('packet received with socket readyState "%s"', this.readyState);
-        }
-    }
-    /**
-     * Called upon handshake completion.
-     *
-     * @param {Object} data - handshake obj
-     * @api private
-     */
-    onHandshake(data) {
-        this.emitReserved("handshake", data);
-        this.id = data.sid;
-        this.transport.query.sid = data.sid;
-        this.upgrades = this.filterUpgrades(data.upgrades);
-        this.pingInterval = data.pingInterval;
-        this.pingTimeout = data.pingTimeout;
-        this.maxPayload = data.maxPayload;
-        this.onOpen();
-        // In case open handler closes socket
-        if ("closed" === this.readyState)
-            return;
-        this.resetPingTimeout();
-    }
-    /**
-     * Sets and resets ping timeout timer based on server pings.
-     *
-     * @api private
-     */
-    resetPingTimeout() {
-        this.clearTimeoutFn(this.pingTimeoutTimer);
-        this.pingTimeoutTimer = this.setTimeoutFn(() => {
-            this.onClose("ping timeout");
-        }, this.pingInterval + this.pingTimeout);
-        if (this.opts.autoUnref) {
-            this.pingTimeoutTimer.unref();
-        }
-    }
-    /**
-     * Called on `drain` event
-     *
-     * @api private
-     */
-    onDrain() {
-        this.writeBuffer.splice(0, this.prevBufferLen);
-        // setting prevBufferLen = 0 is very important
-        // for example, when upgrading, upgrade packet is sent over,
-        // and a nonzero prevBufferLen could cause problems on `drain`
-        this.prevBufferLen = 0;
-        if (0 === this.writeBuffer.length) {
-            this.emitReserved("drain");
-        }
-        else {
-            this.flush();
-        }
-    }
-    /**
-     * Flush write buffers.
-     *
-     * @api private
-     */
-    flush() {
-        if ("closed" !== this.readyState &&
-            this.transport.writable &&
-            !this.upgrading &&
-            this.writeBuffer.length) {
-            const packets = this.getWritablePackets();
-            debug("flushing %d packets in socket", packets.length);
-            this.transport.send(packets);
-            // keep track of current length of writeBuffer
-            // splice writeBuffer and callbackBuffer on `drain`
-            this.prevBufferLen = packets.length;
-            this.emitReserved("flush");
-        }
-    }
-    /**
-     * Ensure the encoded size of the writeBuffer is below the maxPayload value sent by the server (only for HTTP
-     * long-polling)
-     *
-     * @private
-     */
-    getWritablePackets() {
-        const shouldCheckPayloadSize = this.maxPayload &&
-            this.transport.name === "polling" &&
-            this.writeBuffer.length > 1;
-        if (!shouldCheckPayloadSize) {
-            return this.writeBuffer;
-        }
-        let payloadSize = 1; // first packet type
-        for (let i = 0; i < this.writeBuffer.length; i++) {
-            const data = this.writeBuffer[i].data;
-            if (data) {
-                payloadSize += (0, util_js_1.byteLength)(data);
-            }
-            if (i > 0 && payloadSize > this.maxPayload) {
-                debug("only send %d out of %d packets", i, this.writeBuffer.length);
-                return this.writeBuffer.slice(0, i);
-            }
-            payloadSize += 2; // separator + packet type
-        }
-        debug("payload size is %d (max: %d)", payloadSize, this.maxPayload);
-        return this.writeBuffer;
-    }
-    /**
-     * Sends a message.
-     *
-     * @param {String} message.
-     * @param {Function} callback function.
-     * @param {Object} options.
-     * @return {Socket} for chaining.
-     * @api public
-     */
-    write(msg, options, fn) {
-        this.sendPacket("message", msg, options, fn);
-        return this;
-    }
-    send(msg, options, fn) {
-        this.sendPacket("message", msg, options, fn);
-        return this;
-    }
-    /**
-     * Sends a packet.
-     *
-     * @param {String} packet type.
-     * @param {String} data.
-     * @param {Object} options.
-     * @param {Function} callback function.
-     * @api private
-     */
-    sendPacket(type, data, options, fn) {
-        if ("function" === typeof data) {
-            fn = data;
-            data = undefined;
-        }
-        if ("function" === typeof options) {
-            fn = options;
-            options = null;
-        }
-        if ("closing" === this.readyState || "closed" === this.readyState) {
-            return;
-        }
-        options = options || {};
-        options.compress = false !== options.compress;
-        const packet = {
-            type: type,
-            data: data,
-            options: options
-        };
-        this.emitReserved("packetCreate", packet);
-        this.writeBuffer.push(packet);
-        if (fn)
-            this.once("flush", fn);
-        this.flush();
-    }
-    /**
-     * Closes the connection.
-     *
-     * @api public
-     */
-    close() {
-        const close = () => {
-            this.onClose("forced close");
-            debug("socket closing - telling transport to close");
-            this.transport.close();
-        };
-        const cleanupAndClose = () => {
-            this.off("upgrade", cleanupAndClose);
-            this.off("upgradeError", cleanupAndClose);
-            close();
-        };
-        const waitForUpgrade = () => {
-            // wait for upgrade to finish since we can't send packets while pausing a transport
-            this.once("upgrade", cleanupAndClose);
-            this.once("upgradeError", cleanupAndClose);
-        };
-        if ("opening" === this.readyState || "open" === this.readyState) {
-            this.readyState = "closing";
-            if (this.writeBuffer.length) {
-                this.once("drain", () => {
-                    if (this.upgrading) {
-                        waitForUpgrade();
-                    }
-                    else {
-                        close();
-                    }
-                });
-            }
-            else if (this.upgrading) {
-                waitForUpgrade();
-            }
-            else {
-                close();
-            }
-        }
-        return this;
-    }
-    /**
-     * Called upon transport error
-     *
-     * @api private
-     */
-    onError(err) {
-        debug("socket error %j", err);
-        Socket.priorWebsocketSuccess = false;
-        this.emitReserved("error", err);
-        this.onClose("transport error", err);
-    }
-    /**
-     * Called upon transport close.
-     *
-     * @api private
-     */
-    onClose(reason, description) {
-        if ("opening" === this.readyState ||
-            "open" === this.readyState ||
-            "closing" === this.readyState) {
-            debug('socket close with reason: "%s"', reason);
-            // clear timers
-            this.clearTimeoutFn(this.pingTimeoutTimer);
-            // stop event from firing again for transport
-            this.transport.removeAllListeners("close");
-            // ensure transport won't stay open
-            this.transport.close();
-            // ignore further transport communication
-            this.transport.removeAllListeners();
-            if (typeof removeEventListener === "function") {
-                removeEventListener("offline", this.offlineEventListener, false);
-            }
-            // set ready state
-            this.readyState = "closed";
-            // clear session id
-            this.id = null;
-            // emit close event
-            this.emitReserved("close", reason, description);
-            // clean buffers after, so users can still
-            // grab the buffers on `close` event
-            this.writeBuffer = [];
-            this.prevBufferLen = 0;
-        }
-    }
-    /**
-     * Filters upgrades, returning only those matching client transports.
-     *
-     * @param {Array} server upgrades
-     * @api private
-     *
-     */
-    filterUpgrades(upgrades) {
-        const filteredUpgrades = [];
-        let i = 0;
-        const j = upgrades.length;
-        for (; i < j; i++) {
-            if (~this.transports.indexOf(upgrades[i]))
-                filteredUpgrades.push(upgrades[i]);
-        }
-        return filteredUpgrades;
-    }
-}
-exports.Socket = Socket;
-Socket.protocol = engine_io_parser_1.protocol;
-
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Request = exports.Polling = void 0;
-const transport_js_1 = __webpack_require__(19);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const yeast_js_1 = __webpack_require__(34);
-const parseqs_js_1 = __webpack_require__(20);
-const engine_io_parser_1 = __webpack_require__(14);
-const xmlhttprequest_js_1 = __webpack_require__(100);
-const component_emitter_1 = __webpack_require__(8);
-const util_js_1 = __webpack_require__(10);
-const globalThis_js_1 = __webpack_require__(33);
-const debug = (0, debug_1.default)("engine.io-client:polling"); // debug()
-function empty() { }
-const hasXHR2 = (function () {
-    const xhr = new xmlhttprequest_js_1.XHR({
-        xdomain: false
-    });
-    return null != xhr.responseType;
-})();
-class Polling extends transport_js_1.Transport {
-    /**
-     * XHR Polling constructor.
-     *
-     * @param {Object} opts
-     * @api public
-     */
-    constructor(opts) {
-        super(opts);
-        this.polling = false;
-        if (typeof location !== "undefined") {
-            const isSSL = "https:" === location.protocol;
-            let port = location.port;
-            // some user agents have empty `location.port`
-            if (!port) {
-                port = isSSL ? "443" : "80";
-            }
-            this.xd =
-                (typeof location !== "undefined" &&
-                    opts.hostname !== location.hostname) ||
-                    port !== opts.port;
-            this.xs = opts.secure !== isSSL;
-        }
-        /**
-         * XHR supports binary
-         */
-        const forceBase64 = opts && opts.forceBase64;
-        this.supportsBinary = hasXHR2 && !forceBase64;
-    }
-    /**
-     * Transport name.
-     */
-    get name() {
-        return "polling";
-    }
-    /**
-     * Opens the socket (triggers polling). We write a PING message to determine
-     * when the transport is open.
-     *
-     * @api private
-     */
-    doOpen() {
-        this.poll();
-    }
-    /**
-     * Pauses polling.
-     *
-     * @param {Function} callback upon buffers are flushed and transport is paused
-     * @api private
-     */
-    pause(onPause) {
-        this.readyState = "pausing";
-        const pause = () => {
-            debug("paused");
-            this.readyState = "paused";
-            onPause();
-        };
-        if (this.polling || !this.writable) {
-            let total = 0;
-            if (this.polling) {
-                debug("we are currently polling - waiting to pause");
-                total++;
-                this.once("pollComplete", function () {
-                    debug("pre-pause polling complete");
-                    --total || pause();
-                });
-            }
-            if (!this.writable) {
-                debug("we are currently writing - waiting to pause");
-                total++;
-                this.once("drain", function () {
-                    debug("pre-pause writing complete");
-                    --total || pause();
-                });
-            }
-        }
-        else {
-            pause();
-        }
-    }
-    /**
-     * Starts polling cycle.
-     *
-     * @api public
-     */
-    poll() {
-        debug("polling");
-        this.polling = true;
-        this.doPoll();
-        this.emitReserved("poll");
-    }
-    /**
-     * Overloads onData to detect payloads.
-     *
-     * @api private
-     */
-    onData(data) {
-        debug("polling got data %s", data);
-        const callback = packet => {
-            // if its the first message we consider the transport open
-            if ("opening" === this.readyState && packet.type === "open") {
-                this.onOpen();
-            }
-            // if its a close packet, we close the ongoing requests
-            if ("close" === packet.type) {
-                this.onClose({ description: "transport closed by the server" });
-                return false;
-            }
-            // otherwise bypass onData and handle the message
-            this.onPacket(packet);
-        };
-        // decode payload
-        (0, engine_io_parser_1.decodePayload)(data, this.socket.binaryType).forEach(callback);
-        // if an event did not trigger closing
-        if ("closed" !== this.readyState) {
-            // if we got data we're not polling
-            this.polling = false;
-            this.emitReserved("pollComplete");
-            if ("open" === this.readyState) {
-                this.poll();
-            }
-            else {
-                debug('ignoring poll - transport state "%s"', this.readyState);
-            }
-        }
-    }
-    /**
-     * For polling, send a close packet.
-     *
-     * @api private
-     */
-    doClose() {
-        const close = () => {
-            debug("writing close packet");
-            this.write([{ type: "close" }]);
-        };
-        if ("open" === this.readyState) {
-            debug("transport open - closing");
-            close();
-        }
-        else {
-            // in case we're trying to close while
-            // handshaking is in progress (GH-164)
-            debug("transport not open - deferring close");
-            this.once("open", close);
-        }
-    }
-    /**
-     * Writes a packets payload.
-     *
-     * @param {Array} data packets
-     * @param {Function} drain callback
-     * @api private
-     */
-    write(packets) {
-        this.writable = false;
-        (0, engine_io_parser_1.encodePayload)(packets, data => {
-            this.doWrite(data, () => {
-                this.writable = true;
-                this.emitReserved("drain");
-            });
-        });
-    }
-    /**
-     * Generates uri for connection.
-     *
-     * @api private
-     */
-    uri() {
-        let query = this.query || {};
-        const schema = this.opts.secure ? "https" : "http";
-        let port = "";
-        // cache busting is forced
-        if (false !== this.opts.timestampRequests) {
-            query[this.opts.timestampParam] = (0, yeast_js_1.yeast)();
-        }
-        if (!this.supportsBinary && !query.sid) {
-            query.b64 = 1;
-        }
-        // avoid port if default for schema
-        if (this.opts.port &&
-            (("https" === schema && Number(this.opts.port) !== 443) ||
-                ("http" === schema && Number(this.opts.port) !== 80))) {
-            port = ":" + this.opts.port;
-        }
-        const encodedQuery = (0, parseqs_js_1.encode)(query);
-        const ipv6 = this.opts.hostname.indexOf(":") !== -1;
-        return (schema +
-            "://" +
-            (ipv6 ? "[" + this.opts.hostname + "]" : this.opts.hostname) +
-            port +
-            this.opts.path +
-            (encodedQuery.length ? "?" + encodedQuery : ""));
-    }
-    /**
-     * Creates a request.
-     *
-     * @param {String} method
-     * @api private
-     */
-    request(opts = {}) {
-        Object.assign(opts, { xd: this.xd, xs: this.xs }, this.opts);
-        return new Request(this.uri(), opts);
-    }
-    /**
-     * Sends data.
-     *
-     * @param {String} data to send.
-     * @param {Function} called upon flush.
-     * @api private
-     */
-    doWrite(data, fn) {
-        const req = this.request({
-            method: "POST",
-            data: data
-        });
-        req.on("success", fn);
-        req.on("error", (xhrStatus, context) => {
-            this.onError("xhr post error", xhrStatus, context);
-        });
-    }
-    /**
-     * Starts a poll cycle.
-     *
-     * @api private
-     */
-    doPoll() {
-        debug("xhr poll");
-        const req = this.request();
-        req.on("data", this.onData.bind(this));
-        req.on("error", (xhrStatus, context) => {
-            this.onError("xhr poll error", xhrStatus, context);
-        });
-        this.pollXhr = req;
-    }
-}
-exports.Polling = Polling;
-class Request extends component_emitter_1.Emitter {
-    /**
-     * Request constructor
-     *
-     * @param {Object} options
-     * @api public
-     */
-    constructor(uri, opts) {
-        super();
-        (0, util_js_1.installTimerFunctions)(this, opts);
-        this.opts = opts;
-        this.method = opts.method || "GET";
-        this.uri = uri;
-        this.async = false !== opts.async;
-        this.data = undefined !== opts.data ? opts.data : null;
-        this.create();
-    }
-    /**
-     * Creates the XHR object and sends the request.
-     *
-     * @api private
-     */
-    create() {
-        const opts = (0, util_js_1.pick)(this.opts, "agent", "pfx", "key", "passphrase", "cert", "ca", "ciphers", "rejectUnauthorized", "autoUnref");
-        opts.xdomain = !!this.opts.xd;
-        opts.xscheme = !!this.opts.xs;
-        const xhr = (this.xhr = new xmlhttprequest_js_1.XHR(opts));
-        try {
-            debug("xhr open %s: %s", this.method, this.uri);
-            xhr.open(this.method, this.uri, this.async);
-            try {
-                if (this.opts.extraHeaders) {
-                    xhr.setDisableHeaderCheck && xhr.setDisableHeaderCheck(true);
-                    for (let i in this.opts.extraHeaders) {
-                        if (this.opts.extraHeaders.hasOwnProperty(i)) {
-                            xhr.setRequestHeader(i, this.opts.extraHeaders[i]);
-                        }
-                    }
-                }
-            }
-            catch (e) { }
-            if ("POST" === this.method) {
-                try {
-                    xhr.setRequestHeader("Content-type", "text/plain;charset=UTF-8");
-                }
-                catch (e) { }
-            }
-            try {
-                xhr.setRequestHeader("Accept", "*/*");
-            }
-            catch (e) { }
-            // ie6 check
-            if ("withCredentials" in xhr) {
-                xhr.withCredentials = this.opts.withCredentials;
-            }
-            if (this.opts.requestTimeout) {
-                xhr.timeout = this.opts.requestTimeout;
-            }
-            xhr.onreadystatechange = () => {
-                if (4 !== xhr.readyState)
-                    return;
-                if (200 === xhr.status || 1223 === xhr.status) {
-                    this.onLoad();
-                }
-                else {
-                    // make sure the `error` event handler that's user-set
-                    // does not throw in the same tick and gets caught here
-                    this.setTimeoutFn(() => {
-                        this.onError(typeof xhr.status === "number" ? xhr.status : 0);
-                    }, 0);
-                }
-            };
-            debug("xhr data %s", this.data);
-            xhr.send(this.data);
-        }
-        catch (e) {
-            // Need to defer since .create() is called directly from the constructor
-            // and thus the 'error' event can only be only bound *after* this exception
-            // occurs.  Therefore, also, we cannot throw here at all.
-            this.setTimeoutFn(() => {
-                this.onError(e);
-            }, 0);
-            return;
-        }
-        if (typeof document !== "undefined") {
-            this.index = Request.requestsCount++;
-            Request.requests[this.index] = this;
-        }
-    }
-    /**
-     * Called upon error.
-     *
-     * @api private
-     */
-    onError(err) {
-        this.emitReserved("error", err, this.xhr);
-        this.cleanup(true);
-    }
-    /**
-     * Cleans up house.
-     *
-     * @api private
-     */
-    cleanup(fromError) {
-        if ("undefined" === typeof this.xhr || null === this.xhr) {
-            return;
-        }
-        this.xhr.onreadystatechange = empty;
-        if (fromError) {
-            try {
-                this.xhr.abort();
-            }
-            catch (e) { }
-        }
-        if (typeof document !== "undefined") {
-            delete Request.requests[this.index];
-        }
-        this.xhr = null;
-    }
-    /**
-     * Called upon load.
-     *
-     * @api private
-     */
-    onLoad() {
-        const data = this.xhr.responseText;
-        if (data !== null) {
-            this.emitReserved("data", data);
-            this.emitReserved("success");
-            this.cleanup();
-        }
-    }
-    /**
-     * Aborts the request.
-     *
-     * @api public
-     */
-    abort() {
-        this.cleanup();
-    }
-}
-exports.Request = Request;
-Request.requestsCount = 0;
-Request.requests = {};
-/**
- * Aborts pending requests when unloading the window. This is needed to prevent
- * memory leaks (e.g. when using IE) and to ensure that no spurious error is
- * emitted.
- */
-if (typeof document !== "undefined") {
-    // @ts-ignore
-    if (typeof attachEvent === "function") {
-        // @ts-ignore
-        attachEvent("onunload", unloadHandler);
-    }
-    else if (typeof addEventListener === "function") {
-        const terminationEvent = "onpagehide" in globalThis_js_1.globalThisShim ? "pagehide" : "unload";
-        addEventListener(terminationEvent, unloadHandler, false);
-    }
-}
-function unloadHandler() {
-    for (let i in Request.requests) {
-        if (Request.requests.hasOwnProperty(i)) {
-            Request.requests[i].abort();
-        }
-    }
-}
-
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const commons_js_1 = __webpack_require__(32);
-const encodePacket = ({ type, data }, supportsBinary, callback) => {
-    if (data instanceof ArrayBuffer || ArrayBuffer.isView(data)) {
-        const buffer = toBuffer(data);
-        return callback(encodeBuffer(buffer, supportsBinary));
-    }
-    // plain string
-    return callback(commons_js_1.PACKET_TYPES[type] + (data || ""));
-};
-const toBuffer = data => {
-    if (Buffer.isBuffer(data)) {
-        return data;
-    }
-    else if (data instanceof ArrayBuffer) {
-        return Buffer.from(data);
-    }
-    else {
-        return Buffer.from(data.buffer, data.byteOffset, data.byteLength);
-    }
-};
-// only 'message' packets can contain binary, so the type prefix is not needed
-const encodeBuffer = (data, supportsBinary) => {
-    return supportsBinary ? data : "b" + data.toString("base64");
-};
-exports.default = encodePacket;
-
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const commons_js_1 = __webpack_require__(32);
-const decodePacket = (encodedPacket, binaryType) => {
-    if (typeof encodedPacket !== "string") {
-        return {
-            type: "message",
-            data: mapBinary(encodedPacket, binaryType)
-        };
-    }
-    const type = encodedPacket.charAt(0);
-    if (type === "b") {
-        const buffer = Buffer.from(encodedPacket.substring(1), "base64");
-        return {
-            type: "message",
-            data: mapBinary(buffer, binaryType)
-        };
-    }
-    if (!commons_js_1.PACKET_TYPES_REVERSE[type]) {
-        return commons_js_1.ERROR_PACKET;
-    }
-    return encodedPacket.length > 1
-        ? {
-            type: commons_js_1.PACKET_TYPES_REVERSE[type],
-            data: encodedPacket.substring(1)
-        }
-        : {
-            type: commons_js_1.PACKET_TYPES_REVERSE[type]
-        };
-};
-const mapBinary = (data, binaryType) => {
-    const isBuffer = Buffer.isBuffer(data);
-    switch (binaryType) {
-        case "arraybuffer":
-            return isBuffer ? toArrayBuffer(data) : data;
-        case "nodebuffer":
-        default:
-            return data; // assuming the data is already a Buffer
-    }
-};
-const toArrayBuffer = (buffer) => {
-    const arrayBuffer = new ArrayBuffer(buffer.length);
-    const view = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < buffer.length; i++) {
-        view[i] = buffer[i];
-    }
-    return arrayBuffer;
-};
-exports.default = decodePacket;
-
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.XHR = void 0;
-const XMLHttpRequestModule = __importStar(__webpack_require__(101));
-exports.XHR = XMLHttpRequestModule.default || XMLHttpRequestModule;
-
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports) {
-
-module.exports = require("xmlhttprequest-ssl");
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.WS = void 0;
-const transport_js_1 = __webpack_require__(19);
-const parseqs_js_1 = __webpack_require__(20);
-const yeast_js_1 = __webpack_require__(34);
-const util_js_1 = __webpack_require__(10);
-const websocket_constructor_js_1 = __webpack_require__(103);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const engine_io_parser_1 = __webpack_require__(14);
-const debug = (0, debug_1.default)("engine.io-client:websocket"); // debug()
-// detect ReactNative environment
-const isReactNative = typeof navigator !== "undefined" &&
-    typeof navigator.product === "string" &&
-    navigator.product.toLowerCase() === "reactnative";
-class WS extends transport_js_1.Transport {
-    /**
-     * WebSocket transport constructor.
-     *
-     * @api {Object} connection options
-     * @api public
-     */
-    constructor(opts) {
-        super(opts);
-        this.supportsBinary = !opts.forceBase64;
-    }
-    /**
-     * Transport name.
-     *
-     * @api public
-     */
-    get name() {
-        return "websocket";
-    }
-    /**
-     * Opens socket.
-     *
-     * @api private
-     */
-    doOpen() {
-        if (!this.check()) {
-            // let probe timeout
-            return;
-        }
-        const uri = this.uri();
-        const protocols = this.opts.protocols;
-        // React Native only supports the 'headers' option, and will print a warning if anything else is passed
-        const opts = isReactNative
-            ? {}
-            : (0, util_js_1.pick)(this.opts, "agent", "perMessageDeflate", "pfx", "key", "passphrase", "cert", "ca", "ciphers", "rejectUnauthorized", "localAddress", "protocolVersion", "origin", "maxPayload", "family", "checkServerIdentity");
-        if (this.opts.extraHeaders) {
-            opts.headers = this.opts.extraHeaders;
-        }
-        try {
-            this.ws =
-                websocket_constructor_js_1.usingBrowserWebSocket && !isReactNative
-                    ? protocols
-                        ? new websocket_constructor_js_1.WebSocket(uri, protocols)
-                        : new websocket_constructor_js_1.WebSocket(uri)
-                    : new websocket_constructor_js_1.WebSocket(uri, protocols, opts);
-        }
-        catch (err) {
-            return this.emitReserved("error", err);
-        }
-        this.ws.binaryType = this.socket.binaryType || websocket_constructor_js_1.defaultBinaryType;
-        this.addEventListeners();
-    }
-    /**
-     * Adds event listeners to the socket
-     *
-     * @api private
-     */
-    addEventListeners() {
-        this.ws.onopen = () => {
-            if (this.opts.autoUnref) {
-                this.ws._socket.unref();
-            }
-            this.onOpen();
-        };
-        this.ws.onclose = closeEvent => this.onClose({
-            description: "websocket connection closed",
-            context: closeEvent
-        });
-        this.ws.onmessage = ev => this.onData(ev.data);
-        this.ws.onerror = e => this.onError("websocket error", e);
-    }
-    /**
-     * Writes data to socket.
-     *
-     * @param {Array} array of packets.
-     * @api private
-     */
-    write(packets) {
-        this.writable = false;
-        // encodePacket efficient as it uses WS framing
-        // no need for encodePayload
-        for (let i = 0; i < packets.length; i++) {
-            const packet = packets[i];
-            const lastPacket = i === packets.length - 1;
-            (0, engine_io_parser_1.encodePacket)(packet, this.supportsBinary, data => {
-                // always create a new object (GH-437)
-                const opts = {};
-                if (!websocket_constructor_js_1.usingBrowserWebSocket) {
-                    if (packet.options) {
-                        opts.compress = packet.options.compress;
-                    }
-                    if (this.opts.perMessageDeflate) {
-                        const len = 
-                        // @ts-ignore
-                        "string" === typeof data ? Buffer.byteLength(data) : data.length;
-                        if (len < this.opts.perMessageDeflate.threshold) {
-                            opts.compress = false;
-                        }
-                    }
-                }
-                // Sometimes the websocket has already been closed but the browser didn't
-                // have a chance of informing us about it yet, in that case send will
-                // throw an error
-                try {
-                    if (websocket_constructor_js_1.usingBrowserWebSocket) {
-                        // TypeError is thrown when passing the second argument on Safari
-                        this.ws.send(data);
-                    }
-                    else {
-                        this.ws.send(data, opts);
-                    }
-                }
-                catch (e) {
-                    debug("websocket closed before onclose event");
-                }
-                if (lastPacket) {
-                    // fake drain
-                    // defer to next tick to allow Socket to clear writeBuffer
-                    (0, websocket_constructor_js_1.nextTick)(() => {
-                        this.writable = true;
-                        this.emitReserved("drain");
-                    }, this.setTimeoutFn);
-                }
-            });
-        }
-    }
-    /**
-     * Closes socket.
-     *
-     * @api private
-     */
-    doClose() {
-        if (typeof this.ws !== "undefined") {
-            this.ws.close();
-            this.ws = null;
-        }
-    }
-    /**
-     * Generates uri for connection.
-     *
-     * @api private
-     */
-    uri() {
-        let query = this.query || {};
-        const schema = this.opts.secure ? "wss" : "ws";
-        let port = "";
-        // avoid port if default for schema
-        if (this.opts.port &&
-            (("wss" === schema && Number(this.opts.port) !== 443) ||
-                ("ws" === schema && Number(this.opts.port) !== 80))) {
-            port = ":" + this.opts.port;
-        }
-        // append timestamp to URI
-        if (this.opts.timestampRequests) {
-            query[this.opts.timestampParam] = (0, yeast_js_1.yeast)();
-        }
-        // communicate binary support capabilities
-        if (!this.supportsBinary) {
-            query.b64 = 1;
-        }
-        const encodedQuery = (0, parseqs_js_1.encode)(query);
-        const ipv6 = this.opts.hostname.indexOf(":") !== -1;
-        return (schema +
-            "://" +
-            (ipv6 ? "[" + this.opts.hostname + "]" : this.opts.hostname) +
-            port +
-            this.opts.path +
-            (encodedQuery.length ? "?" + encodedQuery : ""));
-    }
-    /**
-     * Feature detection for WebSocket.
-     *
-     * @return {Boolean} whether this transport is available.
-     * @api public
-     */
-    check() {
-        return !!websocket_constructor_js_1.WebSocket;
-    }
-}
-exports.WS = WS;
-
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.nextTick = exports.defaultBinaryType = exports.usingBrowserWebSocket = exports.WebSocket = void 0;
-const ws_1 = __importDefault(__webpack_require__(104));
-exports.WebSocket = ws_1.default;
-exports.usingBrowserWebSocket = false;
-exports.defaultBinaryType = "nodebuffer";
-exports.nextTick = process.nextTick;
-
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports) {
-
-module.exports = require("ws");
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Manager = void 0;
-const engine_io_client_1 = __webpack_require__(30);
-const socket_js_1 = __webpack_require__(36);
-const parser = __importStar(__webpack_require__(21));
-const on_js_1 = __webpack_require__(38);
-const backo2_js_1 = __webpack_require__(107);
-const component_emitter_1 = __webpack_require__(8);
-const debug_1 = __importDefault(__webpack_require__(6)); // debug()
-const debug = debug_1.default("socket.io-client:manager"); // debug()
-class Manager extends component_emitter_1.Emitter {
-    constructor(uri, opts) {
-        var _a;
-        super();
-        this.nsps = {};
-        this.subs = [];
-        if (uri && "object" === typeof uri) {
-            opts = uri;
-            uri = undefined;
-        }
-        opts = opts || {};
-        opts.path = opts.path || "/socket.io";
-        this.opts = opts;
-        engine_io_client_1.installTimerFunctions(this, opts);
-        this.reconnection(opts.reconnection !== false);
-        this.reconnectionAttempts(opts.reconnectionAttempts || Infinity);
-        this.reconnectionDelay(opts.reconnectionDelay || 1000);
-        this.reconnectionDelayMax(opts.reconnectionDelayMax || 5000);
-        this.randomizationFactor((_a = opts.randomizationFactor) !== null && _a !== void 0 ? _a : 0.5);
-        this.backoff = new backo2_js_1.Backoff({
-            min: this.reconnectionDelay(),
-            max: this.reconnectionDelayMax(),
-            jitter: this.randomizationFactor(),
-        });
-        this.timeout(null == opts.timeout ? 20000 : opts.timeout);
-        this._readyState = "closed";
-        this.uri = uri;
-        const _parser = opts.parser || parser;
-        this.encoder = new _parser.Encoder();
-        this.decoder = new _parser.Decoder();
-        this._autoConnect = opts.autoConnect !== false;
-        if (this._autoConnect)
-            this.open();
-    }
-    reconnection(v) {
-        if (!arguments.length)
-            return this._reconnection;
-        this._reconnection = !!v;
-        return this;
-    }
-    reconnectionAttempts(v) {
-        if (v === undefined)
-            return this._reconnectionAttempts;
-        this._reconnectionAttempts = v;
-        return this;
-    }
-    reconnectionDelay(v) {
-        var _a;
-        if (v === undefined)
-            return this._reconnectionDelay;
-        this._reconnectionDelay = v;
-        (_a = this.backoff) === null || _a === void 0 ? void 0 : _a.setMin(v);
-        return this;
-    }
-    randomizationFactor(v) {
-        var _a;
-        if (v === undefined)
-            return this._randomizationFactor;
-        this._randomizationFactor = v;
-        (_a = this.backoff) === null || _a === void 0 ? void 0 : _a.setJitter(v);
-        return this;
-    }
-    reconnectionDelayMax(v) {
-        var _a;
-        if (v === undefined)
-            return this._reconnectionDelayMax;
-        this._reconnectionDelayMax = v;
-        (_a = this.backoff) === null || _a === void 0 ? void 0 : _a.setMax(v);
-        return this;
-    }
-    timeout(v) {
-        if (!arguments.length)
-            return this._timeout;
-        this._timeout = v;
-        return this;
-    }
-    /**
-     * Starts trying to reconnect if reconnection is enabled and we have not
-     * started reconnecting yet
-     *
-     * @private
-     */
-    maybeReconnectOnOpen() {
-        // Only try to reconnect if it's the first time we're connecting
-        if (!this._reconnecting &&
-            this._reconnection &&
-            this.backoff.attempts === 0) {
-            // keeps reconnection from firing twice for the same reconnection loop
-            this.reconnect();
-        }
-    }
-    /**
-     * Sets the current transport `socket`.
-     *
-     * @param {Function} fn - optional, callback
-     * @return self
-     * @public
-     */
-    open(fn) {
-        debug("readyState %s", this._readyState);
-        if (~this._readyState.indexOf("open"))
-            return this;
-        debug("opening %s", this.uri);
-        this.engine = new engine_io_client_1.Socket(this.uri, this.opts);
-        const socket = this.engine;
-        const self = this;
-        this._readyState = "opening";
-        this.skipReconnect = false;
-        // emit `open`
-        const openSubDestroy = on_js_1.on(socket, "open", function () {
-            self.onopen();
-            fn && fn();
-        });
-        // emit `error`
-        const errorSub = on_js_1.on(socket, "error", (err) => {
-            debug("error");
-            self.cleanup();
-            self._readyState = "closed";
-            this.emitReserved("error", err);
-            if (fn) {
-                fn(err);
-            }
-            else {
-                // Only do this if there is no fn to handle the error
-                self.maybeReconnectOnOpen();
-            }
-        });
-        if (false !== this._timeout) {
-            const timeout = this._timeout;
-            debug("connect attempt will timeout after %d", timeout);
-            if (timeout === 0) {
-                openSubDestroy(); // prevents a race condition with the 'open' event
-            }
-            // set timer
-            const timer = this.setTimeoutFn(() => {
-                debug("connect attempt timed out after %d", timeout);
-                openSubDestroy();
-                socket.close();
-                // @ts-ignore
-                socket.emit("error", new Error("timeout"));
-            }, timeout);
-            if (this.opts.autoUnref) {
-                timer.unref();
-            }
-            this.subs.push(function subDestroy() {
-                clearTimeout(timer);
-            });
-        }
-        this.subs.push(openSubDestroy);
-        this.subs.push(errorSub);
-        return this;
-    }
-    /**
-     * Alias for open()
-     *
-     * @return self
-     * @public
-     */
-    connect(fn) {
-        return this.open(fn);
-    }
-    /**
-     * Called upon transport open.
-     *
-     * @private
-     */
-    onopen() {
-        debug("open");
-        // clear old subs
-        this.cleanup();
-        // mark as open
-        this._readyState = "open";
-        this.emitReserved("open");
-        // add new subs
-        const socket = this.engine;
-        this.subs.push(on_js_1.on(socket, "ping", this.onping.bind(this)), on_js_1.on(socket, "data", this.ondata.bind(this)), on_js_1.on(socket, "error", this.onerror.bind(this)), on_js_1.on(socket, "close", this.onclose.bind(this)), on_js_1.on(this.decoder, "decoded", this.ondecoded.bind(this)));
-    }
-    /**
-     * Called upon a ping.
-     *
-     * @private
-     */
-    onping() {
-        this.emitReserved("ping");
-    }
-    /**
-     * Called with data.
-     *
-     * @private
-     */
-    ondata(data) {
-        try {
-            this.decoder.add(data);
-        }
-        catch (e) {
-            this.onclose("parse error");
-        }
-    }
-    /**
-     * Called when parser fully decodes a packet.
-     *
-     * @private
-     */
-    ondecoded(packet) {
-        this.emitReserved("packet", packet);
-    }
-    /**
-     * Called upon socket error.
-     *
-     * @private
-     */
-    onerror(err) {
-        debug("error", err);
-        this.emitReserved("error", err);
-    }
-    /**
-     * Creates a new socket for the given `nsp`.
-     *
-     * @return {Socket}
-     * @public
-     */
-    socket(nsp, opts) {
-        let socket = this.nsps[nsp];
-        if (!socket) {
-            socket = new socket_js_1.Socket(this, nsp, opts);
-            this.nsps[nsp] = socket;
-        }
-        return socket;
-    }
-    /**
-     * Called upon a socket close.
-     *
-     * @param socket
-     * @private
-     */
-    _destroy(socket) {
-        const nsps = Object.keys(this.nsps);
-        for (const nsp of nsps) {
-            const socket = this.nsps[nsp];
-            if (socket.active) {
-                debug("socket %s is still active, skipping close", nsp);
-                return;
-            }
-        }
-        this._close();
-    }
-    /**
-     * Writes a packet.
-     *
-     * @param packet
-     * @private
-     */
-    _packet(packet) {
-        debug("writing packet %j", packet);
-        const encodedPackets = this.encoder.encode(packet);
-        for (let i = 0; i < encodedPackets.length; i++) {
-            this.engine.write(encodedPackets[i], packet.options);
-        }
-    }
-    /**
-     * Clean up transport subscriptions and packet buffer.
-     *
-     * @private
-     */
-    cleanup() {
-        debug("cleanup");
-        this.subs.forEach((subDestroy) => subDestroy());
-        this.subs.length = 0;
-        this.decoder.destroy();
-    }
-    /**
-     * Close the current socket.
-     *
-     * @private
-     */
-    _close() {
-        debug("disconnect");
-        this.skipReconnect = true;
-        this._reconnecting = false;
-        this.onclose("forced close");
-        if (this.engine)
-            this.engine.close();
-    }
-    /**
-     * Alias for close()
-     *
-     * @private
-     */
-    disconnect() {
-        return this._close();
-    }
-    /**
-     * Called upon engine close.
-     *
-     * @private
-     */
-    onclose(reason, description) {
-        debug("closed due to %s", reason);
-        this.cleanup();
-        this.backoff.reset();
-        this._readyState = "closed";
-        this.emitReserved("close", reason, description);
-        if (this._reconnection && !this.skipReconnect) {
-            this.reconnect();
-        }
-    }
-    /**
-     * Attempt a reconnection.
-     *
-     * @private
-     */
-    reconnect() {
-        if (this._reconnecting || this.skipReconnect)
-            return this;
-        const self = this;
-        if (this.backoff.attempts >= this._reconnectionAttempts) {
-            debug("reconnect failed");
-            this.backoff.reset();
-            this.emitReserved("reconnect_failed");
-            this._reconnecting = false;
-        }
-        else {
-            const delay = this.backoff.duration();
-            debug("will wait %dms before reconnect attempt", delay);
-            this._reconnecting = true;
-            const timer = this.setTimeoutFn(() => {
-                if (self.skipReconnect)
-                    return;
-                debug("attempting reconnect");
-                this.emitReserved("reconnect_attempt", self.backoff.attempts);
-                // check again for the case socket closed in above events
-                if (self.skipReconnect)
-                    return;
-                self.open((err) => {
-                    if (err) {
-                        debug("reconnect attempt error");
-                        self._reconnecting = false;
-                        self.reconnect();
-                        this.emitReserved("reconnect_error", err);
-                    }
-                    else {
-                        debug("reconnect success");
-                        self.onreconnect();
-                    }
-                });
-            }, delay);
-            if (this.opts.autoUnref) {
-                timer.unref();
-            }
-            this.subs.push(function subDestroy() {
-                clearTimeout(timer);
-            });
-        }
-    }
-    /**
-     * Called upon successful reconnect.
-     *
-     * @private
-     */
-    onreconnect() {
-        const attempt = this.backoff.attempts;
-        this._reconnecting = false;
-        this.backoff.reset();
-        this.emitReserved("reconnect", attempt);
-    }
-}
-exports.Manager = Manager;
-
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.reconstructPacket = exports.deconstructPacket = void 0;
-const is_binary_js_1 = __webpack_require__(37);
-/**
- * Replaces every Buffer | ArrayBuffer | Blob | File in packet with a numbered placeholder.
- *
- * @param {Object} packet - socket.io event packet
- * @return {Object} with deconstructed packet and list of buffers
- * @public
- */
-function deconstructPacket(packet) {
-    const buffers = [];
-    const packetData = packet.data;
-    const pack = packet;
-    pack.data = _deconstructPacket(packetData, buffers);
-    pack.attachments = buffers.length; // number of binary 'attachments'
-    return { packet: pack, buffers: buffers };
-}
-exports.deconstructPacket = deconstructPacket;
-function _deconstructPacket(data, buffers) {
-    if (!data)
-        return data;
-    if (is_binary_js_1.isBinary(data)) {
-        const placeholder = { _placeholder: true, num: buffers.length };
-        buffers.push(data);
-        return placeholder;
-    }
-    else if (Array.isArray(data)) {
-        const newData = new Array(data.length);
-        for (let i = 0; i < data.length; i++) {
-            newData[i] = _deconstructPacket(data[i], buffers);
-        }
-        return newData;
-    }
-    else if (typeof data === "object" && !(data instanceof Date)) {
-        const newData = {};
-        for (const key in data) {
-            if (Object.prototype.hasOwnProperty.call(data, key)) {
-                newData[key] = _deconstructPacket(data[key], buffers);
-            }
-        }
-        return newData;
-    }
-    return data;
-}
-/**
- * Reconstructs a binary packet from its placeholder packet and buffers
- *
- * @param {Object} packet - event packet with placeholders
- * @param {Array} buffers - binary buffers to put in placeholder positions
- * @return {Object} reconstructed packet
- * @public
- */
-function reconstructPacket(packet, buffers) {
-    packet.data = _reconstructPacket(packet.data, buffers);
-    packet.attachments = undefined; // no longer useful
-    return packet;
-}
-exports.reconstructPacket = reconstructPacket;
-function _reconstructPacket(data, buffers) {
-    if (!data)
-        return data;
-    if (data && data._placeholder === true) {
-        const isIndexValid = typeof data.num === "number" &&
-            data.num >= 0 &&
-            data.num < buffers.length;
-        if (isIndexValid) {
-            return buffers[data.num]; // appropriate buffer (should be natural order anyway)
-        }
-        else {
-            throw new Error("illegal attachments");
-        }
-    }
-    else if (Array.isArray(data)) {
-        for (let i = 0; i < data.length; i++) {
-            data[i] = _reconstructPacket(data[i], buffers);
-        }
-    }
-    else if (typeof data === "object") {
-        for (const key in data) {
-            if (Object.prototype.hasOwnProperty.call(data, key)) {
-                data[key] = _reconstructPacket(data[key], buffers);
-            }
-        }
-    }
-    return data;
-}
-
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * Initialize backoff timer with `opts`.
- *
- * - `min` initial timeout in milliseconds [100]
- * - `max` max timeout [10000]
- * - `jitter` [0]
- * - `factor` [2]
- *
- * @param {Object} opts
- * @api public
- */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Backoff = void 0;
-function Backoff(opts) {
-    opts = opts || {};
-    this.ms = opts.min || 100;
-    this.max = opts.max || 10000;
-    this.factor = opts.factor || 2;
-    this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
-    this.attempts = 0;
-}
-exports.Backoff = Backoff;
-/**
- * Return the backoff duration.
- *
- * @return {Number}
- * @api public
- */
-Backoff.prototype.duration = function () {
-    var ms = this.ms * Math.pow(this.factor, this.attempts++);
-    if (this.jitter) {
-        var rand = Math.random();
-        var deviation = Math.floor(rand * this.jitter * ms);
-        ms = (Math.floor(rand * 10) & 1) == 0 ? ms - deviation : ms + deviation;
-    }
-    return Math.min(ms, this.max) | 0;
-};
-/**
- * Reset the number of attempts.
- *
- * @api public
- */
-Backoff.prototype.reset = function () {
-    this.attempts = 0;
-};
-/**
- * Set the minimum duration
- *
- * @api public
- */
-Backoff.prototype.setMin = function (min) {
-    this.ms = min;
-};
-/**
- * Set the maximum duration
- *
- * @api public
- */
-Backoff.prototype.setMax = function (max) {
-    this.max = max;
-};
-/**
- * Set the jitter
- *
- * @api public
- */
-Backoff.prototype.setJitter = function (jitter) {
-    this.jitter = jitter;
-};
-
-
-/***/ }),
-/* 108 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7090,7 +3436,6 @@ __webpack_require__.r(__webpack_exports__);
 // NAMESPACE OBJECT: ./.nuxt/components/index.js
 var components_namespaceObject = {};
 __webpack_require__.r(components_namespaceObject);
-__webpack_require__.d(components_namespaceObject, "IoSocketStatus", function() { return IoSocketStatus; });
 __webpack_require__.d(components_namespaceObject, "Benefits", function() { return Benefits; });
 __webpack_require__.d(components_namespaceObject, "BenefitsTwo", function() { return BenefitsTwo; });
 __webpack_require__.d(components_namespaceObject, "Bookmark", function() { return Bookmark; });
@@ -7124,7 +3469,7 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 var dist = __webpack_require__(5);
 
 // EXTERNAL MODULE: external "node-fetch"
-var external_node_fetch_ = __webpack_require__(7);
+var external_node_fetch_ = __webpack_require__(6);
 var external_node_fetch_default = /*#__PURE__*/__webpack_require__.n(external_node_fetch_);
 
 // CONCATENATED MODULE: ./.nuxt/middleware.js
@@ -7812,23 +4157,23 @@ async function serverPrefetch() {
 
 });
 // EXTERNAL MODULE: external "vuex"
-var external_vuex_ = __webpack_require__(9);
+var external_vuex_ = __webpack_require__(7);
 var external_vuex_default = /*#__PURE__*/__webpack_require__.n(external_vuex_);
 
 // EXTERNAL MODULE: external "vue-meta"
-var external_vue_meta_ = __webpack_require__(41);
+var external_vue_meta_ = __webpack_require__(23);
 var external_vue_meta_default = /*#__PURE__*/__webpack_require__.n(external_vue_meta_);
 
 // EXTERNAL MODULE: external "vue-client-only"
-var external_vue_client_only_ = __webpack_require__(22);
+var external_vue_client_only_ = __webpack_require__(14);
 var external_vue_client_only_default = /*#__PURE__*/__webpack_require__.n(external_vue_client_only_);
 
 // EXTERNAL MODULE: external "vue-no-ssr"
-var external_vue_no_ssr_ = __webpack_require__(16);
+var external_vue_no_ssr_ = __webpack_require__(11);
 var external_vue_no_ssr_default = /*#__PURE__*/__webpack_require__.n(external_vue_no_ssr_);
 
 // EXTERNAL MODULE: external "vue-router"
-var external_vue_router_ = __webpack_require__(23);
+var external_vue_router_ = __webpack_require__(15);
 var external_vue_router_default = /*#__PURE__*/__webpack_require__.n(external_vue_router_);
 
 // CONCATENATED MODULE: ./.nuxt/router.scrollBehavior.js
@@ -7908,23 +4253,23 @@ function shouldScrollToTop(route) {
 
 
 
-const _2cdb18f8 = () => interopDefault(__webpack_require__.e(/* import() | pages/about */ 20).then(__webpack_require__.bind(null, 137)));
+const _2cdb18f8 = () => interopDefault(__webpack_require__.e(/* import() | pages/about */ 19).then(__webpack_require__.bind(null, 103)));
 
-const _0b766d84 = () => interopDefault(__webpack_require__.e(/* import() | pages/catalog/index */ 22).then(__webpack_require__.bind(null, 138)));
+const _0b766d84 = () => interopDefault(__webpack_require__.e(/* import() | pages/catalog/index */ 21).then(__webpack_require__.bind(null, 104)));
 
-const _3d67fb38 = () => interopDefault(__webpack_require__.e(/* import() | pages/contacts */ 23).then(__webpack_require__.bind(null, 139)));
+const _3d67fb38 = () => interopDefault(__webpack_require__.e(/* import() | pages/contacts */ 22).then(__webpack_require__.bind(null, 105)));
 
-const _79eb4893 = () => interopDefault(__webpack_require__.e(/* import() | pages/info */ 25).then(__webpack_require__.bind(null, 147)));
+const _79eb4893 = () => interopDefault(__webpack_require__.e(/* import() | pages/info */ 24).then(__webpack_require__.bind(null, 113)));
 
-const _698d9af4 = () => interopDefault(__webpack_require__.e(/* import() | pages/recommended */ 26).then(__webpack_require__.bind(null, 140)));
+const _698d9af4 = () => interopDefault(__webpack_require__.e(/* import() | pages/recommended */ 25).then(__webpack_require__.bind(null, 106)));
 
-const _b1dae38c = () => interopDefault(__webpack_require__.e(/* import() | pages/request */ 27).then(__webpack_require__.bind(null, 141)));
+const _b1dae38c = () => interopDefault(__webpack_require__.e(/* import() | pages/request */ 26).then(__webpack_require__.bind(null, 107)));
 
-const _bcc5c13e = () => interopDefault(__webpack_require__.e(/* import() | pages/warranty */ 28).then(__webpack_require__.bind(null, 142)));
+const _bcc5c13e = () => interopDefault(__webpack_require__.e(/* import() | pages/warranty */ 27).then(__webpack_require__.bind(null, 108)));
 
-const _1e500326 = () => interopDefault(__webpack_require__.e(/* import() | pages/catalog/_id */ 21).then(__webpack_require__.bind(null, 143)));
+const _1e500326 = () => interopDefault(__webpack_require__.e(/* import() | pages/catalog/_id */ 20).then(__webpack_require__.bind(null, 109)));
 
-const _4c92f3bd = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 24).then(__webpack_require__.bind(null, 144)));
+const _4c92f3bd = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 23).then(__webpack_require__.bind(null, 110)));
 
 const emptyFn = () => {};
 
@@ -8127,7 +4472,7 @@ var error_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var layouts_error = (error_component.exports);
 
 /* nuxt-component-imports */
-installComponents(error_component, {Title: __webpack_require__(52).default})
+installComponents(error_component, {Title: __webpack_require__(34).default})
 
 // CONCATENATED MODULE: ./.nuxt/components/nuxt.js
 
@@ -8414,7 +4759,7 @@ var nuxt_loading_render, nuxt_loading_staticRenderFns
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(57)
+  var style0 = __webpack_require__(39)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -8434,10 +4779,10 @@ var nuxt_loading_component = Object(componentNormalizer["a" /* default */])(
 
 /* harmony default export */ var nuxt_loading = (nuxt_loading_component.exports);
 // EXTERNAL MODULE: ./assets/css/icon/all.css
-var icon_all = __webpack_require__(59);
+var icon_all = __webpack_require__(41);
 
 // EXTERNAL MODULE: ./assets/css/site.styl
-var site = __webpack_require__(76);
+var site = __webpack_require__(58);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=1308a369&
 var defaultvue_type_template_id_1308a369_render = function render() {
@@ -8496,7 +4841,7 @@ var default_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var layouts_default = (default_component.exports);
 
 /* nuxt-component-imports */
-installComponents(default_component, {Header: __webpack_require__(39).default,Footer: __webpack_require__(40).default})
+installComponents(default_component, {Header: __webpack_require__(21).default,Footer: __webpack_require__(22).default})
 
 // CONCATENATED MODULE: ./.nuxt/App.js
 
@@ -8691,11 +5036,11 @@ let store_store = {};
   // If store is an exported method = classic mode (deprecated)
   // Enforce store modules
   store_store.modules = store_store.modules || {};
-  resolveStoreModules(__webpack_require__(89), 'brends.js');
-  resolveStoreModules(__webpack_require__(90), 'catalogs.js');
-  resolveStoreModules(__webpack_require__(91), 'categories.js');
-  resolveStoreModules(__webpack_require__(92), 'clients.js');
-  resolveStoreModules(__webpack_require__(93), 'recommended.js'); // If the environment supports hot reloading...
+  resolveStoreModules(__webpack_require__(71), 'brends.js');
+  resolveStoreModules(__webpack_require__(72), 'catalogs.js');
+  resolveStoreModules(__webpack_require__(73), 'categories.js');
+  resolveStoreModules(__webpack_require__(74), 'clients.js');
+  resolveStoreModules(__webpack_require__(75), 'recommended.js'); // If the environment supports hot reloading...
 })(); // createStore
 
 
@@ -8810,31 +5155,30 @@ function mergeProperty(storeModule, moduleData, property) {
   }
 }
 // CONCATENATED MODULE: ./.nuxt/components/index.js
-const IoSocketStatus = () => __webpack_require__.e(/* import() | components/io-socket-status */ 11).then(__webpack_require__.bind(null, 136)).then(c => wrapFunctional(c.default || c));
-const Benefits = () => __webpack_require__.e(/* import() | components/benefits */ 1).then(__webpack_require__.bind(null, 127)).then(c => wrapFunctional(c.default || c));
-const BenefitsTwo = () => __webpack_require__.e(/* import() | components/benefits-two */ 2).then(__webpack_require__.bind(null, 129)).then(c => wrapFunctional(c.default || c));
-const Bookmark = () => __webpack_require__.e(/* import() | components/bookmark */ 3).then(__webpack_require__.bind(null, 145)).then(c => wrapFunctional(c.default || c));
-const CatalogBox = () => __webpack_require__.e(/* import() | components/catalog-box */ 4).then(__webpack_require__.bind(null, 112)).then(c => wrapFunctional(c.default || c));
-const CatalogModal = () => __webpack_require__.e(/* import() | components/catalog-modal */ 5).then(__webpack_require__.bind(null, 148)).then(c => wrapFunctional(c.default || c));
-const Chat = () => __webpack_require__.e(/* import() | components/chat */ 6).then(__webpack_require__.bind(null, 146)).then(c => wrapFunctional(c.default || c));
-const ContactsFrom = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 54)).then(c => wrapFunctional(c.default || c));
-const ContactsFromOrder = () => __webpack_require__.e(/* import() | components/contacts-from-order */ 7).then(__webpack_require__.bind(null, 122)).then(c => wrapFunctional(c.default || c));
-const ContactsMain = () => __webpack_require__.e(/* import() | components/contacts-main */ 8).then(__webpack_require__.bind(null, 149)).then(c => wrapFunctional(c.default || c));
-const DeliveryMain = () => __webpack_require__.e(/* import() | components/delivery-main */ 9).then(__webpack_require__.bind(null, 124)).then(c => wrapFunctional(c.default || c));
-const Filters = () => __webpack_require__.e(/* import() | components/filters */ 10).then(__webpack_require__.bind(null, 121)).then(c => wrapFunctional(c.default || c));
-const Footer = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 40)).then(c => wrapFunctional(c.default || c));
-const Header = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 39)).then(c => wrapFunctional(c.default || c));
-const InfoTop = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 109)).then(c => wrapFunctional(c.default || c));
-const LiItem = () => __webpack_require__.e(/* import() | components/li-item */ 12).then(__webpack_require__.bind(null, 114)).then(c => wrapFunctional(c.default || c));
-const LogosClient = () => __webpack_require__.e(/* import() | components/logos-client */ 14).then(__webpack_require__.bind(null, 125)).then(c => wrapFunctional(c.default || c));
-const LogoSlider = () => __webpack_require__.e(/* import() | components/logo-slider */ 13).then(__webpack_require__.bind(null, 123)).then(c => wrapFunctional(c.default || c));
-const MainCatalog = () => __webpack_require__.e(/* import() | components/main-catalog */ 15).then(__webpack_require__.bind(null, 126)).then(c => wrapFunctional(c.default || c));
-const Modal = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 53)).then(c => wrapFunctional(c.default || c));
-const Responder = () => __webpack_require__.e(/* import() | components/responder */ 16).then(__webpack_require__.bind(null, 130)).then(c => wrapFunctional(c.default || c));
-const SliderButton = () => __webpack_require__.e(/* import() | components/slider-button */ 17).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
-const Tab = () => __webpack_require__.e(/* import() | components/tab */ 18).then(__webpack_require__.bind(null, 113)).then(c => wrapFunctional(c.default || c));
-const Title = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 52)).then(c => wrapFunctional(c.default || c));
-const Warranty = () => __webpack_require__.e(/* import() | components/warranty */ 19).then(__webpack_require__.bind(null, 128)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
+const Benefits = () => __webpack_require__.e(/* import() | components/benefits */ 1).then(__webpack_require__.bind(null, 96)).then(c => wrapFunctional(c.default || c));
+const BenefitsTwo = () => __webpack_require__.e(/* import() | components/benefits-two */ 2).then(__webpack_require__.bind(null, 98)).then(c => wrapFunctional(c.default || c));
+const Bookmark = () => __webpack_require__.e(/* import() | components/bookmark */ 3).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
+const CatalogBox = () => __webpack_require__.e(/* import() | components/catalog-box */ 4).then(__webpack_require__.bind(null, 81)).then(c => wrapFunctional(c.default || c));
+const CatalogModal = () => __webpack_require__.e(/* import() | components/catalog-modal */ 5).then(__webpack_require__.bind(null, 114)).then(c => wrapFunctional(c.default || c));
+const Chat = () => __webpack_require__.e(/* import() | components/chat */ 6).then(__webpack_require__.bind(null, 112)).then(c => wrapFunctional(c.default || c));
+const ContactsFrom = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 36)).then(c => wrapFunctional(c.default || c));
+const ContactsFromOrder = () => __webpack_require__.e(/* import() | components/contacts-from-order */ 7).then(__webpack_require__.bind(null, 91)).then(c => wrapFunctional(c.default || c));
+const ContactsMain = () => __webpack_require__.e(/* import() | components/contacts-main */ 8).then(__webpack_require__.bind(null, 115)).then(c => wrapFunctional(c.default || c));
+const DeliveryMain = () => __webpack_require__.e(/* import() | components/delivery-main */ 9).then(__webpack_require__.bind(null, 93)).then(c => wrapFunctional(c.default || c));
+const Filters = () => __webpack_require__.e(/* import() | components/filters */ 10).then(__webpack_require__.bind(null, 90)).then(c => wrapFunctional(c.default || c));
+const Footer = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 22)).then(c => wrapFunctional(c.default || c));
+const Header = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 21)).then(c => wrapFunctional(c.default || c));
+const InfoTop = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 78)).then(c => wrapFunctional(c.default || c));
+const LiItem = () => __webpack_require__.e(/* import() | components/li-item */ 11).then(__webpack_require__.bind(null, 83)).then(c => wrapFunctional(c.default || c));
+const LogosClient = () => __webpack_require__.e(/* import() | components/logos-client */ 13).then(__webpack_require__.bind(null, 94)).then(c => wrapFunctional(c.default || c));
+const LogoSlider = () => __webpack_require__.e(/* import() | components/logo-slider */ 12).then(__webpack_require__.bind(null, 92)).then(c => wrapFunctional(c.default || c));
+const MainCatalog = () => __webpack_require__.e(/* import() | components/main-catalog */ 14).then(__webpack_require__.bind(null, 95)).then(c => wrapFunctional(c.default || c));
+const Modal = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 35)).then(c => wrapFunctional(c.default || c));
+const Responder = () => __webpack_require__.e(/* import() | components/responder */ 15).then(__webpack_require__.bind(null, 99)).then(c => wrapFunctional(c.default || c));
+const SliderButton = () => __webpack_require__.e(/* import() | components/slider-button */ 16).then(__webpack_require__.bind(null, 80)).then(c => wrapFunctional(c.default || c));
+const Tab = () => __webpack_require__.e(/* import() | components/tab */ 17).then(__webpack_require__.bind(null, 82)).then(c => wrapFunctional(c.default || c));
+const Title = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 34)).then(c => wrapFunctional(c.default || c));
+const Warranty = () => __webpack_require__.e(/* import() | components/warranty */ 18).then(__webpack_require__.bind(null, 97)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
 
 function wrapFunctional(options) {
   if (!options || !options.functional) {
@@ -8874,10 +5218,10 @@ for (const name in components_namespaceObject) {
   external_vue_default.a.component('Lazy' + name, components_namespaceObject[name]);
 }
 // EXTERNAL MODULE: ./.nuxt/empty.js
-var _nuxt_empty = __webpack_require__(29);
+var _nuxt_empty = __webpack_require__(20);
 
 // EXTERNAL MODULE: external "cookie-universal"
-var external_cookie_universal_ = __webpack_require__(42);
+var external_cookie_universal_ = __webpack_require__(24);
 var external_cookie_universal_default = /*#__PURE__*/__webpack_require__.n(external_cookie_universal_);
 
 // CONCATENATED MODULE: ./.nuxt/cookie-universal-nuxt.js
@@ -8893,10 +5237,10 @@ var external_cookie_universal_default = /*#__PURE__*/__webpack_require__.n(exter
   inject(options.alias, external_cookie_universal_default()(req, res, options.parseJSON));
 });
 // EXTERNAL MODULE: external "abort-controller"
-var external_abort_controller_ = __webpack_require__(43);
+var external_abort_controller_ = __webpack_require__(25);
 
 // EXTERNAL MODULE: external "web-streams-polyfill/ponyfill/es2018"
-var es2018_ = __webpack_require__(44);
+var es2018_ = __webpack_require__(26);
 
 // CONCATENATED MODULE: ./.nuxt/http.server.js
 
@@ -8933,15 +5277,15 @@ if (!global.ReadableStream) {
   } catch (_) {}
 }
 // EXTERNAL MODULE: external "defu"
-var external_defu_ = __webpack_require__(45);
+var external_defu_ = __webpack_require__(27);
 var external_defu_default = /*#__PURE__*/__webpack_require__.n(external_defu_);
 
 // EXTERNAL MODULE: ./node_modules/destr/dist/index.cjs
-var destr_dist = __webpack_require__(11);
+var destr_dist = __webpack_require__(8);
 var destr_dist_default = /*#__PURE__*/__webpack_require__.n(destr_dist);
 
 // EXTERNAL MODULE: ./node_modules/ky/index.js
-var node_modules_ky = __webpack_require__(46);
+var node_modules_ky = __webpack_require__(28);
 
 // CONCATENATED MODULE: ./.nuxt/http.js
 
@@ -9137,11 +5481,11 @@ const createHttpInstance = options => {
   inject('http', http);
 });
 // EXTERNAL MODULE: ./node_modules/hookable/dist/hookable.js
-var hookable = __webpack_require__(47);
+var hookable = __webpack_require__(29);
 var hookable_default = /*#__PURE__*/__webpack_require__.n(hookable);
 
 // EXTERNAL MODULE: ./node_modules/requrl/dist/requrl.js
-var requrl = __webpack_require__(48);
+var requrl = __webpack_require__(30);
 var requrl_default = /*#__PURE__*/__webpack_require__.n(requrl);
 
 // CONCATENATED MODULE: ./node_modules/@nuxtjs/strapi/lib/runtime/utils.js
@@ -9427,1423 +5771,8 @@ strapi_options.entities.forEach(entity => {
   inject('strapi', strapi);
   ctx.$strapi = strapi;
 });
-// EXTERNAL MODULE: ./node_modules/socket.io-client/build/cjs/index.js
-var cjs = __webpack_require__(24);
-var cjs_default = /*#__PURE__*/__webpack_require__.n(cjs);
-
-// EXTERNAL MODULE: external "debug"
-var external_debug_ = __webpack_require__(6);
-var external_debug_default = /*#__PURE__*/__webpack_require__.n(external_debug_);
-
-// EXTERNAL MODULE: external "tiny-emitter/instance.js"
-var instance_js_ = __webpack_require__(12);
-var instance_js_default = /*#__PURE__*/__webpack_require__.n(instance_js_);
-
-// CONCATENATED MODULE: ./.nuxt/nuxt-socket-io.js
-/* eslint-disable no-console */
-
-/*
- * Copyright 2021 Richard Schloss (https://github.com/richardeschloss/nuxt-socket-io)
- */
-
-
-
-/*
- TODO:
- 1) will enable when '@nuxtjs/composition-api' reaches stable version:
- 2) will bump from devDep to dep when stable
-*/
-
-const debug = external_debug_default()('nuxt-socket-io');
-
-const isRefImpl = any => any && any.constructor.name === 'RefImpl';
-
-const nuxt_socket_io_delay = (ms, timerObj) => new Promise((resolve, reject) => {
-  timerObj.timer = setTimeout(() => resolve(true), ms);
-
-  timerObj.abort = () => {
-    clearTimeout(timerObj.timer);
-    reject(new Error('AbortError'));
-  };
-});
-
-const _sockets = {};
-let warn, infoMsgs;
-
-function camelCase(str) {
-  return str.replace(/[_\-\s](.)/g, function ($1) {
-    return $1.toUpperCase();
-  }).replace(/[-_\s]/g, '').replace(/^(.)/, function ($1) {
-    return $1.toLowerCase();
-  }).replace(/[^\w\s]/gi, '');
-}
-
-function propExists(obj, path) {
-  // eslint-disable-next-line array-callback-return
-  const exists = path.split('.').reduce((out, prop) => {
-    if (out !== undefined && out[prop] !== undefined) {
-      return out[prop];
-    }
-  }, obj);
-  return exists !== undefined;
-}
-
-function parseEntry(entry, entryType) {
-  let evt, mapTo, pre, emitEvt, msgLabel, post;
-
-  if (typeof entry === 'string') {
-    let subItems = [];
-    let body;
-    const items = entry.trim().split(/\s*\]\s*/);
-
-    if (items.length > 1) {
-      pre = items[0];
-      subItems = items[1].split(/\s*\[\s*/);
-    } else {
-      subItems = items[0].split(/\s*\[\s*/);
-    }
-
-    ;
-    [body, post] = subItems;
-
-    if (body.includes('-->')) {
-      ;
-      [evt, mapTo] = body.split(/\s*-->\s*/);
-    } else if (body.includes('<--')) {
-      ;
-      [evt, mapTo] = body.split(/\s*<--\s*/);
-    } else {
-      evt = body;
-    }
-
-    if (entryType === 'emitter') {
-      ;
-      [emitEvt, msgLabel] = evt.split(/\s*\+\s*/);
-    } else if (mapTo === undefined) {
-      mapTo = evt;
-    }
-  }
-
-  return {
-    pre,
-    post,
-    evt,
-    mapTo,
-    emitEvt,
-    msgLabel
-  };
-}
-
-function assignMsg(ctx, prop) {
-  let msg;
-
-  if (prop !== undefined) {
-    if (ctx[prop] !== undefined) {
-      if (typeof ctx[prop] === 'object') {
-        msg = Array.isArray(ctx[prop]) ? [] : {};
-        Object.assign(msg, ctx[prop]);
-      } else {
-        msg = ctx[prop];
-      }
-    } else {
-      warn(`prop or data item "${prop}" not defined`);
-    }
-
-    debug(`assigned ${prop} to ${msg}`);
-  }
-
-  return msg;
-}
-
-function assignResp(ctx, prop, resp) {
-  if (prop !== undefined) {
-    if (ctx[prop] !== undefined) {
-      if (typeof ctx[prop] !== 'function') {
-        // In vue3, it's possible to create
-        // reactive refs on the fly with ref()
-        // so check for that here.
-        // (this would elimnate the need for v2's
-        // this.$set because we just set the value prop
-        // to trigger the UI changes)
-        if (isRefImpl(ctx[prop])) {
-          ctx[prop].value = resp;
-        } else {
-          ctx[prop] = resp;
-        }
-
-        debug(`assigned ${resp} to ${prop}`);
-      }
-    } else {
-      warn(`${prop} not defined on instance`);
-    }
-  }
-}
-
-async function runHook(ctx, prop, data) {
-  if (prop !== undefined) {
-    if (ctx[prop]) {
-      return await ctx[prop](data);
-    } else {
-      warn(`method ${prop} not defined`);
-    }
-  }
-}
-
-function propByPath(obj, path) {
-  // eslint-disable-next-line array-callback-return
-  return path.split(/[/.]/).reduce((out, prop) => {
-    if (out !== undefined && out[prop] !== undefined) {
-      return out[prop];
-    }
-  }, obj);
-}
-/**
- * Validate the provided sockets are an array
- * of at least 1 item
- * @param {Array<*>} sockets
- */
-
-
-function validateSockets(sockets) {
-  return sockets && Array.isArray(sockets) && sockets.length > 0;
-}
-
-const register = {
-  clientApiEvents({
-    ctx,
-    store,
-    socket,
-    api
-  }) {
-    const {
-      evts
-    } = api;
-    Object.entries(evts).forEach(([emitEvt, schema]) => {
-      const {
-        data: dataT
-      } = schema;
-      const fn = emitEvt + 'Emit';
-
-      if (ctx[emitEvt] !== undefined) {
-        if (dataT !== undefined) {
-          Object.entries(dataT).forEach(([key, val]) => {
-            ctx.$set(ctx[emitEvt], key, val);
-          });
-          debug('Initialized data for', emitEvt, dataT);
-        }
-      }
-
-      if (ctx[fn] !== undefined) {
-        return;
-      }
-
-      ctx[fn] = async fnArgs => {
-        const {
-          label: apiLabel,
-          ack,
-          ...args
-        } = fnArgs || {};
-        const label = apiLabel || api.label;
-        const msg = Object.keys(args).length > 0 ? args : { ...ctx[emitEvt]
-        };
-        msg.method = fn;
-
-        if (ack) {
-          const ackd = await store.dispatch('$nuxtSocket/emit', {
-            label,
-            socket,
-            evt: emitEvt,
-            msg
-          });
-          return ackd;
-        } else {
-          store.dispatch('$nuxtSocket/emit', {
-            label,
-            socket,
-            evt: emitEvt,
-            msg,
-            noAck: true
-          });
-        }
-      };
-
-      debug('Registered clientAPI method', fn);
-    });
-  },
-
-  clientApiMethods({
-    ctx,
-    socket,
-    api
-  }) {
-    const {
-      methods
-    } = api;
-    const evts = Object.assign({}, methods, {
-      getAPI: {}
-    });
-    Object.entries(evts).forEach(([evt, schema]) => {
-      if (socket.hasListeners(evt)) {
-        warn(`evt ${evt} already has a listener registered`);
-      }
-
-      socket.on(evt, async (msg, cb) => {
-        if (evt === 'getAPI') {
-          if (cb) {
-            cb(api);
-          }
-        } else if (ctx[evt] !== undefined) {
-          msg.method = evt;
-          const resp = await ctx[evt](msg);
-
-          if (cb) {
-            cb(resp);
-          }
-        } else if (cb) {
-          // eslint-disable-next-line node/no-callback-literal
-          cb({
-            emitErr: 'notImplemented',
-            msg: `Client has not yet implemented method (${evt})`
-          });
-        }
-      });
-      debug(`registered client api method ${evt}`);
-
-      if (evt !== 'getAPI' && ctx[evt] === undefined) {
-        warn(`client api method ${evt} has not been defined. ` + 'Either update the client api or define the method so it can be used by callers');
-      }
-    });
-  },
-
-  clientAPI({
-    ctx,
-    store,
-    socket,
-    clientAPI
-  }) {
-    if (clientAPI.methods) {
-      register.clientApiMethods({
-        ctx,
-        socket,
-        api: clientAPI
-      });
-    }
-
-    if (clientAPI.evts) {
-      register.clientApiEvents({
-        ctx,
-        store,
-        socket,
-        api: clientAPI
-      });
-    }
-
-    store.commit('$nuxtSocket/SET_CLIENT_API', clientAPI);
-    debug('clientAPI registered', clientAPI);
-  },
-
-  serverApiEvents({
-    ctx,
-    socket,
-    api,
-    label,
-    ioDataProp,
-    apiIgnoreEvts
-  }) {
-    const {
-      evts
-    } = api;
-    Object.entries(evts).forEach(([evt, entry]) => {
-      const {
-        methods = [],
-        data: dataT
-      } = entry;
-
-      if (apiIgnoreEvts.includes(evt)) {
-        debug(`Event ${evt} is in ignore list ("apiIgnoreEvts"), not registering.`);
-        return;
-      }
-
-      if (socket.hasListeners(evt)) {
-        warn(`evt ${evt} already has a listener registered`);
-      }
-
-      if (methods.length === 0) {
-        let initVal = dataT;
-
-        if (typeof initVal === 'object') {
-          initVal = Array.isArray(dataT) ? [] : {};
-        }
-
-        ctx.$set(ctx[ioDataProp], evt, initVal);
-      } else {
-        methods.forEach(method => {
-          if (ctx[ioDataProp][method] === undefined) {
-            ctx.$set(ctx[ioDataProp], method, {});
-          }
-
-          ctx.$set(ctx[ioDataProp][method], evt, Array.isArray(dataT) ? [] : {});
-        });
-      }
-
-      socket.on(evt, (msg, cb) => {
-        debug(`serverAPI event ${evt} rxd with msg`, msg);
-        const {
-          method,
-          data
-        } = msg;
-
-        if (method !== undefined) {
-          if (ctx[ioDataProp][method] === undefined) {
-            ctx.$set(ctx[ioDataProp], method, {});
-          }
-
-          ctx.$set(ctx[ioDataProp][method], evt, data);
-        } else {
-          ctx.$set(ctx[ioDataProp], evt, data);
-        }
-
-        if (cb) {
-          // eslint-disable-next-line node/no-callback-literal
-          cb({
-            ack: 'ok'
-          });
-        }
-      });
-      debug(`Registered listener for ${evt} on ${label}`);
-    });
-  },
-
-  serverApiMethods({
-    ctx,
-    socket,
-    store,
-    api,
-    label,
-    ioApiProp,
-    ioDataProp
-  }) {
-    Object.entries(api.methods).forEach(([fn, schema]) => {
-      const {
-        msg: msgT,
-        resp: respT
-      } = schema;
-
-      if (ctx[ioDataProp][fn] === undefined) {
-        ctx.$set(ctx[ioDataProp], fn, {});
-
-        if (msgT !== undefined) {
-          ctx.$set(ctx[ioDataProp][fn], 'msg', { ...msgT
-          });
-        }
-
-        if (respT !== undefined) {
-          ctx.$set(ctx[ioDataProp][fn], 'resp', Array.isArray(respT) ? [] : {});
-        }
-      }
-
-      ctx[ioApiProp][fn] = async args => {
-        const emitEvt = fn;
-        const msg = args !== undefined ? args : { ...ctx[ioDataProp][fn].msg
-        };
-        debug(`${ioApiProp}:${label}: Emitting ${emitEvt} with ${msg}`);
-        const resp = await store.dispatch('$nuxtSocket/emit', {
-          label,
-          socket,
-          evt: emitEvt,
-          msg
-        });
-        ctx[ioDataProp][fn].resp = resp;
-        return resp;
-      };
-    });
-  },
-
-  async serverAPI({
-    ctx,
-    socket,
-    store,
-    label,
-    apiIgnoreEvts,
-    ioApiProp,
-    ioDataProp,
-    serverAPI,
-    clientAPI = {}
-  }) {
-    if (ctx[ioApiProp] === undefined) {
-      console.error(`[nuxt-socket-io]: ${ioApiProp} needs to be defined in the current context for ` + 'serverAPI registration (vue requirement)');
-      return;
-    }
-
-    const apiLabel = serverAPI.label || label;
-    debug('register api for', apiLabel);
-    const api = store.state.$nuxtSocket.ioApis[apiLabel] || {};
-    const fetchedApi = await store.dispatch('$nuxtSocket/emit', {
-      label: apiLabel,
-      socket,
-      evt: serverAPI.evt || 'getAPI',
-      msg: serverAPI.data || {}
-    });
-    const isPeer = clientAPI.label === fetchedApi.label && parseFloat(clientAPI.version) === parseFloat(fetchedApi.version);
-
-    if (isPeer) {
-      Object.assign(api, clientAPI);
-      store.commit('$nuxtSocket/SET_API', {
-        label: apiLabel,
-        api
-      });
-      debug(`api for ${apiLabel} registered`, api);
-    } else if (parseFloat(api.version) !== parseFloat(fetchedApi.version)) {
-      Object.assign(api, fetchedApi);
-      store.commit('$nuxtSocket/SET_API', {
-        label: apiLabel,
-        api
-      });
-      debug(`api for ${apiLabel} registered`, api);
-    }
-
-    ctx.$set(ctx, ioApiProp, api);
-
-    if (api.methods !== undefined) {
-      register.serverApiMethods({
-        ctx,
-        socket,
-        store,
-        api,
-        label,
-        ioApiProp,
-        ioDataProp
-      });
-      debug(`Attached methods for ${label} to ${ioApiProp}`, Object.keys(api.methods));
-    }
-
-    if (api.evts !== undefined) {
-      register.serverApiEvents({
-        ctx,
-        socket,
-        api,
-        label,
-        ioDataProp,
-        apiIgnoreEvts
-      });
-      debug(`registered evts for ${label} to ${ioApiProp}`);
-    }
-
-    ctx.$set(ctx[ioApiProp], 'ready', true);
-    debug('ioApi', ctx[ioApiProp]);
-  },
-
-  emitErrors({
-    ctx,
-    err,
-    emitEvt,
-    emitErrorsProp
-  }) {
-    if (ctx[emitErrorsProp][emitEvt] === undefined) {
-      ctx[emitErrorsProp][emitEvt] = [];
-    }
-
-    ctx[emitErrorsProp][emitEvt].push(err);
-  },
-
-  /**
-   * @param {*} info
-   * @param {number} info.emitTimeout
-   * @param {*} info.timerObj
-   * @param {*} [info.ctx]
-   * @param {string} [info.emitEvt]
-   * @param {string} [info.emitErrorsProp]
-   */
-  async emitTimeout({
-    ctx,
-    emitEvt,
-    emitErrorsProp,
-    emitTimeout,
-    timerObj
-  }) {
-    const timedOut = await nuxt_socket_io_delay(emitTimeout, timerObj).catch(() => {});
-
-    if (!timedOut) {
-      return;
-    }
-
-    const err = {
-      message: 'emitTimeout',
-      emitEvt,
-      emitTimeout,
-      hint: [`1) Is ${emitEvt} supported on the backend?`, `2) Is emitTimeout ${emitTimeout} ms too small?`].join('\r\n'),
-      timestamp: Date.now()
-    };
-    debug('emitEvt timed out', err);
-
-    if (ctx !== undefined && typeof ctx[emitErrorsProp] === 'object') {
-      register.emitErrors({
-        ctx,
-        err,
-        emitEvt,
-        emitErrorsProp
-      });
-    } else {
-      throw err;
-    }
-  },
-
-  emitBacks({
-    ctx,
-    socket,
-    entries
-  }) {
-    entries.forEach(entry => {
-      const {
-        pre,
-        post,
-        evt,
-        mapTo
-      } = parseEntry(entry, 'emitBack');
-
-      if (propExists(ctx, mapTo)) {
-        debug('registered local emitBack', {
-          mapTo
-        });
-        ctx.$watch(mapTo, async function (data, oldData) {
-          debug('local data changed', evt, data);
-          const preResult = await runHook(ctx, pre, {
-            data,
-            oldData
-          });
-
-          if (preResult === false) {
-            return;
-          }
-
-          debug('Emitting back:', {
-            evt,
-            mapTo,
-            data
-          });
-          const p = socket.emitP(evt, {
-            data
-          });
-
-          if (post === undefined) {
-            return;
-          }
-
-          const resp = await p;
-          runHook(ctx, post, resp);
-          return resp;
-        });
-      } else {
-        warn(`Specified emitback ${mapTo} is not defined in component`);
-      }
-    });
-  },
-
-  emitBacksVuex({
-    ctx,
-    store,
-    useSocket,
-    socket,
-    entries
-  }) {
-    entries.forEach(entry => {
-      const {
-        pre,
-        post,
-        evt,
-        mapTo
-      } = parseEntry(entry, 'emitBack');
-
-      if (useSocket.registeredWatchers.includes(mapTo)) {
-        return;
-      }
-
-      store.watch(state => {
-        const watchProp = propByPath(state, mapTo);
-
-        if (watchProp === undefined) {
-          throw new Error([`[nuxt-socket-io]: Trying to register emitback ${mapTo} failed`, 'because it is not defined in Vuex.', 'Is state set up correctly in your stores folder?'].join('\n'));
-        }
-
-        useSocket.registeredWatchers.push(mapTo);
-        debug('emitBack registered', {
-          mapTo
-        });
-        return watchProp;
-      }, async (data, oldData) => {
-        debug('vuex emitBack data changed', {
-          emitBack: evt,
-          data,
-          oldData
-        });
-        const preResult = await runHook(ctx, pre, {
-          data,
-          oldData
-        });
-
-        if (preResult === false) {
-          return;
-        }
-
-        debug('Emitting back:', {
-          evt,
-          mapTo,
-          data
-        });
-        socket.emit(evt, {
-          data
-        }, resp => {
-          runHook(ctx, post, resp);
-        });
-      });
-    });
-  },
-
-  emitters({
-    ctx,
-    socket,
-    entries,
-    emitTimeout,
-    emitErrorsProp
-  }) {
-    entries.forEach(entry => {
-      const {
-        pre,
-        post,
-        mapTo,
-        emitEvt,
-        msgLabel
-      } = parseEntry(entry, 'emitter');
-
-      ctx[emitEvt] = async function (msg = assignMsg(ctx, msgLabel)) {
-        debug('Emit evt', {
-          emitEvt,
-          msg
-        });
-        const preResult = await runHook(ctx, pre, msg);
-
-        if (preResult === false) {
-          return;
-        }
-
-        const p = [socket.emitP(emitEvt, msg)];
-        const timerObj = {};
-
-        if (emitTimeout) {
-          p.push(register.emitTimeout({
-            ctx,
-            emitEvt,
-            emitErrorsProp,
-            emitTimeout,
-            timerObj
-          }));
-        }
-
-        const resp = await Promise.race(p);
-        debug('Emitter response rxd', {
-          emitEvt,
-          resp
-        });
-
-        if (timerObj.abort) {
-          timerObj.abort();
-        }
-
-        const {
-          emitError,
-          ...errorDetails
-        } = resp || {};
-
-        if (emitError !== undefined) {
-          const err = {
-            message: emitError,
-            emitEvt,
-            errorDetails,
-            timestamp: Date.now()
-          };
-          debug('Emit error occurred', err);
-
-          if (typeof ctx[emitErrorsProp] === 'object') {
-            register.emitErrors({
-              ctx,
-              err,
-              emitEvt,
-              emitErrorsProp
-            });
-          } else {
-            throw err;
-          }
-        } else {
-          assignResp(ctx.$data || ctx, mapTo, resp);
-          runHook(ctx, post, resp);
-          return resp;
-        }
-      };
-
-      debug('Emitter created', {
-        emitter: emitEvt
-      });
-    });
-  },
-
-  listeners({
-    ctx,
-    socket,
-    entries
-  }) {
-    entries.forEach(entry => {
-      const {
-        pre,
-        post,
-        evt,
-        mapTo
-      } = parseEntry(entry);
-      debug('Registered local listener', evt);
-      socket.on(evt, async resp => {
-        debug('Local listener received data', {
-          evt,
-          resp
-        });
-        await runHook(ctx, pre);
-        assignResp(ctx.$data || ctx, mapTo, resp);
-        runHook(ctx, post, resp);
-      });
-    });
-  },
-
-  listenersVuex({
-    ctx,
-    socket,
-    entries,
-    storeFn,
-    useSocket
-  }) {
-    entries.forEach(entry => {
-      const {
-        pre,
-        post,
-        evt,
-        mapTo
-      } = parseEntry(entry);
-
-      async function vuexListenerEvt(resp) {
-        debug('Vuex listener received data', {
-          evt,
-          resp
-        });
-        await runHook(ctx, pre);
-        storeFn(mapTo, resp);
-        runHook(ctx, post, resp);
-      }
-
-      if (useSocket.registeredVuexListeners.includes(evt)) {
-        return;
-      }
-
-      socket.on(evt, vuexListenerEvt);
-      debug('Registered vuex listener', evt);
-      useSocket.registeredVuexListeners.push(evt);
-    });
-  },
-
-  namespace({
-    ctx,
-    namespaceCfg,
-    socket,
-    emitTimeout,
-    emitErrorsProp
-  }) {
-    const {
-      emitters = [],
-      listeners = [],
-      emitBacks = []
-    } = namespaceCfg;
-    const sets = {
-      emitters,
-      listeners,
-      emitBacks
-    };
-    Object.entries(sets).forEach(([setName, entries]) => {
-      if (Array.isArray(entries)) {
-        register[setName]({
-          ctx,
-          socket,
-          entries,
-          emitTimeout,
-          emitErrorsProp
-        });
-      } else {
-        warn(`[nuxt-socket-io]: ${setName} needs to be an array in namespace config`);
-      }
-    });
-  },
-
-  /**
-   * @param {import('vuex').Store} store
-   */
-  vuexModule(store) {
-    store.registerModule('$nuxtSocket', {
-      namespaced: true,
-      state: {
-        clientApis: {},
-        ioApis: {},
-        emitErrors: {},
-        emitTimeouts: {}
-      },
-      mutations: {
-        SET_API(state, {
-          label,
-          api
-        }) {
-          state.ioApis[label] = api;
-        },
-
-        SET_CLIENT_API(state, {
-          label = 'clientAPI',
-          ...api
-        }) {
-          state.clientApis[label] = api;
-        },
-
-        SET_EMIT_ERRORS(state, {
-          label,
-          emitEvt,
-          err
-        }) {
-          if (state.emitErrors[label] === undefined) {
-            state.emitErrors[label] = {};
-          }
-
-          if (state.emitErrors[label][emitEvt] === undefined) {
-            state.emitErrors[label][emitEvt] = [];
-          }
-
-          state.emitErrors[label][emitEvt].push(err);
-        },
-
-        SET_EMIT_TIMEOUT(state, {
-          label,
-          emitTimeout
-        }) {
-          state.emitTimeouts[label] = emitTimeout;
-        }
-
-      },
-      actions: {
-        async emit({
-          state,
-          commit
-        }, {
-          label,
-          socket = _sockets[label],
-          evt,
-          msg,
-          emitTimeout = state.emitTimeouts[label],
-          noAck
-        }) {
-          debug('$nuxtSocket vuex action "emit" dispatched', label, evt);
-
-          if (socket === undefined) {
-            throw new Error('socket instance required. Please provide a valid socket label or socket instance');
-          }
-
-          register.emitP(socket);
-          debug(`Emitting ${evt} with msg`, msg);
-          const timerObj = {};
-          const p = [socket.emitP(evt, msg)];
-
-          if (noAck) {
-            return;
-          }
-
-          if (emitTimeout) {
-            p.push(register.emitTimeout({
-              emitTimeout,
-              timerObj
-            }).catch(err => {
-              if (label !== undefined && label !== '') {
-                commit('SET_EMIT_ERRORS', {
-                  label,
-                  emitEvt: evt,
-                  err
-                });
-                debug(`[nuxt-socket-io]: ${label} Emit error occurred and logged to vuex `, err);
-              } else {
-                throw new Error(JSON.stringify(err, null, '\t'));
-              }
-            }));
-          }
-
-          const resp = await Promise.race(p);
-          debug('Emitter response rxd', {
-            evt,
-            resp
-          });
-
-          if (timerObj.abort) {
-            timerObj.abort();
-          }
-
-          const {
-            emitError,
-            ...errorDetails
-          } = resp || {};
-
-          if (emitError !== undefined) {
-            const err = {
-              message: emitError,
-              emitEvt: evt,
-              errorDetails,
-              timestamp: Date.now()
-            };
-            debug('Emit error occurred', err);
-
-            if (label !== undefined && label !== '') {
-              debug(`[nuxt-socket-io]: ${label} Emit error ${err.message} occurred and logged to vuex `, err);
-              commit('SET_EMIT_ERRORS', {
-                label,
-                emitEvt: evt,
-                err
-              }); // resolve()
-            } else {
-              throw new Error(JSON.stringify(err, null, '\t'));
-            }
-          } else {
-            return resp;
-          }
-        }
-
-      }
-    }, {
-      preserveState: false
-    });
-  },
-
-  vuexOpts({
-    ctx,
-    vuexOpts,
-    useSocket,
-    socket,
-    store
-  }) {
-    const {
-      mutations = [],
-      actions = [],
-      emitBacks = []
-    } = vuexOpts;
-    const sets = {
-      mutations,
-      actions,
-      emitBacks
-    };
-    const storeFns = {
-      mutations: 'commit',
-      actions: 'dispatch'
-    };
-    Object.entries(sets).forEach(([setName, entries]) => {
-      if (Array.isArray(entries)) {
-        const fnName = storeFns[setName];
-
-        if (fnName) {
-          register.listenersVuex({
-            ctx,
-            socket,
-            entries,
-            storeFn: store[fnName],
-            useSocket
-          });
-        } else {
-          register.emitBacksVuex({
-            ctx,
-            store,
-            useSocket,
-            socket,
-            entries
-          });
-        }
-      } else {
-        warn(`[nuxt-socket-io]: vuexOption ${setName} needs to be an array`);
-      }
-    });
-  },
-
-  /**
-   * @param {import('@nuxt/types').Context } ctx
-   * @param {import('socket.io-client').Socket} socket
-   * @param {string} connectUrl
-   * @param {string} statusProp
-   */
-  socketStatus(ctx, socket, connectUrl, statusProp) {
-    const socketStatus = {
-      connectUrl
-    };
-    const clientEvts = ['connect_error', 'connect_timeout', 'reconnect', 'reconnect_attempt', 'reconnect_error', 'reconnect_failed', 'ping', 'pong'];
-    clientEvts.forEach(evt => {
-      const prop = camelCase(evt);
-      socketStatus[prop] = ''; // @ts-ignore
-
-      socket.io.on(evt,
-      /** @param {*} resp */
-      resp => {
-        Object.assign(ctx[statusProp], {
-          [prop]: resp
-        });
-      });
-    });
-    Object.assign(ctx, {
-      [statusProp]: socketStatus
-    });
-  },
-
-  teardown({
-    ctx,
-    socket,
-    useSocket
-  }) {
-    // Setup listener for "closeSockets" in case
-    // multiple instances of nuxtSocket exist in the same
-    // component (only one destroy/unmount event takes place).
-    // When we teardown, we want to remove the listeners of all
-    // the socket.io-client instances
-    ctx.$once('closeSockets', function () {
-      debug('closing socket id=' + socket.id);
-      socket.removeAllListeners();
-      socket.close();
-    });
-
-    if (!ctx.registeredTeardown) {
-      // ctx.$destroy is defined in vue2
-      // but will go away in vue3 (in favor of onUnmounted)
-      // save user's destroy method and honor it after
-      // we run nuxt-socket-io's teardown
-      ctx.onComponentDestroy = ctx.$destroy || ctx.onUnmounted;
-      debug('teardown enabled for socket', {
-        name: useSocket.name
-      }); // Our $destroy method
-      // Gets called automatically on the destroy lifecycle
-      // in v2. In v3, we have call it with the
-      // onUnmounted hook
-
-      ctx.$destroy = function () {
-        debug('component destroyed, closing socket(s)', {
-          name: useSocket.name,
-          url: useSocket.url
-        });
-        useSocket.registeredVuexListeners = [];
-        ctx.$emit('closeSockets'); // Only run the user's destroy method
-        // if it exists
-
-        if (ctx.onComponentDestroy) {
-          ctx.onComponentDestroy();
-        }
-      }; // onUnmounted will only exist in v3
-
-
-      if (ctx.onUnmounted) {
-        ctx.onUnmounted = ctx.$destroy;
-      }
-
-      ctx.registeredTeardown = true;
-    }
-
-    socket.on('disconnect', () => {
-      debug('server disconnected', {
-        name: useSocket.name,
-        url: useSocket.url
-      });
-      socket.close();
-    });
-  },
-
-  /**
-   * @param {import('vue/types/vue').Vue } ctx
-   */
-  stubs(ctx) {
-    // Use a tiny event bus now. Can probably
-    // be replaced by watch eventually. For now this works.
-    if (!ctx.$on) {
-      //  || !ctx.$emit || !ctx.$once) {
-      ctx.$once = (...args) => instance_js_default.a.once(...args);
-
-      ctx.$on = (...args) => instance_js_default.a.on(...args);
-
-      ctx.$off = (...args) => instance_js_default.a.off(...args);
-
-      ctx.$emit = (...args) => instance_js_default.a.emit(...args);
-    }
-
-    if (!ctx.$set) {
-      ctx.$set = (obj, key, val) => {
-        if (isRefImpl(obj[key])) {
-          obj[key].value = val;
-        } else {
-          obj[key] = val;
-        }
-      };
-    }
-
-    if (!ctx.$watch) {
-      ctx.$watch = (label, cb) => {// will enable when '@nuxtjs/composition-api' reaches stable version:
-        // vueWatch(ctx.$data[label], cb)
-      };
-    }
-  },
-
-  /**
-   * Promisified emit
-   */
-  emitP(socket) {
-    socket.emitP = (evt, msg) => new Promise(resolve => socket.emit(evt, msg, resolve));
-  },
-
-  /**
-   * Promisified once.
-   * Where's the promisified on? Answer: doesn't
-   * really fit in to the websocket design.
-   */
-  onceP(socket) {
-    socket.onceP = evt => new Promise(resolve => socket.once(evt, resolve));
-  }
-
-};
-/**
- * @param {import('./types.d').NuxtSocketOpts} ioOpts
- */
-
-function nuxtSocket(ioOpts) {
-  const {
-    name,
-    channel = '',
-    statusProp = 'socketStatus',
-    persist,
-    teardown = !persist,
-    emitTimeout,
-    emitErrorsProp = 'emitErrors',
-    ioApiProp = 'ioApi',
-    ioDataProp = 'ioData',
-    apiIgnoreEvts = [],
-    serverAPI,
-    clientAPI,
-    vuex,
-    namespaceCfg,
-    ...connectOpts
-  } = ioOpts;
-  const {
-    $config
-  } = this;
-  const {
-    nuxtSocketIO: pluginOptions
-  } = $config;
-  const store = this.$store || this.store;
-  const runtimeOptions = { ...pluginOptions
-  }; // If runtime config is also defined,
-  // gracefully merge those options in here.
-  // If naming conflicts extist between sockets, give
-  // module options the priority
-
-  if ($config.io) {
-    Object.assign(runtimeOptions, $config.io);
-    runtimeOptions.sockets = validateSockets(pluginOptions.sockets) ? pluginOptions.sockets : [];
-
-    if (validateSockets($config.io.sockets)) {
-      $config.io.sockets.forEach(socket => {
-        const fnd = runtimeOptions.sockets.find(({
-          name
-        }) => name === socket.name);
-
-        if (fnd === undefined) {
-          runtimeOptions.sockets.push(socket);
-        }
-      });
-    }
-  }
-
-  const mergedOpts = { ...runtimeOptions,
-    ...ioOpts
-  };
-  const {
-    sockets,
-    warnings = true,
-    info = true
-  } = mergedOpts;
-  warn = warnings && "production" !== 'production' ? console.warn : () => {};
-  infoMsgs = info && "production" !== 'production' ? console.info : () => {};
-
-  if (!validateSockets(sockets)) {
-    throw new Error("Please configure sockets if planning to use nuxt-socket-io: \r\n [{name: '', url: ''}]");
-  }
-
-  register.stubs(this);
-  let useSocket = null;
-
-  if (!name) {
-    useSocket = sockets.find(s => s.default === true);
-  } else {
-    useSocket = sockets.find(s => s.name === name);
-  }
-
-  if (!useSocket) {
-    useSocket = sockets[0];
-  }
-
-  if (!useSocket.name) {
-    useSocket.name = 'dflt';
-  }
-
-  if (!useSocket.url) {
-    warn(`URL not defined for socket "${useSocket.name}". Defaulting to "window.location"`);
-  }
-
-  if (!useSocket.registeredWatchers) {
-    useSocket.registeredWatchers = [];
-  }
-
-  if (!useSocket.registeredVuexListeners) {
-    useSocket.registeredVuexListeners = [];
-  }
-
-  let {
-    url: connectUrl
-  } = useSocket;
-
-  if (connectUrl) {
-    connectUrl += channel;
-  }
-
-  const {
-    namespaces = {}
-  } = useSocket;
-  let socket;
-  const label = persist && typeof persist === 'string' ? persist : `${useSocket.name}${channel}`;
-
-  function connectSocket() {
-    if (connectUrl) {
-      socket = cjs_default()(connectUrl, connectOpts);
-      infoMsgs('[nuxt-socket-io]: connect', useSocket.name, connectUrl, connectOpts);
-    } else {
-      socket = cjs_default()(channel, connectOpts);
-      infoMsgs('[nuxt-socket-io]: connect', useSocket.name, window.location, channel, connectOpts);
-    }
-  }
-
-  if (persist) {
-    if (_sockets[label]) {
-      debug(`resuing persisted socket ${label}`);
-      socket = _sockets[label];
-
-      if (socket.disconnected) {
-        debug('persisted socket disconnected, reconnecting...');
-        connectSocket();
-      }
-    } else {
-      debug(`socket ${label} does not exist, creating and connecting to it..`);
-      connectSocket();
-      _sockets[label] = socket;
-    }
-  } else {
-    connectSocket();
-  }
-
-  register.emitP(socket);
-  register.onceP(socket);
-
-  if (!store.state.$nuxtSocket) {
-    debug('vuex store $nuxtSocket does not exist....registering it');
-    register.vuexModule(store);
-  }
-
-  if (emitTimeout) {
-    store.commit('$nuxtSocket/SET_EMIT_TIMEOUT', {
-      label,
-      emitTimeout
-    });
-  }
-
-  const mergedNspCfg = Object.assign({ ...namespaces[channel]
-  }, namespaceCfg);
-
-  if (mergedNspCfg.emitters || mergedNspCfg.listeners || mergedNspCfg.emitBacks) {
-    register.namespace({
-      ctx: this,
-      namespaceCfg: mergedNspCfg,
-      socket,
-      emitTimeout,
-      emitErrorsProp
-    });
-    debug('namespaces configured for socket', {
-      name: useSocket.name,
-      channel,
-      namespaceCfg
-    });
-  }
-
-  if (serverAPI) {
-    register.serverAPI({
-      store,
-      label,
-      apiIgnoreEvts,
-      ioApiProp,
-      ioDataProp,
-      ctx: this,
-      socket,
-      emitTimeout,
-      emitErrorsProp,
-      serverAPI,
-      clientAPI
-    });
-  }
-
-  if (clientAPI) {
-    register.clientAPI({
-      ctx: this,
-      store,
-      socket,
-      clientAPI
-    });
-  }
-
-  const vuexOpts = { ...useSocket.vuex,
-    ...vuex
-  };
-
-  if (vuexOpts) {
-    register.vuexOpts({
-      ctx: this,
-      vuexOpts,
-      useSocket,
-      socket,
-      store
-    });
-    debug('vuexOpts configured for socket', {
-      name: useSocket.name,
-      vuexOpts
-    });
-  }
-
-  if (this.socketStatus !== undefined && typeof this.socketStatus === 'object') {
-    register.socketStatus(this, socket, connectUrl || window.location.origin, statusProp);
-    debug('socketStatus registered for socket', {
-      name: useSocket.name,
-      url: connectUrl
-    });
-  }
-
-  if (teardown) {
-    register.teardown({
-      ctx: this,
-      socket,
-      useSocket
-    });
-  }
-
-  return socket;
-}
-
-/* harmony default export */ var nuxt_socket_io = (function (_, inject) {
-  inject('nuxtSocket', nuxtSocket);
-});
 // EXTERNAL MODULE: external "vue-awesome-swiper"
-var external_vue_awesome_swiper_ = __webpack_require__(49);
+var external_vue_awesome_swiper_ = __webpack_require__(31);
 var external_vue_awesome_swiper_default = /*#__PURE__*/__webpack_require__.n(external_vue_awesome_swiper_);
 
 // EXTERNAL MODULE: external "ssr-window"
@@ -18392,7 +13321,7 @@ var A11y = {
   }
 });
 // EXTERNAL MODULE: ./node_modules/swiper/esm/components/history/history.js
-var history_history = __webpack_require__(50);
+var history_history = __webpack_require__(32);
 
 // CONCATENATED MODULE: ./node_modules/swiper/esm/components/hash-navigation/hash-navigation.js
 function hash_navigation_extends() { hash_navigation_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return hash_navigation_extends.apply(this, arguments); }
@@ -19502,7 +14431,7 @@ core_class.use(components);
 
 external_vue_default.a.use(external_vue_awesome_swiper_default.a);
 // EXTERNAL MODULE: external "v-mask"
-var external_v_mask_ = __webpack_require__(51);
+var external_v_mask_ = __webpack_require__(33);
 var external_v_mask_default = /*#__PURE__*/__webpack_require__.n(external_v_mask_);
 
 // CONCATENATED MODULE: ./plugins/mask.js
@@ -19535,8 +14464,6 @@ external_vue_default.a.use(external_v_mask_default.a);
  // Source: .\\http.js (mode: 'all')
 
  // Source: .\\strapi.js (mode: 'all')
-
- // Source: .\\nuxt-socket-io.js (mode: 'all')
 
  // Source: ..\\plugins\\VueAwesomeSwiper.ts (mode: 'all')
 
@@ -19802,10 +14729,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof _nuxt_strapi === 'function') {
     await _nuxt_strapi(app.context, inject);
-  }
-
-  if (typeof nuxt_socket_io === 'function') {
-    await nuxt_socket_io(app.context, inject);
   }
 
   if (typeof /* Cannot get final name for export "default" in "./plugins/VueAwesomeSwiper.ts" (known exports: , known reexports: ) */ undefined === 'function') {
@@ -20210,7 +15133,7 @@ const createNext = ssrContext => opts => {
 });
 
 /***/ }),
-/* 109 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20276,7 +15199,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var InfoTop = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {ContactsFrom: __webpack_require__(54).default,Modal: __webpack_require__(53).default})
+installComponents(component, {ContactsFrom: __webpack_require__(36).default,Modal: __webpack_require__(35).default})
 
 
 /***/ })

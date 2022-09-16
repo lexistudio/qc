@@ -59,10 +59,5 @@ export default {
     await store.dispatch("catalogs/fetch", { count: 4 });
     await store.dispatch("clients/fetch");
   },
-  mounted() {
-    this.socket = this.$nuxtSocket({
-      name: 'main',
-    })
-  },
 };
 </script>
