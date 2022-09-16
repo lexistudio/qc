@@ -1,4 +1,7 @@
 {
+  "IoSocketStatus": {
+    "description": "Auto imported from node_modules/nuxt-socket-io/lib/components/SocketStatus.js"
+  },
   "Benefits": {
     "description": "Auto imported from components/Benefits.vue"
   },

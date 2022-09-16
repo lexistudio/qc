@@ -1,4 +1,6 @@
 export default {
+  mode: 'universal',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Комплексный поставщик IT оборудования',
@@ -56,6 +58,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-socket-io',
     '@nuxtjs/strapi',
     [
       '@nuxtjs/yandex-metrika',
@@ -75,6 +78,13 @@ export default {
     url: 'https://api.qlc-it.ru'
   },
 
+  io: {
+    sockets: [{
+      name: 'main',
+      url: 'http://localhost:3000'
+    }]
+  },
+
   router: {
     linkActiveClass: '',
     linkExactActiveClass: 'active',
@@ -92,6 +102,6 @@ export default {
   },
 
   server: {
-    host: '0.0.0.0',
+    host: '0.0.0.0'
   }
 }
