@@ -1,104 +1,122 @@
 <template>
-  <div>
-    <div class="request-progress" v-if="step.step !== 1">
-      <div class="request-progress__bar" :style="{width: `${step.percentage}%`}">
-        <span>{{ step.percentage }}%</span>
-      </div>
+  <div class="container">
+    <div class="title-work-head">
+      <h1 class="title-work">
+        Подберём IT оборудование по вашим потребностям!
+      </h1>
     </div>
 
     <div class="request">
-      <h1 class="request-title">
-        Подберём IT оборудование по вашим потребностям!<br />
-      </h1>
-      <p class="request-sub-title">
-        Данный подбор позволит получить скидку на всё оборудование.
-      </p>
-
-      <div v-if="step.curr === 1">
-        <h2 class="request-title">Выберете ваш вариант</h2>
-        <label
-          v-for="typeClient in typeClients"
-          :key="`typeClients-${typeClient.id}`"
+      <div class="request-progress" v-if="step.step !== 1">
+        <div
+          class="request-progress__bar"
+          :style="{ width: `${step.percentage}%` }"
         >
-          <input
-            type="radio"
-            :name="typeClient.type"
-            :value="typeClient.name"
-            v-model="list.client"
-          />
-          <span>{{ typeClient.name }}</span>
-        </label>
-      </div>
-      <div v-else-if="step.curr === 2">
-        <h2 class="request-title">Выберите категорию</h2>
-        <label
-          style="display: block"
-          v-for="(category, index) in categorys"
-          :key="`categorys-${category.id}`"
-          @click="(categorysIndex = index), (list.category.list = [])"
-        >
-          <input
-            type="radio"
-            :name="category.type"
-            :value="category.name"
-            v-model="list.category.name"
-          />
-          <span>{{ category.name }}</span>
-        </label>
-      </div>
-      <div v-else-if="step.curr === 3">
-        <h2 class="request-title">Выберите ваш вариант</h2>
-        <label
-          style="display: block"
-          v-for="categoryItem in categorys[categorysIndex].list"
-          :key="categoryItem.id"
-        >
-          <input
-            :type="categoryItem.type"
-            :value="categoryItem.name"
-            v-model="list.category.list"
-          />
-          <span>{{ categoryItem.name }}</span>
-        </label>
-        <label>
-          <input type="checkbox" />
-          <span>Другое</span>
-        </label>
-      </div>
-      <div v-else-if="step.curr === 4">
-        <h2 class="request-title">Ваш вариант</h2>
-        <label
-          style="display: block"
-          v-for="plan in plans"
-          :key="`plan-${plan.id}`"
-        >
-          <input
-            type="radio"
-            :name="plan.type"
-            :value="plan.name"
-            v-model="list.plan"
-          />
-          <span>{{ plan.name }}</span>
-        </label>
-      </div>
-      <div v-else-if="step.curr === step.step">
-        <h2 class="request-title">
-          Оставьте свои контакты для связи с вами!<br>
-          В разработке
-        </h2>
+          <span>{{ step.percentage }}%</span>
+        </div>
       </div>
 
-      <button
-        @click="addStep('minus')"
-        v-if="step.curr !== 1 && step.curr !== 0 && step.curr !== step.step"
-      >
-        Назад
-      </button>
-      <button @click="addStep('plus')" v-if="step.curr !== step.step">Далее</button>
+      <div class="request__steps">
+        <div v-if="step.curr === 1">
+          <h2 class="request-title">Выберете ваш вариант</h2>
+          <label
+            v-for="typeClient in typeClients"
+            :key="`typeClients-${typeClient.id}`"
+          >
+            <input
+              type="radio"
+              :name="typeClient.type"
+              :value="typeClient.name"
+              v-model="list.client"
+            />
+            <span>{{ typeClient.name }}</span>
+          </label>
+        </div>
+        <div v-else-if="step.curr === 2">
+          <h2 class="request-title">Выберите категорию</h2>
+          <label
+            style="display: block"
+            v-for="(category, index) in categorys"
+            :key="`categorys-${category.id}`"
+            @click="(categorysIndex = index), (list.category.list = [])"
+          >
+            <input
+              type="radio"
+              :name="category.type"
+              :value="category.name"
+              v-model="list.category.name"
+            />
+            <span>{{ category.name }}</span>
+          </label>
+        </div>
+        <div v-else-if="step.curr === 3">
+          <h2 class="request-title">Выберите ваш вариант</h2>
+          <label
+            style="display: block"
+            v-for="categoryItem in categorys[categorysIndex].list"
+            :key="categoryItem.id"
+          >
+            <input
+              :type="categoryItem.type"
+              :value="categoryItem.name"
+              v-model="list.category.list"
+            />
+            <span>{{ categoryItem.name }}</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>Другое</span>
+          </label>
+        </div>
+        <div v-else-if="step.curr === 4">
+          <h2 class="request-title">Ваш вариант</h2>
+          <label
+            style="display: block"
+            v-for="plan in plans"
+            :key="`plan-${plan.id}`"
+          >
+            <input
+              type="radio"
+              :name="plan.type"
+              :value="plan.name"
+              v-model="list.plan"
+            />
+            <span>{{ plan.name }}</span>
+          </label>
+        </div>
+        <div v-else-if="step.curr === step.step">
+          <h2 class="request-title">
+            Оставьте свои контакты для связи с вами!<br />
+            В разработке
+          </h2>
+        </div>
+        <div class="request-btn-box">
+          <a
+            href="#"
+            class="btn-more"
+            @click.prevent="addStep('minus')"
+            v-if="step.curr !== 1 && step.curr !== 0 && step.curr !== step.step"
+          >
+            Назад
+          </a>
+          <a
+            href="#"
+            class="btn-more"
+            @click.prevent="addStep('plus')"
+            v-if="step.curr !== step.step"
+          >
+            <span v-if="step.curr === 0">Начать</span>
+            <span v-else>Далее</span>
+          </a>
+        </div>
+      </div>
 
-      <pre>
-        {{ list }}
-      </pre>
+      <div class="request__result">
+        <div class="request-title">Ваша сборка</div>
+        <pre>
+          {{ list }}
+        </pre>
+      </div>
     </div>
   </div>
 </template>
@@ -196,12 +214,11 @@ export default {
     addStep(e) {
       if (e === "plus") {
         if (this.step.curr < this.step.step) this.step.curr++;
-        this.step.percentage = Math.ceil((this.step.curr / this.step.step) * 100)
-        return;
+      } else {
+        if (this.step.curr > 1) this.step.curr--;
       }
 
-      if (this.step.curr > 1) this.step.curr--;
-      this.step.percentage = Math.ceil((this.step.curr / this.step.step) * 100)
+      this.step.percentage = Math.ceil((this.step.curr / this.step.step) * 100);
     },
   },
 };
