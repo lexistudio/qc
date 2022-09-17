@@ -14,7 +14,6 @@ import { createStore } from './store.js'
 /* Plugins */
 
 import nuxt_plugin_plugin_5db0026c from 'nuxt_plugin_plugin_5db0026c' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_yandexmetrikaplugin5ccde3d8_66099d44 from 'nuxt_plugin_yandexmetrikaplugin5ccde3d8_66099d44' // Source: .\\yandex-metrika.plugin.5ccde3d8.js (mode: 'client')
 import nuxt_plugin_cookieuniversalnuxt_5ad35a37 from 'nuxt_plugin_cookieuniversalnuxt_5ad35a37' // Source: .\\cookie-universal-nuxt.js (mode: 'all')
 import nuxt_plugin_httpserver_87c5f388 from 'nuxt_plugin_httpserver_87c5f388' // Source: .\\http.server.js (mode: 'server')
 import nuxt_plugin_http_03268be1 from 'nuxt_plugin_http_03268be1' // Source: .\\http.js (mode: 'all')
@@ -89,7 +88,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Комплексный поставщик IT оборудования","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Мы поможем оптимизировать Вашу инфраструктуру, снизить расходы на IT обслуживание и гарантировать бесперебойную работу."},{"name":"yandex-verification","content":"6082beb2669fc399"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"apple-touch-icon","href":"\u002Fapple-touch-icon.png"},{"href":"https:\u002F\u002Fmc.yandex.ru\u002Fmetrika\u002Ftag.js","rel":"preload","as":"script"}],"script":[{"hid":"stripe","src":"\u002F\u002Fscript.marquiz.ru\u002Fv2.js","defer":true,"callback":() => ({
+    head: {"title":"Комплексный поставщик IT оборудования","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Мы поможем оптимизировать Вашу инфраструктуру, снизить расходы на IT обслуживание и гарантировать бесперебойную работу."},{"name":"yandex-verification","content":"6082beb2669fc399"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"apple-touch-icon","href":"\u002Fapple-touch-icon.png"}],"script":[{"hid":"stripe","src":"\u002F\u002Fscript.marquiz.ru\u002Fv2.js","defer":true,"callback":() => ({
         host: '//quiz.marquiz.ru',
         id: '604a44803022310044369202',
         autoOpen: 5,
@@ -226,10 +225,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_plugin_5db0026c === 'function') {
     await nuxt_plugin_plugin_5db0026c(app.context, inject)
-  }
-
-  if (process.client && typeof nuxt_plugin_yandexmetrikaplugin5ccde3d8_66099d44 === 'function') {
-    await nuxt_plugin_yandexmetrikaplugin5ccde3d8_66099d44(app.context, inject)
   }
 
   if (typeof nuxt_plugin_cookieuniversalnuxt_5ad35a37 === 'function') {
