@@ -17,34 +17,47 @@
         Данный подбор позволит получить скидку на всё оборудование.
       </p>
 
-      <h2 class="request-title">Выберете ваш вариант</h2>
-      <label v-for="typeClient in typeClients" :key="`typeClients-${typeClient.id}`">
-        <input type="radio" :name="typeClient.type" :value="typeClient.name" v-model="list.client" />
-        <span>{{ typeClient.name }}</span>
-      </label>
+      <div v-if="step.curr === 1">
+        <h2 class="request-title">Выберете ваш вариант</h2>
+        <label v-for="typeClient in typeClients" :key="`typeClients-${typeClient.id}`">
+          <input type="radio" :name="typeClient.type" :value="typeClient.name" v-model="list.client" />
+          <span>{{ typeClient.name }}</span>
+        </label>
+      </div>
+      <div v-else-if="step.curr === 2">
+        <h2 class="request-title">Выберите категорию</h2>
+        <label style="display: block" v-for="(category, index) in categorys" :key="`categorys-${category.id}`" @click="categorysIndex = index, list.category.list = []">
+          <input type="radio" :name="category.type" :value="category.name" v-model="list.category.name" />
+          <span>{{ category.name }}</span>
+        </label>
+      </div>
+      <div v-else-if="step.curr === 3">
+        <h2 class="request-title">Выберите ваш вариант</h2>
+        <label style="display: block" v-for="categoryItem in categorys[categorysIndex].list" :key="categoryItem.id">
+          <input :type="categoryItem.type" :value="categoryItem.name" v-model="list.category.list">
+          <span>{{ categoryItem.name }}</span>
+        </label>
+        <label>
+          <input type="checkbox">
+          <span>Другое</span>
+        </label>
+      </div>
+      <div v-else-if="step.curr === 4">
+        <h2 class="request-title">Ваш вариант</h2>
+        <label style="display: block" v-for="typePrice in typePrices" :key="`typePrice-${typePrice.id}`">
+          <input type="radio" :name="typePrice.type" :value="typePrice.name" v-model="list.plan" />
+          <span>{{ typePrice.name }}</span>
+        </label>
+      </div>
 
-      {{ categorysIndex }}
+      {{ step }}
 
-      <h2 class="request-title">Выберите категорию</h2>
-      <label style="display: block" v-for="(category, index) in categorys" :key="`categorys-${category.id}`" @click="categorysIndex = index, list.category.list = []">
-        <input type="radio" :name="category.type" :value="category.name" v-model="list.category.name" />
-        <span>{{ category.name }}</span>
-      </label>
-      <h2 class="request-title">Выберите ваш вариант</h2>
-      <label style="display: block" v-for="categoryItem in categorys[categorysIndex].list" :key="categoryItem.id">
-        <input :type="categoryItem.type" :value="categoryItem.name" v-model="list.category.list">
-        <span>{{ categoryItem.name }}</span>
-      </label>
-      <label>
-        <input type="checkbox">
-        <span>Другое</span>
-      </label>
-
-      <h2 class="request-title">Ваш вариант</h2>
-      <label style="display: block" v-for="typePrice in typePrices" :key="`typePrice-${typePrice.id}`">
-        <input type="radio" :name="typePrice.type" :value="typePrice.name" v-model="list.typePrices" />
-        <span>{{ typePrice.name }}</span>
-      </label>
+      <button @click="addStep('minus')" v-if="step.curr !== 1 && step.curr !== 0 && step.curr !== step.count">
+        Назад
+      </button>
+      <button @click="addStep('plus')">
+        Далее
+      </button>
 
       <pre>
         {{ list }}
@@ -63,6 +76,10 @@
 export default {
   data: () => ({
     categorysIndex: 0,
+    step: {
+      curr: 0,
+      count: 5
+    },
     curr: 0,
     cl: 0,
     list: {
@@ -71,7 +88,7 @@ export default {
         name: null,
         list: [],
       },
-      typePrices: null
+      plan: null
     },
     typeClients: [
       { id: 1, name: 'Физ лицо', icon: 'fis', type: 'client' },
@@ -146,6 +163,14 @@ export default {
     ],
   }),
   methods: {
+    addStep(e) {
+      if (e === 'plus') {
+        if (this.step.curr < this.step.count) this.step.curr++
+        return
+      }
+      
+      if (this.step.curr > 1) this.step.curr--
+    },
     test() {
       this.curr = this.curr + 1;
 
