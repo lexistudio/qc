@@ -15,21 +15,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
     ],
-    script: [
-      {
-        hid: 'stripe',
-        src: '//script.marquiz.ru/v2.js',
-        defer: true,
-        callback: () => ({
-          host: '//quiz.marquiz.ru',
-          id: '604a44803022310044369202',
-          autoOpen: 5,
-          autoOpenFreq: 'once',
-          openOnExit: true,
-          disableOnMobile: false
-        })
-      }
-    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
