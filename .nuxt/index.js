@@ -88,13 +88,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Комплексный поставщик IT оборудования","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Мы поможем оптимизировать Вашу инфраструктуру, снизить расходы на IT обслуживание и гарантировать бесперебойную работу."},{"name":"yandex-verification","content":"6082beb2669fc399"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"apple-touch-icon","href":"\u002Fapple-touch-icon.png"}],"script":[{"hid":"stripe","src":"\u002F\u002Fscript.marquiz.ru\u002Fv2.js","defer":true,"callback":() => ({
-        host: '//quiz.marquiz.ru',
-        id: '604a44803022310044369202',
-        autoOpen: 5,
-        autoOpenFreq: 'once',
-        openOnExit: true,
-        disableOnMobile: false })}],"style":[]},
+    head: {"title":"Комплексный поставщик IT оборудования","htmlAttrs":{"lang":"ru"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Мы поможем оптимизировать Вашу инфраструктуру, снизить расходы на IT обслуживание и гарантировать бесперебойную работу."},{"name":"yandex-verification","content":"6082beb2669fc399"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"apple-touch-icon","href":"\u002Fapple-touch-icon.png"}],"style":[],"script":[]},
 
     store,
     router,
