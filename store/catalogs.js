@@ -36,6 +36,10 @@ export const actions = {
     const catalogs = await this.$strapi.find(`catalogs?_limit=${count}`)
     await commit('setCatalogs', catalogs)
   },
+  async fetchMain ({ commit }) {
+    const catalogs = await this.$strapi.find(`catalogs?id_in=295&id_in=343&id_in=344&id_in=398`)
+    await commit('setCatalogs', catalogs)
+  },
   async categories({ commit }) {
     const razdels = await this.$strapi.find('categories')
     await commit('setCategories', razdels)

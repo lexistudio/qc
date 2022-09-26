@@ -56,7 +56,7 @@ export default {
   }),
   async fetch({ store }) {
     await store.dispatch("brends/fetch");
-    await store.dispatch("catalogs/fetch", { count: 4 });
+    await store.dispatch("catalogs/fetchMain");
     await store.dispatch("clients/fetch");
   },
 };
