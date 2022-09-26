@@ -37,7 +37,7 @@ export const actions = {
     await commit('setCatalogs', catalogs)
   },
   async fetchMain ({ commit }) {
-    const catalogs = await this.$strapi.find(`catalogs?id_in=295&id_in=343&id_in=344&id_in=398`)
+    const catalogs = await this.$strapi.find(`catalogs?id_in=295&id_in=397&id_in=344&id_in=398`)
     await commit('setCatalogs', catalogs)
   },
   async categories({ commit }) {
